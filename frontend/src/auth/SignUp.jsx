@@ -31,7 +31,7 @@ function SignUp() {
             .then(data => {
                 if(data.id !== undefined) {
                     localStorage.setItem('token', data.token)
-                    window.location.href = "/view/dashboard"
+                    window.location.href = "/dashboard"
                 } else {
                     console.log("signup failed :(")
                 }

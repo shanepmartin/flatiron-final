@@ -1,13 +1,4 @@
 Rails.application.routes.draw do
-  # resources :feels, only: [:index, :show, :create]
-  # resources :journeys, only: [:index, :show, :create, :update]
-  # resources :skills, only: [:index, :show, :create, :update]
-  # resources :achievements, only: [:index]
-  # resources :trips, only: [:index, :show, :create, :update, :destroy]
-  # resources :objectives, only: [:index, :show, :create, :update, :destroy]
-  # resources :goals, only: [:index]
-  # resources :contacts, only: [:index, :show, :create, :update, :destroy]
-  # resources :users, only: [:index]
 
   get '/feels', to: 'feels#index'
   get '/feels/id', to: 'feels#show'
