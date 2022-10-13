@@ -18,8 +18,13 @@ class UsersController < ApplicationController
         end
     end
 
+    def show # for /me
+        render json: {user: @current_user}
+    end
+
     def logout 
-        
+        @current_user = nil
+        head :no_content
     end
 
     def index
