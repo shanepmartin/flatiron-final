@@ -1,7 +1,10 @@
 import { useNavigate } from "react-router-dom"
 import { useEffect, useState } from "react"
+// import { useSelector } from "react-redux"
 
-function Landing() {
+const Landing = () => {
+
+    // const user = useSelector((state) => state.user);
 
     const [user, setUser] = useState({ username: "" })
 
@@ -15,12 +18,12 @@ function Landing() {
             })
                 .then(res => res.json())
                 .then(data => {
-                    console.log(data.username)
                     if (data.user) {
                         setUser(data.user)
-                    }
+                        localStorage.setItem('token', data.token)
+                    } 
                 })
-        }
+        } 
     }, [])
 
     let navigate = useNavigate()

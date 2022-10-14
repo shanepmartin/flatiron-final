@@ -9,26 +9,6 @@ const Login = () => {
 
     const [user, setUser] = useState({ username: "" })
 
-    // Auto-Login //
-
-    // useEffect(() => {
-    //     let token = localStorage.getItem('token')
-    //     if(token && !user.username) {
-    //         fetch('http://localhost:3000/me', {
-    //             headers: {
-    //                 'Authorization': `Bearer ${token}`
-    //             }
-    //         })
-    //         .then(res => res.json())
-    //         .then(data => {
-    //             console.log(data.username)
-    //             if(data.user) {
-    //                 setUser(data.user)
-    //             }
-    //         })
-    //     }
-    // }, [])
-
     // Input Login Info //
 
     const loginChange = (e) => {
@@ -53,7 +33,16 @@ const Login = () => {
         .then(data => {
             setUser(data.user)
             localStorage.setItem('token', data.token)
-        }); console.log('user', user)
+            // need to navigate to the dashboard next...
+        }); 
+
+        // view the login info in the console...
+        
+        console.log('login info', loginData)
+        let loginName = loginData.username
+        let loginPassword = loginData.password
+        console.log(`username: ${loginName}, password: ${loginPassword}`)
+
     } 
 
     return (

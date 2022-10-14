@@ -17,7 +17,10 @@ const SignUp = () => {
         })
     }
 
-    const handleSignUp = () => {
+    // Sign Up //
+
+    const handleSignUp = (e) => {
+        e.preventDefault();
         fetch('http://localhost:3000/signup', {
             method: "POST",
             headers: {
@@ -29,9 +32,17 @@ const SignUp = () => {
         .then(data => {
             setUser(data.user)
             localStorage.setItem('token', data.token)
-            console.log('data', data)
-            window.location.href = "/dashboard"
-        }); console.log('user', user)
+            // need to navigate to the dashboard next...
+        }); 
+
+        // view the signup info in the console...
+
+        console.log('signup info', signUpData)
+        let sName = signUpData.name
+        let sUsername = signUpData.username
+        let sPassword = signUpData.password
+        console.log(`name: ${sName}, username: ${sUsername}, password: ${sPassword}`)
+
     }
 
     return (
