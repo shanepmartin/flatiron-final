@@ -3,8 +3,11 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import React from "react";
 
 import Landing from "./views/Landing"
+
 import SignUp from "./auth/SignUp"
 import Login from "./auth/Login"
+
+import Profile from "./dashboard/Profile"
 
 
 // Redux login state modules...
@@ -31,6 +34,7 @@ function App() {
         <Route path="/" element={<Landing />} /> 
         <Route path="/signup" element={<SignUp />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/profile" element={<Profile />} />
       </Routes>
       </BrowserRouter>
     </div>

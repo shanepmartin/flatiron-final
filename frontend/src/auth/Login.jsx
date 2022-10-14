@@ -1,13 +1,30 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux"
+
+import {setUser} from "./UserState"
 
 const Login = () => {
+    
+    const user = useSelector((state) => state.user);
+
+    console.log('user', user)
+    console.log('user.isLoggedIn', user.isLoggedIn)
+
+    let token = localStorage.getItem("jwt");
+
+    console.log('token', token)
+
+    let navigate = useNavigate()
+
+    const dispatch = useDispatch()
 
     const [loginData, setLoginData] = useState({
         username: "",
         password: ""
     })
 
-    const [user, setUser] = useState({ username: "" })
+    // const [user, setUser] = useState({ username: "" })
 
     // Input Login Info //
 
@@ -33,7 +50,9 @@ const Login = () => {
         .then(data => {
             setUser(data.user)
             localStorage.setItem('token', data.token)
+            dispatch(setUser(data.user))
             // need to navigate to the profile next...
+            navigate('/profile')
         }); 
 
         // view the login info in the console...

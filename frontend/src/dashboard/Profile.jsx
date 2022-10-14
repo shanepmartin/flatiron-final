@@ -67,6 +67,49 @@ const Profile = () => {
         setContactCount(count)
     }
 
-    
+    useEffect(() => {
+        getGoalsCount()
+        getObjectivesCount()
+        getTripsCount()
+        getAchievementsCount()
+        getSkillsCount()
+        getJourneysCount()
+        getFeelsCount()
+        getContactsCount()
+    }, [])
 
+    return (
+        <div className="profile">
+            <h5 className="profile-header">Profile</h5>
+            <div className="profile-details">
+                <div className="profile-details-left">
+                    <div className="profile-index">
+                        <p>Goals: {goalCount}</p>
+                        <div className="goals-count">
+                            <p className="objectives-count" onClick={() => navigate('/objectives')}>Objectives: {objectiveCount}</p>
+                            <p className="trips-count" onClick={() => navigate('/trips')}>Trips: {tripCount}</p>
+                        </div>
+                        <p>Achievements: {achievementCount}</p>
+                        <div className="achievements-count">
+                            <p className="skills-count" onClick={() => navigate('/skills')}>Skills: {skillCount}</p>
+                            <p className="journeys-count" onClick={() => navigate('/journeys')}>Journeys: {journeyCount}</p>
+                        </div>
+                        <p>Feels</p>
+                        <div className="feels-count-div">
+                            <p className="feels-count" onClick={() => navigate('/feels')}>Put yourself in your {feelCount} feels...</p>
+                        </div>
+                        <p>Contacts</p>
+                        <div className="contacts-div">
+                            <p className="contacts-count" onClick={() => navigate('/contacts')}>Access your {contactCount} contacts. oh so popular!</p>
+                        </div>
+                    </div>
+                </div>
+                <div className="entries">
+                    *******we'll put our entry forms here*******
+                </div>
+            </div>
+        </div>
+    )
 }
+
+export default Profile;
