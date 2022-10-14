@@ -1,5 +1,8 @@
 class UsersController < ApplicationController
 
+
+    # standard user methods...
+
     def create # for /signup
         @user = User.create!(signup_params)
         token = JWT.encode({user_id: @user.id}, 'secret')
@@ -41,6 +44,18 @@ class UsersController < ApplicationController
     def index
         users = User.all
         render json: users
+    end
+
+    # user profile methods...
+
+    def goals_count
+        user = User.find_by!(id: params[:id])
+        goals = user.goals.length
+        if user 
+            render json: goals
+        else
+            render json: { errors: goals.errors.full_messages }, status: 422
+        end
     end
 
     private

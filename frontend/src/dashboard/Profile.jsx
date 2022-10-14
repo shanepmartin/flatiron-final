@@ -18,9 +18,14 @@ const Profile = () => {
     const [journeyCount, setJourneyCount] = useState()
     const [feelCount, setFeelCount] = useState()
     const [contactCount, setContactCount] = useState()
+    
 
+    // these need routes in the user controller !!!!
+        // also need to create associating getList functions...
+
+    // count functions will provide the number of the associated variable related to the user...
     const getGoalsCount = async () => {
-        const res = await fetch(`http://localhost:3000/goalscount/${user.id}`)
+        const res = await fetch(`http://localhost:3000/goals/count/${user.id}`)
         const count = await res.json()
         setGoalCount(count)
     }
@@ -66,6 +71,8 @@ const Profile = () => {
         const count = await res.json()
         setContactCount(count)
     }
+
+    // list functions will return the entire list of associated variables related to the user...
 
     useEffect(() => {
         getGoalsCount()
