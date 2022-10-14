@@ -41,6 +41,8 @@ Rails.application.routes.draw do
   post '/signup', to: 'users#create'
   post '/login', to: 'users#login'
   post '/logout', to: 'users#logout'
+
+  get '/profile', to: 'users#profile'
   #update users
   #delete user 
   #create user 

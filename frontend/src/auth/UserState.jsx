@@ -9,12 +9,12 @@ export const userSlice = createSlice({
     },
     reducers: {
         setUser: (state, action)=> {
-            state.profile = {...action.payload}
+            state.user = {...action.payload}
             state.isLoggedIn = true
         },
         logout: (state) => {
             localStorage.clear()
-            state.profile = {}
+            state.user = {}
             state.isLoggedIn = false
         }
     },

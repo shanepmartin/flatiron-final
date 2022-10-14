@@ -18,6 +18,17 @@ class UsersController < ApplicationController
         end
     end
 
+    def profile
+        token = request.headers["token"]
+        user_id = decode_token(token)
+        user = User.find(user_id)
+        if user
+            render json: user
+        else
+            render json: { error: "401 incorrect token"}, status: 401
+        end
+    end
+
     def show # for /me
         render json: {user: @current_user}
     end

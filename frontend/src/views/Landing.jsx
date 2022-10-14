@@ -10,6 +10,7 @@ const Landing = () => {
 
     useEffect(() => {
         let token = localStorage.getItem('token')
+        console.log('token', token)
         if (token && !user.username) {
             fetch('http://localhost:3000/me', {
                 headers: {
