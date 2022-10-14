@@ -20,7 +20,6 @@ const Landing = () => {
                 .then(data => {
                     if (data.user) {
                         setUser(data.user)
-                        localStorage.setItem('token', data.token)
                     } 
                 })
         } 

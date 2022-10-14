@@ -33,11 +33,11 @@ const Login = () => {
         .then(data => {
             setUser(data.user)
             localStorage.setItem('token', data.token)
-            // need to navigate to the dashboard next...
+            // need to navigate to the profile next...
         }); 
 
         // view the login info in the console...
-        
+
         console.log('login info', loginData)
         let loginName = loginData.username
         let loginPassword = loginData.password
