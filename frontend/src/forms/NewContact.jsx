@@ -75,7 +75,7 @@ const NewContact = () => {
         console.log(`New Contact Added: `, `Name: ${fName}`, `Phone: ${fPhone}`, `Address: ${fAddress}`)
 
         let req = await fetch(`http://localhost:3000/contacts`, {
-            method: "POST"
+            method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
@@ -139,3 +139,5 @@ const NewContact = () => {
         </>
     )
 }
+
+export default NewContact;
