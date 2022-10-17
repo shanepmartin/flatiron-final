@@ -1,6 +1,14 @@
-import {useState} from "react";
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux"
+
+import { setUser } from "../auth/UserState"
 
 const SignUp = () => {
+
+    let navigate = useNavigate()
+
+    const dispatch = useDispatch()
 
     const [signUpData, setSignUpData] = useState({
         name: "",
@@ -8,7 +16,7 @@ const SignUp = () => {
         password: ""
     })
 
-    const [user, setUser] = useState({ username: '' })
+    // const [user, setUser] = useState({ username: '' })
 
     const signUpChange = (e) => {
         setSignUpData({
@@ -30,9 +38,11 @@ const SignUp = () => {
         })
         .then(res => res.json())
         .then(data => {
-            setUser(data.user)
+            // setUser(data.user)
             localStorage.setItem('token', data.token)
+            dispatch(setUser(data.user))
             // need to navigate to the profile next...
+            navigate('/profile')
         }); 
 
         // view the signup info in the console...

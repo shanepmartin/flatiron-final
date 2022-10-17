@@ -1,6 +1,6 @@
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom"; 
-import React from "react";
+import {React, useEffect} from "react";
 
 import Landing from "./views/Landing"
 
@@ -23,6 +23,25 @@ function App() {
   console.log(user ? "user exists" : "user does not exist")
   console.log(user ? user : "user doesn't exist")
   console.log(!user.isLoggedIn ? "user is not logged in" : "user logged in")
+
+  // Auto-Login //
+  useEffect(() => {
+    let token = localStorage.getItem('token')
+    if (token && !user.username) {
+      fetch('http://localhost:3000/me', {
+        headers: {
+          'Authorization': `Bearer ${token}`
+        }
+      })
+        .then(res => res.json())
+        .then(data => {
+          console.log(data)
+          if (data.user) {
+            setUser(data.user)
+          }
+        })
+    }
+  }, [])
 
 
   // Render to the page...

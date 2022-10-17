@@ -1,8 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux"
-
-import {setUser} from "./UserState"
+import { setUser } from "../auth/UserState"
 
 const Login = () => {
     
@@ -48,7 +47,7 @@ const Login = () => {
         })
         .then(res => res.json())
         .then(data => {
-            setUser(data.user)
+            // setUser(data.user)
             localStorage.setItem('token', data.token)
             dispatch(setUser(data.user))
             // need to navigate to the profile next...
