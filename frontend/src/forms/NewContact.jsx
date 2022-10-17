@@ -5,12 +5,16 @@ import { Popover, Whisper } from 'rsuite';
 import { Message, useToaster } from 'rsuite'
 import { Container, Header } from 'rsuite'
 
+import { useSelector } from "react-redux"
+
 import userSlice from './UserState'
 
 const Textarea = forwardRef((props, ref) => <Input {...props} as="textarea" ref={ref} />);
 
 const NewContact = () => {
     
+    const user = useSelector((state) => state.user).profile;
+
     const [name, setName] = useState('')
     const [phone, setPhone] = useState('')
     const [address, setAddress] = useState('')
@@ -51,7 +55,7 @@ const NewContact = () => {
 
     const [value, setValue] = useState(null)
 
-    const formValue, setFormValue = useState({
+    const [formValue, setFormValue] = useState({
         name: "",
         phone: "",
         address: ""
@@ -82,7 +86,8 @@ const NewContact = () => {
             body: JSON.stringify({
                 name: fName,
                 phone: fPhone,
-                address: fAddress
+                address: fAddress,
+                user_id: user.id
             })
         })
         setFormValue(defaultFormValue)

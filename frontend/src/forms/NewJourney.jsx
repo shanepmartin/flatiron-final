@@ -7,6 +7,8 @@ import { Container, Header } from 'rsuite'
 
 import userSlice from './UserState'
 
+import { useSelector } from "react-redux"
+
 const Textarea = forwardRef((props, ref) => <Input {...props} as="textarea" ref={ref} />);
 
 const NewJourney = () => {

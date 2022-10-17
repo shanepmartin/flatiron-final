@@ -5,11 +5,16 @@ import { Popover, Whisper } from 'rsuite';
 import { Message, useToaster } from 'rsuite'
 import { Container, Header } from 'rsuite'
 
+import { useSelector } from "react-redux"
+
 import userSlice from './UserState'
 
 const Textarea = forwardRef((props, ref) => <Input {...props} as="textarea" ref={ref} />);
 
 const NewFeel = () => {
+
+    const user = useSelector((state) => state.user).profile;
+
     const [date, setDate] = useState('')
     const [time, setTime] = useState('')
     const [entry, setEntry] = useState('')
@@ -17,7 +22,7 @@ const NewFeel = () => {
     const handleFeelSubmit = async (e) => {
         e.preventDefault();
 
-        console.log('Feel', { date, time, entry })
+        console.log('entry', { date, time, entry })
 
         let req = await fetch(`http://localhost:3000/feels`, {
             method: "POST",
@@ -48,7 +53,7 @@ const NewFeel = () => {
 
     const [value, setValue] = useState(null)
 
-    const formValue, setFormValue = useState({
+    const [formValue, setFormValue] = useState({
         date: "",
         time: "",
         entry: ""
@@ -79,7 +84,8 @@ const NewFeel = () => {
             body: JSON.stringify({
                 date: fDate,
                 time: fTime,
-                entry: fEntry
+                entry: fEntry,
+                user_id: user.id
             })
         })
         setFormValue(defaultFormValue)
@@ -112,11 +118,11 @@ const NewFeel = () => {
                 <Form.Group controlId='time'>
                     <Form.ControlLabel>Time</Form.ControlLabel>
                     <Form.Control name='time' />
-                    <Form.HelpText tooltip>Phone Number</Form.HelpText>
+                    <Form.HelpText tooltip>Time</Form.HelpText>
                 </Form.Group>
-                <Form.Group controlId='feel'>
+                <Form.Group controlId='entry'>
                     <Form.ControlLabel>Entry</Form.ControlLabel>
-                    <Form.Control rows={13} name='feel' accepter={Textarea} />
+                    <Form.Control rows={13} name='entry' accepter={Textarea} />
                     <Form.HelpText tooltip>Entry</Form.HelpText>
                 </Form.Group>
                 <ButtonToolbar>
