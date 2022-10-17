@@ -50,7 +50,7 @@ class ContactsController < ApplicationController
     private 
 
     def contact_params
-        params.permit(:first_name, :last_name, :phone_number, :address)
+        params.permit(:name, :phone_number, :address)
     end
     
 end

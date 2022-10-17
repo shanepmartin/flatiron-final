@@ -3,6 +3,8 @@ import { useEffect, useState } from "react"
 // import { useSelector } from "react-redux"
 
 const Landing = () => {
+    
+    let navigate = useNavigate()
 
     // const user = useSelector((state) => state.user);
 
@@ -21,12 +23,11 @@ const Landing = () => {
                 .then(data => {
                     if (data.user) {
                         setUser(data.user)
+                        navigate('/profile')
                     } 
                 })
         } 
     }, [])
-
-    let navigate = useNavigate()
 
     return (
         <div className="Landing">

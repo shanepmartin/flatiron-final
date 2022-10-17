@@ -24,50 +24,51 @@ const Profile = () => {
         // also need to create associating getList functions...
 
     // count functions will provide the number of the associated variable related to the user...
+
     const getGoalsCount = async () => {
-        const res = await fetch(`http://localhost:3000/goals/count/${user.id}`)
+        const res = await fetch(`http://localhost:3000/goals_count/${user.id}`)
         const count = await res.json()
         setGoalCount(count)
     }
 
     const getObjectivesCount = async () => {
-        const res = await fetch(`http://localhost:3000/objectivescount/${user.id}`)
+        const res = await fetch(`http://localhost:3000/objectives_count/${user.id}`)
         const count = await res.json()
         setObjectiveCount(count)
     }
 
     const getTripsCount = async () => {
-        const res = await fetch(`http://localhost:3000/tripscount/${user.id}`)
+        const res = await fetch(`http://localhost:3000/trips_count/${user.id}`)
         const count = await res.json()
         setTripCount(count)
     }
 
     const getAchievementsCount = async () => {
-        const res = await fetch(`http://localhost:3000/achievementscount/${user.id}`)
+        const res = await fetch(`http://localhost:3000/achievements_count/${user.id}`)
         const count = await res.json()
         setAchievementCount(count)
     }
 
     const getSkillsCount = async () => {
-        const res = await fetch(`http://localhost:3000/skillscount/${user.id}`)
+        const res = await fetch(`http://localhost:3000/skills_count/${user.id}`)
         const count = await res.json()
         setSkillCount(count)
     }
 
     const getJourneysCount = async () => {
-        const res = await fetch(`http://localhost:3000/journeyscount/${user.id}`)
+        const res = await fetch(`http://localhost:3000/journeys_count/${user.id}`)
         const count = await res.json()
         setJourneyCount(count)
     }
 
     const getFeelsCount = async () => {
-        const res = await fetch(`http://localhost:3000/feelscount/${user.id}`)
+        const res = await fetch(`http://localhost:3000/feels_count/${user.id}`)
         const count = await res.json()
         setFeelCount(count)
     }
 
     const getContactsCount = async () => {
-        const res = await fetch(`http://localhost:3000/contactscount/${user.id}`)
+        const res = await fetch(`http://localhost:3000/contacts_count/${user.id}`)
         const count = await res.json()
         setContactCount(count)
     }

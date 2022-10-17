@@ -44,7 +44,7 @@ class JourneysController < ApplicationController
     private 
 
     def journey_params
-        params.permit(:country, :city, :log)
+        params.permit(:name, :description)
     end
     
 end
