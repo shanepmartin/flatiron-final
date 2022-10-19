@@ -11,8 +11,19 @@ class JourneysController < ApplicationController
     end
 
     def create
-        journey = Journey.create!(journey_params)
-        render json: journey
+        token = request.headers["token"]
+        user_id = decode_token(token)
+        user = User.find(user_id)
+        if user
+            journey = Journey.new(name: params[:name], description: params[:description], user_id: user.id)
+            if journey.save
+                render json: journey, serializer: JourneySerializer, status: 201
+            else
+                render json: { errors: contact.errors.full_messages }, status: 422
+            end
+        else
+            render json: { error: "401 incorrect token" }, status: 401
+        end
     end
 
     def update

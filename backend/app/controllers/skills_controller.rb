@@ -11,8 +11,19 @@ class SkillsController < ApplicationController
     end
 
     def create
-        skill = Skill.create!(skill_params)
-        render json: skill
+        token = request.headers["token"]
+        user_id = decode_token(token)
+        user = User.find(user_id)
+        if user
+            skill = Skill.new(name: params[:name], category: params[:category], description: params[:description], user_id: user.id)
+            if skill.save
+                render json: skill, serializer: SkillSerializer, status: 201
+            else
+                render json: { errors: skill.errors.full_messages }, status: 422
+            end
+        else
+            render json: { errors: skill.errors.full_messages }, status: 422
+        end
     end
 
     def update
@@ -44,7 +55,7 @@ class SkillsController < ApplicationController
     private
 
     def skill_params
-        params.permit(:name, :type, :description)
+        params.permit(:name, :category, :description)
     end
     
 end

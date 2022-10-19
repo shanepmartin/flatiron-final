@@ -11,13 +11,10 @@ module Backend
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.0
 
-    config.middleware.use Rack::Cors do
+    config.middleware.insert_before 0, Rack::Cors do
       allow do
         origins '*'
-        resource '*',
-                 headers: :any,
-                 expose: %w(access-token expiry token-type uid client),
-                 methods: %i(get post options put delete)
+        resource '*', :headers => :any, :methods => [:get, :post, :options]
       end
     end
 

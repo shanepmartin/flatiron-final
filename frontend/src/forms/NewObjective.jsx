@@ -1,6 +1,6 @@
 import { useRef, forwardRef } from "react"
 import { Form, Input, Button, ButtonToolbar, Popover, Whisper } from 'rsuite'
-import { SchemaModel, StringType } from "schema-typed"
+import { SchemaModel, StringType } from "schema-categoryd"
 
 
 // input area to describe your objective...
@@ -14,11 +14,11 @@ const NewObjective = () => {
             method: "POST",
             headers: {
                 token: token,
-                "Content-Type": "application/json"
+                "Content-category": "application/json"
             },
             body: JSON.stringify({
                 name: formRef.current.root[0].value,
-                type: formRef.current.root[1].value,
+                category: formRef.current.root[1].value,
                 description: formRef.current.root[2].value
             })
         })
@@ -32,7 +32,7 @@ const NewObjective = () => {
 
     const model = SchemaModel({
         name: StringType().isRequired("name your objective !"),
-        type: StringType().isRequired("what kind of objective is it?"),
+        category: StringType().isRequired("what kind of objective is it?"),
         description: StringType().isRequired("describe all things about your objective!")
     })
 
@@ -51,10 +51,10 @@ const NewObjective = () => {
                     <Form.Control name='name' />
                     <Form.HelpText tooltip>Name of Objective</Form.HelpText>
                 </Form.Group>
-                <Form.Group controlId='type'>
-                    <Form.ControlLabel>Type</Form.ControlLabel>
-                    <Form.Control name='type' />
-                    <Form.HelpText tooltip>Type of Objective</Form.HelpText>
+                <Form.Group controlId='category'>
+                    <Form.ControlLabel>category</Form.ControlLabel>
+                    <Form.Control name='category' />
+                    <Form.HelpText tooltip>category of Objective</Form.HelpText>
                 </Form.Group>
                 <Form.Group controlId='description'>
                     <Form.ControlLabel>Description</Form.ControlLabel>
@@ -66,7 +66,7 @@ const NewObjective = () => {
                         placement='right'
                         trigger='active'
                         speaker={<Popover arrow={false}>Clicked</Popover>}>
-                        <Button appearance='ghost' type='submit'>
+                        <Button appearance='ghost' category='submit'>
                             Submit
                         </Button>
 

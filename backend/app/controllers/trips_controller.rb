@@ -11,8 +11,19 @@ class TripsController < ApplicationController
     end
 
     def create
-        trip = Trip.create(trip_params)
-        render json: trip
+        token = request.headers["token"]
+        user_id = decode_token(token)
+        user = User.find(user_id)
+        if user
+            trip = Trip.new(name: params[:name], description: params[:description], user_id: user.id)
+            if trip.save
+                render json: trip, serializer: TripSerializer, status: 201
+            else
+                render json: { errors: trip.errors.full_messages }, status: 201
+            end
+        else
+            render json: { error: "401 incorrect token" }, status: 401
+        end
     end
 
     def update

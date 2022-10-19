@@ -12,17 +12,6 @@ class ContactsController < ApplicationController
         render json: contact
     end
 
-    # def create
-    #     token = request.headers["Authorization"]
-    #     user_id = decode_token(token)
-    #     contact = Contact.create!(contact_params)
-    #     if contact
-    #         render json: contact, serializer: ContactSerializer
-    #     else
-    #         render json: { error: "invalid contact" }, status: 401
-    #     end
-    # end
-
     def create
         token = request.headers["token"]
         user_id = decode_token(token)
@@ -35,7 +24,7 @@ class ContactsController < ApplicationController
                 render json: { errors: contact.errors.full_messages }, status: 422
             end
         else
-            render json: {error: "401 incorrect token"}, status: 401
+            render json: { error: "401 incorrect token" }, status: 401
         end
     end
 

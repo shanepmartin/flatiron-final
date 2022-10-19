@@ -50,7 +50,7 @@ class ObjectivesController < ApplicationController
     private
 
     def objective_params
-        params.permit(:name, :type, :description)
+        params.permit(:name, :category, :description)
     end
     
 end

@@ -57,7 +57,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_12_163446) do
 
   create_table "objectives", force: :cascade do |t|
     t.text "name"
-    t.text "type"
+    t.text "category"
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -65,7 +65,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_12_163446) do
 
   create_table "skills", force: :cascade do |t|
     t.text "name"
-    t.text "type"
+    t.text "category"
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

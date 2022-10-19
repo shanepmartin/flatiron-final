@@ -33,8 +33,4 @@ class ApplicationController < ActionController::Base
         JWT.decode(token, get_secret_key)[0]["user_id"]
     end
 
-    # def set_user
-    #     user = User.find(id: params[:id])
-    # end
-
 end
