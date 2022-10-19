@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom'
-import './Style/NavBar.css'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSearch, faHome, faUser, faBuilding, faBusinessTime } from '@fortawesome/free-solid-svg-icons'

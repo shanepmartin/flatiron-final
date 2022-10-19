@@ -10,6 +10,8 @@ const SignUp = () => {
 
     const dispatch = useDispatch()
 
+    let token = localStorage.getItem("token");
+
     const [signUpData, setSignUpData] = useState({
         name: "",
         username: "",
@@ -36,23 +38,26 @@ const SignUp = () => {
             },
             body: JSON.stringify(signUpData),
         })
-        .then(res => res.json())
+        .then(res => {
+            if (res.ok) {
+                return res.json()
+            } else {
+                alert("signup invalid")
+            }
+        })
         .then(data => {
             // setUser(data.user)
             localStorage.setItem('token', data.token)
             dispatch(setUser(data.user))
             // need to navigate to the profile next...
             navigate('/profile')
+            console.log('signup data', data)
         }); 
 
-        // view the signup info in the console...
-
-        console.log('signup info', signUpData)
         let sName = signUpData.name
         let sUsername = signUpData.username
         let sPassword = signUpData.password
         console.log(`name: ${sName}, username: ${sUsername}, password: ${sPassword}`)
-
     }
 
     return (

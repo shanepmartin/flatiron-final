@@ -1,4 +1,6 @@
 class ContactsController < ApplicationController
+    # before_action :set_user
+    # before_action :set_contact, only: %i[ show destroy update ]
 
     def index
         contacts = Contact.all
@@ -10,9 +12,31 @@ class ContactsController < ApplicationController
         render json: contact
     end
 
+    # def create
+    #     token = request.headers["Authorization"]
+    #     user_id = decode_token(token)
+    #     contact = Contact.create!(contact_params)
+    #     if contact
+    #         render json: contact, serializer: ContactSerializer
+    #     else
+    #         render json: { error: "invalid contact" }, status: 401
+    #     end
+    # end
+
     def create
-        contact = Contact.create!(contact_params)
-        render json: contact
+        token = request.headers["token"]
+        user_id = decode_token(token)
+        user = User.find(user_id)
+        if user
+            contact = Contact.new(name: params[:name], phone_number: params[:phone_number], address: params[:address], user_id: user.id)
+            if contact.save
+                render json: contact, serializer: ContactSerializer, status: 201
+            else
+                render json: { errors: contact.errors.full_messages }, status: 422
+            end
+        else
+            render json: {error: "401 incorrect token"}, status: 401
+        end
     end
 
     def update
@@ -20,7 +44,6 @@ class ContactsController < ApplicationController
         contact.update(contact_params)
         render json: contact
     end
-
     # change the update methods to this format!!!
 
     # def update
@@ -51,6 +74,10 @@ class ContactsController < ApplicationController
 
     def contact_params
         params.permit(:name, :phone_number, :address)
+    end
+
+    def set_contact
+        contact = Contact.find(id: params[:id])
     end
     
 end

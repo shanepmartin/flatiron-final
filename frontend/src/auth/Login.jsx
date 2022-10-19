@@ -4,15 +4,15 @@ import { useSelector, useDispatch } from "react-redux"
 import { setUser } from "../auth/UserState"
 
 const Login = () => {
-    
+
     const user = useSelector((state) => state.user);
 
-    console.log('user', user)
-    console.log('user.isLoggedIn', user.isLoggedIn)
+    // console.log('user', user)
+    // console.log('user.isLoggedIn', user.isLoggedIn)
 
-    let token = localStorage.getItem("jwt");
+    let token = localStorage.getItem("token");
 
-    console.log('token', token)
+    // console.log('token', token)
 
     let navigate = useNavigate()
 
@@ -23,7 +23,7 @@ const Login = () => {
         password: ""
     })
 
-    // const [user, setUser] = useState({ username: "" })
+    // let [user, setUser] = useState({ username: "" })
 
     // Input Login Info //
 
@@ -45,14 +45,21 @@ const Login = () => {
             },
             body: JSON.stringify(loginData)
         })
-        .then(res => res.json())
-        .then(data => {
-            // setUser(data.user)
-            localStorage.setItem('token', data.token)
-            dispatch(setUser(data.user))
-            // need to navigate to the profile next...
-            navigate('/profile')
-        }); 
+            .then(res => {
+                if (res.ok) {
+                    return res.json()
+                } else {
+                    alert("login invalid")
+                }
+            })
+            .then(data => {
+                // setUser(data.user)
+                console.log('data', data.token)
+                localStorage.setItem('token', data.token)
+                dispatch(setUser(data.user))
+                // need to navigate to the profile next...
+                navigate('/profile')
+            });
 
         // view the login info in the console...
 
@@ -61,7 +68,7 @@ const Login = () => {
         let loginPassword = loginData.password
         console.log(`username: ${loginName}, password: ${loginPassword}`)
 
-    } 
+    }
 
     return (
         <div className="Login">
@@ -82,7 +89,7 @@ const Login = () => {
                         placeholder="password"
                         value={loginData.password}
                     />
-                    <input type="submit"/>
+                    <input type="submit" />
                 </form>
             </div>
         </div>
