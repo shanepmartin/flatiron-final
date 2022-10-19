@@ -110,25 +110,6 @@ const Profile = () => {
         overflow: 'hidden'
     };
 
-    // useEffect(() => {
-    //     let token = localStorage.getItem("token");
-    //     console.log('token', token)
-    //     if (token && !user.isLoggedin) {
-    //         fetch("http://localhost:3000/profile", {
-    //             headers: {
-    //                 token: token,
-    //                 "Content-Type": "application/json",
-    //             },
-    //         })
-    //             .then((res) => res.json())
-    //             .then((data) => {
-    //                 console.log('useEffect data', data)
-    //                 dispatch(setUser(data))
-    //                 localStorage.setItem('token', data.token)
-    //             });
-    //     }
-    // }, [])
-
     const NavToggle = ({ expand, onChange }) => {
         return (
             <Navbar appearance="subtle" className="nav-toggle">

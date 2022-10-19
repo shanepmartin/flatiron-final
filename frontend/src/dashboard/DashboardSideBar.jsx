@@ -80,18 +80,18 @@ const DashBoardSideBar = () => {
                                     trigger="hover"
                                     title="Goals"
                                     placement="rightStart"
-                                > Goals: 
-                                    <Nav.Item eventKey="2-1">Objectives:  </Nav.Item>
-                                    <Nav.Item eventKey="2-2">Trips: </Nav.Item>
+                                > 
+                                    <Nav.Item eventKey="2-1" onClick={() => navigate('/objectives')}>Objectives:  </Nav.Item>
+                                    <Nav.Item eventKey="2-2" onClick={() => navigate('/trips')}>Trips: </Nav.Item>
                                 </Nav.Menu>
                                 <Nav.Menu
                                     eventKey="3"
                                     trigger="hover"
                                     title="Achievements"
                                     placement="rightStart"
-                                > Achievements:
-                                    <Nav.Item eventKey="3-1">Skills: </Nav.Item>
-                                    <Nav.Item eventKey="3-2">Journeys: </Nav.Item>
+                                >
+                                    <Nav.Item eventKey="3-1" onClick={() => navigate('/skills')}>Skills: </Nav.Item>
+                                    <Nav.Item eventKey="3-2" onClick={() => navigate('/journeys')}>Journeys: </Nav.Item>
                                 </Nav.Menu>
                                 <Nav.Item title="Feels" eventKey="4" onClick={() => navigate('/feels')}>
                                     Feels: 
@@ -102,7 +102,6 @@ const DashBoardSideBar = () => {
                             </Nav>
                         </Sidenav.Body>
                     </Sidenav>
-                    <NavToggle expand={expand} onChange={() => setExpand(!expand)} />
                 </Sidebar>
 
                 <Container>
