@@ -1,98 +1,40 @@
 import { useState, useEffect, forwardRef, useRef } from "react"
+import { Form, Input, Button, ButtonToolbar, Popover, Whisper } from 'rsuite'
+import { SchemaModel, StringType } from "schema-typed"
 
-import { Form, Input, Button, ButtonToolbar, SelectPicker } from 'rsuite'
-import { Popover, Whisper } from 'rsuite';
-import { Message, useToaster } from 'rsuite'
-import { Container, Header } from 'rsuite'
 
-import userSlice from './UserState'
-
-import { useSelector } from "react-redux"
-
+// input area for description of the skill...
 const Textarea = forwardRef((props, ref) => <Input {...props} as="textarea" ref={ref} />);
 
 const NewSkill = () => {
-    const [name, setName] = useState('')
-    const [type, setType] = useState('')
-    const [description, setDescription] = useState('')
 
     const handleSkillSubmit = async (e) => {
-        e.preventDefault();
-
-        console.log('description', { name, type, description })
-
-        let req = await fetch(`http://localhost:3000/skills`, {
+        let token = localStorage.getItem("token");
+        fetch(`http://localhost:3000/skills`, {
             method: "POST",
             headers: {
+                token: token,
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
-                name: name,
-                type: type,
-                description: description
+                name: formRef.current.root[0].value,
+                type: formRef.current.root[1].value,
+                description: formRef.current.root[2].value
             })
         })
-
-        setName('')
-        setType('')
-        setDescription('')
+        .then((res) => res.json())
+        .then((data) => {
+            console.log(data)
+        })
     }
-
-    // R Suite Form
-
-    const toaster = useToaster()
-
-    const message = (
-        <Message showIcon type="success">
-            Skill Input !
-        </Message>
-    )
-
-    const [value, setValue] = useState(null)
-
-    const [formValue, setFormValue] = useState({
-        name: "",
-        type: "",
-        description: ""
-    })
 
     const formRef = useRef()
 
     const model = SchemaModel({
-        Description: StringType().isRequired("Set a Skill!")
+        name: StringType().isRequired("name your skill !"),
+        type: StringType().isRequired("type of skill ?"),
+        description: StringType().isRequired("describe your skill !")
     })
-
-    const formClick = async => {
-        if (!formRef.current.check()) {
-            console.error('form.error');
-            return;
-        }
-        let fName = formValue.name
-        let fType = formValue.type
-        let fDescription = formValue.description
-
-        console.log(`New Skill Added: `, `Name: ${fName}`, `Type: ${fType}`, `Description: ${fDescription}`)
-
-        let req = await fetch(`http://localhost:3000/skills`, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                name: fName,
-                type: fType,
-                description: fDescription
-            })
-        })
-        setFormValue(defaultFormValue)
-        toaster.push(message)
-    }
-
-    const defaultFormValue = {
-        name: '',
-        type: '',
-        description: ''
-    }
 
     return (
         <>
@@ -101,15 +43,13 @@ const NewSkill = () => {
                 style={{ margin: 40 }}
                 ref={formRef}
                 model={model}
-                formValue={formValue}
-                onChange={formValue => setFormValue(formValue)}
-                onSubmit={formClick}
+                onSubmit={handleSkillSubmit}
                 fluid
             >
                 <Form.Group controlId='name'>
                     <Form.ControlLabel>Name</Form.ControlLabel>
                     <Form.Control name='name' />
-                    <Form.HelpText tooltip>Contact Name is required</Form.HelpText>
+                    <Form.HelpText tooltip>Skill Name</Form.HelpText>
                 </Form.Group>
                 <Form.Group controlId='type'>
                     <Form.ControlLabel>Type</Form.ControlLabel>

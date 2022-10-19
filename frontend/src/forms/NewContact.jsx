@@ -1,27 +1,8 @@
-import { useState, useEffect, forwardRef, useRef } from "react"
-
-import { Form, Input, Button, ButtonToolbar, SelectPicker } from 'rsuite'
-import { Popover, Whisper } from 'rsuite';
-import { Message, useToaster } from 'rsuite'
-import { Container, Header } from 'rsuite'
+import { useRef } from "react"
+import { Form, Button, ButtonToolbar, Popover, Whisper } from 'rsuite'
 import { SchemaModel, StringType } from "schema-typed"
 
-import { useSelector, useDispatch } from "react-redux"
-
-
-// import { setUser } from "../auth/UserState"
-
-// import userSlice from './UserState'
-
-// const Textarea = forwardRef((props, ref) => <Input {...props} as="textarea" ref={ref} />);
-
 const NewContact = () => {
-
-    const user = useSelector((state) => state.user)
-    const dispatch = useDispatch()
-
-    const [contacts, setContacts] = useState([])
-
 
     const handleContactSubmit = async (e) => {
         let token = localStorage.getItem("token");
@@ -36,18 +17,20 @@ const NewContact = () => {
                 phone_number: formRef.current.root[1].value,
                 address: formRef.current.root[2].value
             })
-        }).then((res) => res.json())
-            .then((data) => {
-                console.log(data)
-                
-            })
+        })
+        .then((res) => res.json())
+        .then((data) => {
+            console.log(data)           
+        })
     }
 
    
     const formRef = useRef()
 
     const model = SchemaModel({
-        name: StringType().isRequired("Contact name is required !")
+        name: StringType().isRequired("please enter a name"),
+        phone_number: StringType().isRequired("please enter a phone number"),
+        address: StringType().isRequired("please enter an address")
     })
 
     return (

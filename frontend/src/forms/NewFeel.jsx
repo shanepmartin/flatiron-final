@@ -1,102 +1,38 @@
-import { useState, useEffect, forwardRef, useRef } from "react"
+import { useRef, forwardRef } from "react"
+import { Form, Input, Button, ButtonToolbar, Popover, Whisper } from 'rsuite'
+import { SchemaModel, StringType } from "schema-typed"
 
-import { Form, Input, Button, ButtonToolbar, SelectPicker } from 'rsuite'
-import { Popover, Whisper } from 'rsuite';
-import { Message, useToaster } from 'rsuite'
-import { Container, Header } from 'rsuite'
 
-import { useSelector } from "react-redux"
-
-import userSlice from './UserState'
-
+// input area for the feely feels...
 const Textarea = forwardRef((props, ref) => <Input {...props} as="textarea" ref={ref} />);
 
 const NewFeel = () => {
 
-    const user = useSelector((state) => state.user).profile;
-
-    const [date, setDate] = useState('')
-    const [time, setTime] = useState('')
-    const [entry, setEntry] = useState('')
-
     const handleFeelSubmit = async (e) => {
-        e.preventDefault();
-
-        console.log('entry', { date, time, entry })
-
-        let req = await fetch(`http://localhost:3000/feels`, {
+        let token = localStorage.getItem("token");
+        fetch(`http://localhost:3000/feels`, {
             method: "POST",
             headers: {
+                token: token,
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
-                date: date,
-                time: time,
-                entry: entry
+                date: formRef.current.root[0].value,
+                time: formRef.current.root[1].value,
+                entry: formRef.current.root[2].value
             })
         })
-
-        setDate('')
-        setTime('')
-        setEntry('')
+        .then((res) => res.json())
+        .then((data) => {
+            console.log(data)
+        })
     }
-
-    // R Suite Form
-
-    const toaster = useToaster()
-
-    const message = (
-        <Message showIcon type="success">
-            Feels Input !
-        </Message>
-    )
-
-    const [value, setValue] = useState(null)
-
-    const [formValue, setFormValue] = useState({
-        date: "",
-        time: "",
-        entry: ""
-    })
 
     const formRef = useRef()
 
     const model = SchemaModel({
-        entry: StringType().isRequired("Make an entry!")
+        entry: StringType().isRequired("make an entry, share your feels!")
     })
-
-    const formClick = async () => {
-        if (!formRef.current.check()) {
-            console.error('form error');
-            return;
-        }
-        let fDate = formValue.date
-        let fTime = formValue.time
-        let fEntry = formValue.entry
-
-        console.log(`New Entry Added: `, `Date: ${fDate}`, `Time: ${fTime}`, `Entry: ${fEntry} `)
-
-        let req = await fetch(`http://localhost:3000/feels`, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                date: fDate,
-                time: fTime,
-                entry: fEntry,
-                user_id: user.id
-            })
-        })
-        setFormValue(defaultFormValue)
-        toaster.push(message)
-    }
-
-    const defaultFormValue = {
-        date: '',
-        time: '',
-        entry: ''
-    }
 
     return (
         <>
@@ -105,15 +41,13 @@ const NewFeel = () => {
                 style={{ margin: 40 }}
                 ref={formRef}
                 model={model}
-                formValue={formValue}
-                onChange={formValue => setFormValue(formValue)}
-                onSubmit={formClick}
+                onSubmit={handleFeelSubmit}
                 fluid
             >
                 <Form.Group controlId='date'>
                     <Form.ControlLabel>Date</Form.ControlLabel>
                     <Form.Control name='date' />
-                    <Form.HelpText tooltip>Contact Name is required</Form.HelpText>
+                    <Form.HelpText tooltip>Date</Form.HelpText>
                 </Form.Group>
                 <Form.Group controlId='time'>
                     <Form.ControlLabel>Time</Form.ControlLabel>
@@ -142,6 +76,5 @@ const NewFeel = () => {
         </>
     )
 }
-
 
 export default NewFeel;

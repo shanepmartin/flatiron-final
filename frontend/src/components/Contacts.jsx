@@ -1,4 +1,4 @@
-import NewContact from "./NewContact";
+import NewContact from "../forms/NewContact";
 
 const Contacts = () => {
     return (

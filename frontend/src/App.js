@@ -11,8 +11,11 @@ import Profile from "./dashboard/Profile"
 import Dashboard from "./views/Dashboard"
 
 import Contacts from "./components/Contacts"
-import NewContact from "./components/NewContact";
-
+import Feels from "./components/Feels";
+import Journeys from "./components/Journeys";
+import Objectives from "./components/Objectives";
+import Skills from "./components/Skills";
+import Trips from "./components/Trips";
 
 // Redux login state modules...
 import { setUser, logout } from "./auth/UserState"
@@ -65,7 +68,11 @@ const App = () => {
           <Route path="/login" element={<Login />} />
           <Route path="/profile" element={<DashBoardSideBar />} />
           <Route path="/contacts" element={<Contacts />} />
-          {/* <Route path="/contacts/new" element={<NewContact />} /> */}
+          <Route path="/feels" element={<Feels />} />
+          <Route path="/journeys" element={<Journeys />} />
+          <Route path="/objectives" element={<Objectives />} />
+          <Route path="/skills" element={<Skills />} />
+          <Route path="/trips" element={<Trips />} />
         </Routes>
       </BrowserRouter>
     </div>

@@ -1,98 +1,40 @@
-import { useState, useEffect, forwardRef, useRef } from "react"
+import { useRef, forwardRef } from "react"
+import { Form, Input, Button, ButtonToolbar, Popover, Whisper } from 'rsuite'
+import { SchemaModel, StringType } from "schema-typed"
 
-import { Form, Input, Button, ButtonToolbar, SelectPicker } from 'rsuite'
-import { Popover, Whisper } from 'rsuite';
-import { Message, useToaster } from 'rsuite'
-import { Container, Header } from 'rsuite'
 
-import userSlice from './UserState'
-
-import { useSelector } from "react-redux"
-
+// input area to describe your objective...
 const Textarea = forwardRef((props, ref) => <Input {...props} as="textarea" ref={ref} />);
 
 const NewObjective = () => {
-    const [name, setName] = useState('')
-    const [type, setType] = useState('')
-    const [description, setDescription] = useState('')
-
+    
     const handleObjectiveSubmit = async (e) => {
-        e.preventDefault();
-
-        console.log('description', { name, type, description })
-
-        let req = await fetch(`http://localhost:3000/objectives`, {
+        let token = localStorage.getItem("token");
+        fetch(`http://localhost:3000/objectives`, {
             method: "POST",
             headers: {
+                token: token,
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
-                name: name,
-                type: type,
-                description: description
+                name: formRef.current.root[0].value,
+                type: formRef.current.root[1].value,
+                description: formRef.current.root[2].value
             })
         })
-
-        setName('')
-        setType('')
-        setDescription('')
+        .then((res) => res.json())
+        .then((data) => {
+            console.log(data)
+        })
     }
 
-    // R Suite Form
-
-    const toaster = useToaster()
-
-    const message = (
-        <Message showIcon type="success">
-            Objective Input !
-        </Message>
-    )
-
-    const [value, setValue] = useState(null)
-
-    const [formValue, setFormValue] = useState({
-        name: "",
-        type: "",
-        description: ""
-    })
-    
     const formRef = useRef()
 
     const model = SchemaModel({
-        Description: StringType().isRequired("Set an Objective!")
+        name: StringType().isRequired("name your objective !"),
+        type: StringType().isRequired("what kind of objective is it?"),
+        description: StringType().isRequired("describe all things about your objective!")
     })
-
-    const formClick = async => {
-        if (!formRef.current.check()) {
-            console.error('form.error');
-            return;
-        }
-        let fName = formValue.name
-        let fType = formValue.type
-        let fDescription = formValue.description
-
-        console.log(`New Objective Added: `, `Name: ${fName}`, `Type: ${fType}`, `Description: ${fDescription}`)
-
-        let req = await fetch(`http://localhost:3000/objectives`, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                name: fName,
-                type: fType,
-                description: fDescription
-            })
-        })
-        setFormValue(defaultFormValue)
-        toaster.push(message)
-    }
-
-    const defaultFormValue = {
-        name: '',
-        type: '',
-        description: ''
-    }
 
     return (
         <>
@@ -101,25 +43,23 @@ const NewObjective = () => {
                 style={{ margin: 40 }}
                 ref={formRef}
                 model={model}
-                formValue={formValue}
-                onChange={formValue => setFormValue(formValue)}
-                onSubmit={formClick}
+                onSubmit={handleObjectiveSubmit}
                 fluid
             >
                 <Form.Group controlId='name'>
                     <Form.ControlLabel>Name</Form.ControlLabel>
                     <Form.Control name='name' />
-                    <Form.HelpText tooltip>Contact Name is required</Form.HelpText>
+                    <Form.HelpText tooltip>Name of Objective</Form.HelpText>
                 </Form.Group>
                 <Form.Group controlId='type'>
                     <Form.ControlLabel>Type</Form.ControlLabel>
                     <Form.Control name='type' />
-                    <Form.HelpText tooltip>Type</Form.HelpText>
+                    <Form.HelpText tooltip>Type of Objective</Form.HelpText>
                 </Form.Group>
                 <Form.Group controlId='description'>
                     <Form.ControlLabel>Description</Form.ControlLabel>
                     <Form.Control rows={13} name='description' accepter={Textarea} />
-                    <Form.HelpText tooltip>Description</Form.HelpText>
+                    <Form.HelpText tooltip>Description of Objective</Form.HelpText>
                 </Form.Group>
                 <ButtonToolbar>
                     <Whisper
@@ -137,7 +77,6 @@ const NewObjective = () => {
             </Form>
         </>
     )
-
 }
 
 export default NewObjective;
