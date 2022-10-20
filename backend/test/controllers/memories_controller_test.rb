@@ -1,6 +1,6 @@
 require "test_helper"
 
-class JourneyTest < ActiveSupport::TestCase
+class MemoriesControllerTest < ActionDispatch::IntegrationTest
   # test "the truth" do
   #   assert true
   # end

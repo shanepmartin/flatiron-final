@@ -1,8 +1,8 @@
-import NewGoal from "../forms/NewGoal"
+import NewDegree from "../forms/NewDegree";
 import DashBoardSideBar from "../dashboard/DashboardSideBar";
 import { useState } from "react"
 
-const Goals = () => {
+const Degrees = () => {
     const [activeKey, setActiveKey] = useState('1');
     const [openKeys, setOpenKeys] = useState(['3', '4']);
     const [expanded, setExpand] = useState(true);
@@ -17,9 +17,9 @@ const Goals = () => {
                 onExpand={setExpand}
                 appearance="subtle"
             />
-            <NewGoal />
+            <NewDegree />
         </>
     )
 }
 
-export default Goals;
+export default Degrees;

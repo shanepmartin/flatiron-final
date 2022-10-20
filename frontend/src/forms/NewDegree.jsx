@@ -2,11 +2,11 @@ import { useRef } from "react"
 import { Form, Button, ButtonToolbar, Popover, Whisper } from 'rsuite'
 import { SchemaModel, StringType } from "schema-typed"
 
-const NewContact = () => {
+const NewDegree = () => {
 
-    const handleContactSubmit = async (e) => {
+    const handleDegreeSubmit = async (e) => {
         let token = localStorage.getItem("token");
-        fetch(`http://localhost:3000/contacts`, {
+        fetch(`http://localhost:3000/degrees`, {
             method: "POST",
             headers: {
                 token: token,
@@ -14,49 +14,42 @@ const NewContact = () => {
             },
             body: JSON.stringify({
                 name: formRef.current.root[0].value,
-                phone_number: formRef.current.root[1].value,
-                address: formRef.current.root[2].value
+                level: formRef.current.root[1].value,
             })
         })
-        .then((res) => res.json())
-        .then((data) => {
-            console.log(data)           
-        })
+            .then((res) => res.json())
+            .then((data) => {
+                console.log(data)
+            })
     }
 
-   
+
     const formRef = useRef()
 
     const model = SchemaModel({
         name: StringType().isRequired("please enter a name"),
-        phone_number: StringType().isRequired("please enter a phone number"),
-        address: StringType().isRequired("please enter an address")
+        level: StringType().isRequired("please enter the degree level"),
     })
 
     return (
         <>
-            <h1 class="form" style={{ margin: 40 }}>New Contact</h1>
+            <h1 class="form" style={{ margin: 40 }}>New Degree</h1>
             <Form 
                 style={{ margin: 40 }}
                 ref={formRef}
                 model={model}
-                onSubmit={handleContactSubmit}
+                onSubmit={handleDegreeSubmit}
                 fluid
             >
                 <Form.Group controlId='name'>
-                    <Form.ControlLabel>Contact Name</Form.ControlLabel>
+                    <Form.ControlLabel>Degree</Form.ControlLabel>
                     <Form.Control name='name' />
-                    <Form.HelpText tooltip>Contact Name is required</Form.HelpText>
+                    <Form.HelpText tooltip>Degree</Form.HelpText>
                 </Form.Group>
-                <Form.Group controlId='phone'>
-                    <Form.ControlLabel>Phone Number</Form.ControlLabel>
-                    <Form.Control name='phone' />
-                    <Form.HelpText tooltip>Phone Number</Form.HelpText>
-                </Form.Group>
-                <Form.Group controlId='address'>
-                    <Form.ControlLabel>Address</Form.ControlLabel>
-                    <Form.Control name='address' />
-                    <Form.HelpText tooltip>Address</Form.HelpText>
+                <Form.Group controlId='date'>
+                    <Form.ControlLabel>level</Form.ControlLabel>
+                    <Form.Control name='date' />
+                    <Form.HelpText tooltip>level</Form.HelpText>
                 </Form.Group>
                 <ButtonToolbar>
                     <Whisper
@@ -76,4 +69,4 @@ const NewContact = () => {
     )
 }
 
-export default NewContact;
+export default NewDegree;

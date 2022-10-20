@@ -1,5 +1,5 @@
 .App {
-  text-align: center;
+  background-color: #FAF9F6;
 }
 
 .App-logo {
@@ -35,4 +35,43 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.sidebar {
+  align-content: left;
+}
+.rs-sidebar {
+    background: #fff;
+}
+.rs-sidenav {
+  flex: 1 1 auto;
+  transition: none !important;
+  border-top: 1px solid;
+  width: 100%;
+}
+
+.rs-content {
+  padding: 0 10px;
+}
+
+.rs-breadcrumb {
+  margin-bottom: 0;
+}
+
+
+.nav-toggle {
+  border-top: 1px solid
+}
+
+.rs-sidenav-item,
+.rs-dropdown-item {
+    color: black
+}
+
+.form {
+  align-content: center;
+}
+
+.sidebar {
+  align-content: center;
 }

@@ -10,11 +10,13 @@ import Login from "./auth/Login"
 import Profile from "./dashboard/Profile"
 import Dashboard from "./views/Dashboard"
 
+import Achievements from "./components/Achievements"
 import Contacts from "./components/Contacts"
+import Degrees from "./components/Degrees"
 import Feels from "./components/Feels";
-import Journeys from "./components/Journeys";
-import Objectives from "./components/Objectives";
-import Skills from "./components/Skills";
+import Goals from "./components/Goals"
+import Memories from "./components/Memories"
+import Schools from "./components/Schools"
 import Trips from "./components/Trips";
 
 // Redux login state modules...
@@ -67,11 +69,13 @@ const App = () => {
           <Route path="/signup" element={<SignUp />} />
           <Route path="/login" element={<Login />} />
           <Route path="/profile" element={<DashBoardSideBar />} />
+          <Route path="/achievements" element={<Achievements />} />
           <Route path="/contacts" element={<Contacts />} />
+          <Route path="/degrees" element={<Degrees />} />
           <Route path="/feels" element={<Feels />} />
-          <Route path="/journeys" element={<Journeys />} />
-          <Route path="/objectives" element={<Objectives />} />
-          <Route path="/skills" element={<Skills />} />
+          <Route path="/goals" element={<Goals />} />
+          <Route path="/memories" element={<Memories />} />
+          <Route path="/schools" element={<Schools />} />
           <Route path="/trips" element={<Trips />} />
         </Routes>
       </BrowserRouter>

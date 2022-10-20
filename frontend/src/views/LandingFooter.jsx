@@ -1,4 +1,4 @@
-import {  Footer, Container, Button } from 'rsuite'
+import { Footer, Container, Button } from 'rsuite'
 import { useNavigate } from 'react-router-dom';
 
 const LandingFooter = () => {

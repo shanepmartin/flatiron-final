@@ -36,8 +36,8 @@ const NewFeel = () => {
 
     return (
         <>
-            <h1 style={{ margin: 40 }}>New Feel</h1>
-            <Form
+            <h1 class="form" style={{ margin: 40 }}>New Feel</h1>
+            <Form 
                 style={{ margin: 40 }}
                 ref={formRef}
                 model={model}

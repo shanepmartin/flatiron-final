@@ -1,8 +1,8 @@
-import NewGoal from "../forms/NewGoal"
+import NewMemory from "../forms/NewMemory"
 import DashBoardSideBar from "../dashboard/DashboardSideBar";
 import { useState } from "react"
 
-const Goals = () => {
+const Memories = () => {
     const [activeKey, setActiveKey] = useState('1');
     const [openKeys, setOpenKeys] = useState(['3', '4']);
     const [expanded, setExpand] = useState(true);
@@ -17,9 +17,9 @@ const Goals = () => {
                 onExpand={setExpand}
                 appearance="subtle"
             />
-            <NewGoal />
+            <NewMemory />
         </>
     )
 }
 
-export default Goals;
+export default Memories;

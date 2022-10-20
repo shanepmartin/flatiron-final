@@ -2,23 +2,20 @@ import { forwardRef, useRef } from "react"
 import { Form, Input, Button, ButtonToolbar, Popover, Whisper } from 'rsuite'
 import { SchemaModel, StringType } from "schema-typed"
 
-
-// input area for description of the trip...
-const Textarea = forwardRef((props, ref) => <Input {...props} as="textarea" ref={ref} />);
-
 const NewTrip = () => {
 
     const handleTripSubmit = async (e) => {
         let token = localStorage.getItem("token");
-        fetch(`http://localhost:3000/feels`, {
+        fetch(`http://localhost:3000/trips`, {
             method: "POST",
             headers: {
                 token: token,
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
-                name: formRef.current.root[0].value,
-                description: formRef.current.root[1].value
+                country: formRef.current.root[0].value,
+                city: formRef.current.root[1].value,
+                date: formRef.current.root[2].value
             })
         })
         .then((res) => res.json())
@@ -30,29 +27,35 @@ const NewTrip = () => {
     const formRef = useRef()
 
     const model = SchemaModel({
-        name: StringType().isRequired("what will you name your trip ?"),
-        description: StringType().isRequired("describe where you would like to go !")
+        country: StringType().isRequired("what country did you go to ?"),
+        city: StringType().isRequired("what city did you go to ?"),
+        date: StringType().isRequired("describe your trip !")
     })
 
     return (
         <>
-            <h1 style={{ margin: 40 }}>New Trip</h1>
-            <Form
+            <h1 class="form" style={{ margin: 40 }}>New Trip</h1>
+            <Form 
                 style={{ margin: 40 }}
                 ref={formRef}
                 model={model}
                 onSubmit={handleTripSubmit}
                 fluid
             >
-                <Form.Group controlId='name'>
-                    <Form.ControlLabel>Name</Form.ControlLabel>
-                    <Form.Control name='name' />
-                    <Form.HelpText tooltip>Trip Name is required</Form.HelpText>
+                <Form.Group controlId='country'>
+                    <Form.ControlLabel>country</Form.ControlLabel>
+                    <Form.Control country='country' />
+                    <Form.HelpText tooltip>what country did you go to ?</Form.HelpText>
                 </Form.Group>
-                <Form.Group controlId='description'>
-                    <Form.ControlLabel>Description</Form.ControlLabel>
-                    <Form.Control rows={13} name='description' accepter={Textarea} />
-                    <Form.HelpText tooltip>Description</Form.HelpText>
+                <Form.Group controlId='city'>
+                    <Form.ControlLabel>city</Form.ControlLabel>
+                    <Form.Control country='city' />
+                    <Form.HelpText tooltip>what city did you go to ?</Form.HelpText>
+                </Form.Group>
+                <Form.Group controlId='date'>
+                    <Form.ControlLabel>date</Form.ControlLabel>
+                    <Form.Control country='date' />
+                    <Form.HelpText tooltip>when did you go ?</Form.HelpText>
                 </Form.Group>
                 <ButtonToolbar>
                     <Whisper

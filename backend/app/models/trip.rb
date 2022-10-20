@@ -1,4 +1,4 @@
 class Trip < ApplicationRecord
-    belongs_to :goal
-    has_one :user, through: :goal, serializer: TripSerializer
+    belongs_to :user
+    has_many :memories
 end
