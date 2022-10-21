@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   get '/contacts', to: 'contacts#index'
   get '/contacts/:id', to: 'contacts#show'
   post '/contacts', to: 'contacts#create'
-  patch '/contacts', to: 'contacts#update'
+  patch '/contacts/:id', to: 'contacts#update'
   delete '/contacts', to: 'contacts#destroy'
 
   get '/degrees', to: 'degrees#index'
@@ -60,17 +60,17 @@ Rails.application.routes.draw do
 
   # user profile routes...
   get '/profile', to: 'users#profile'
-  get '/goals_count/::id', to: 'users#goals_count'
-  get '/goals_list/::id', to: 'users#goals_list'
-  get '/goals_count/::id', to: 'users#goals_count'
-  get '/goals_list/::id', to: 'users#goals_list'
-  get '/trips_count/::id', to: 'users#trips_count'
-  get '/trips_list/::id', to: 'users#trips_list'
-  get '/achievements_count/::id', to: 'users#_achievements_count'
-  get '/achievements_list/::id', to: 'users#achievements_list'
-  get '/feels_count/::id', to: 'users#feels_count'
-  get '/feels_list/::id', to: 'users#feels_list'
-  get '/contacts_count/::id', to: 'users#contacts_count'
-  get '/contacts_list/::id', to: 'users#contacts_list'
+  get '/goals_count/:id', to: 'users#goals_count'
+  get '/goals_list/:id', to: 'users#goals_list'
+  get '/goals_count/:id', to: 'users#goals_count'
+  get '/goals_list/:id', to: 'users#goals_list'
+  get '/trips_count/:id', to: 'users#trips_count'
+  get '/trips_list/:id', to: 'users#trips_list'
+  get '/achievements_count/:id', to: 'users#achievements_count'
+  get '/achievements_list/:id', to: 'users#achievements_list'
+  get '/feels_count/:id', to: 'users#feels_count'
+  get '/feels_list/:id', to: 'users#feels_list'
+  get '/contacts_count/:id', to: 'users#contacts_count'
+  get '/contacts_list/:id', to: 'users#contacts_list'
 
 end

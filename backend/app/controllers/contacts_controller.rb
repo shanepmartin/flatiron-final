@@ -29,29 +29,24 @@ class ContactsController < ApplicationController
     end
 
     def update
-        contact = Contact.find_by!(id: params[:id])
-        contact.update(contact_params)
-        render json: contact
+        token = request.headers["token"]
+        user_id = decode_token(token)
+        user = User.find(user_id)
+        if user
+            contact = Contact.find_by!(id: params[:id])
+            if contact
+                if params[:name]
+                    contact.update(name: params[:name])
+                end
+                if params[:phone_number]
+                    contact.update(phone_number: params[:phone_number])
+                end
+                if params[:address]
+                    contact.update(address: params[:address])
+                end
+            end
+        end
     end
-    # change the update methods to this format!!!
-
-    # def update
-    #     company = Company.find_by(id: params[:id])
-    #     if company
-    #         if params[:name]
-    #             company.update(name: params[:name])
-    #         end
-    #         if params[:website]
-    #             company.update(website: params[:website])
-    #         end
-    #         if params[:linkedin_regularCompanyUrl]
-    #             company.update(linkedin_regularCompanyUrl: params[:linkedin_regularCompanyUrl])
-    #         end
-    #         if params[:description]
-    #             company.update(description: params[:description])
-    #         end
-    #     end
-    # end
 
     def destroy
         contact = Contact.find_by!(id: params[:id])
