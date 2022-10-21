@@ -1,17 +1,11 @@
-import LandingBar from "./LandingBar";
-import LandingHero from "./LandingHero";
-import LandingFooter from "./LandingFooter";
+import Login from "../auth/Login"
 
 const Landing = () => {
     return (
         <>
-            <LandingBar />
-            <LandingHero />
-            <LandingFooter />
+            <Login />
         </>
     )
 }
-
-
 
 export default Landing;

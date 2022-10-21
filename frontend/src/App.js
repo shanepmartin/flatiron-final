@@ -1,4 +1,5 @@
 import "./App.css";
+import 'rsuite/dist/rsuite.min.css';
 import { BrowserRouter, Routes, Route, useNavigate } from "react-router-dom"; 
 import { React, useEffect } from "react";
 
@@ -7,7 +8,6 @@ import Landing from "./views/Landing"
 import SignUp from "./auth/SignUp"
 import Login from "./auth/Login"
 
-import Profile from "./dashboard/Profile"
 import Dashboard from "./views/Dashboard"
 
 import Achievements from "./components/Achievements"
@@ -24,6 +24,7 @@ import { setUser, logout } from "./auth/UserState"
 
 import { useSelector, useDispatch } from "react-redux"
 import DashBoardSideBar from "./dashboard/DashboardSideBar";
+
 
 const App = () => {
 
@@ -66,9 +67,9 @@ const App = () => {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Landing />} /> 
-          <Route path="/signup" element={<SignUp />} />
+          {/* <Route path="/signup" element={<SignUp />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/profile" element={<DashBoardSideBar />} />
+          <Route path="/profile" element={<DashBoardSideBar />} /> */}
           <Route path="/achievements" element={<Achievements />} />
           <Route path="/contacts" element={<Contacts />} />
           <Route path="/degrees" element={<Degrees />} />
@@ -76,7 +77,8 @@ const App = () => {
           <Route path="/goals" element={<Goals />} />
           <Route path="/memories" element={<Memories />} />
           <Route path="/schools" element={<Schools />} />
-          <Route path="/trips" element={<Trips />} />
+          <Route path="/trips" element={<Trips />} /> */
+          <Route path="dashboard" element={<Dashboard />} />
         </Routes>
       </BrowserRouter>
     </div>

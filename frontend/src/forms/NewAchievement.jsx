@@ -37,7 +37,7 @@ const NewAchievement = () => {
 
     return (
         <>
-            <h1 class="form" style={{ margin: 40 }}>New Achievement</h1>
+            <h1 style={{ margin: 40 }}>New Achievement</h1>
             <Form 
                 style={{ margin: 40 }}
                 ref={formRef}

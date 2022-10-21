@@ -33,7 +33,7 @@ const NewDegree = () => {
 
     return (
         <>
-            <h1 class="form" style={{ margin: 40 }}>New Degree</h1>
+            <h1 style={{ margin: 40 }}>New Degree</h1>
             <Form 
                 style={{ margin: 40 }}
                 ref={formRef}

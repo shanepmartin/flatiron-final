@@ -1,5 +1,5 @@
-import { forwardRef, useRef } from "react"
-import { Form, Input, Button, ButtonToolbar, Popover, Whisper } from 'rsuite'
+import { useRef } from "react"
+import { Form, Button, ButtonToolbar, Popover, Whisper } from 'rsuite'
 import { SchemaModel, StringType } from "schema-typed"
 
 const NewTrip = () => {
@@ -34,7 +34,7 @@ const NewTrip = () => {
 
     return (
         <>
-            <h1 class="form" style={{ margin: 40 }}>New Trip</h1>
+            <h1 style={{ margin: 40 }}>New Trip</h1>
             <Form 
                 style={{ margin: 40 }}
                 ref={formRef}

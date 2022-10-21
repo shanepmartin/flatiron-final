@@ -75,3 +75,58 @@
 .sidebar {
   align-content: center;
 }
+
+.btn-primary {
+  color: black;
+  background-color: #FAF9F6;
+}
+
+.dropdown {
+  color: black;
+  font-weight: bold;
+  background-color: #FAF9F6;
+}
+
+.dropdown-toggle-list {
+  color: black;
+  font-weight: bold;
+  background-color: #FAF9F6;
+}
+
+.dropdown-toggle {
+  color: black;
+  font-weight: bold;
+  background-color: #FAF9F6;
+}
+
+.dropdown-select {
+  color: black;
+  font-weight: bold;
+  background-color: #FAF9F6;
+}
+
+.dropdown-menu {
+  background-color: #FAF9F6;
+}
+
+.dropdown-item {
+  background-color: #FAF9F6;
+}
+
+.heading {
+  font-weight: bold;
+  background-color: #FAF9F6;
+}
+
+.btn-primary {
+  background-color: #FAF9F6;
+}
+
+.show-dropdown {
+  background-color: #FAF9F6;
+}
+
+.dashboard-side-bar {
+  background-color: #FAF9F6;
+}
+

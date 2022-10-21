@@ -33,7 +33,7 @@ const NewMemory = () => {
 
     return (
         <>
-            <h1 class="form" style={{ margin: 40 }}>New Memory</h1>
+            <h1 style={{ margin: 40 }}>New Memory</h1>
             <Form 
                 style={{ margin: 40 }}
                 ref={formRef}

@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux"
 import { setUser } from "../auth/UserState"
@@ -58,7 +58,7 @@ const Login = () => {
                 localStorage.setItem('token', data.token)
                 dispatch(setUser(data.user))
                 // need to navigate to the profile next...
-                navigate('/profile')
+                navigate('dashboard')
             });
 
         // view the login info in the console...
@@ -73,7 +73,7 @@ const Login = () => {
     return (
         <div className="Login">
             <div>
-                <h1>LogIn</h1>
+                <h1>BackPocket</h1>
                 <form onSubmit={e => loginSubmit(e)}>
                     <input
                         onChange={loginChange}
@@ -91,6 +91,7 @@ const Login = () => {
                     />
                     <input type="submit" />
                 </form>
+                <button onClick={() => navigate('/signup')}>SignUp</button>
             </div>
         </div>
     )

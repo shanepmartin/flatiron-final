@@ -1,6 +1,5 @@
-import { Container, Content, Panel, FlexboxGrid, } from 'rsuite';
-import Login from "../auth/Login";
-import SignUp from "../auth/SignUp";
+import { Container, Content, Panel, FlexboxGrid } from 'rsuite';
+// import Login from "../auth/Login";
 
 const LandingHero = () => {
 
@@ -10,7 +9,7 @@ const LandingHero = () => {
                 <FlexboxGrid justify="center">
                     <FlexboxGrid.Item colspan={12}>
                         <Panel header={<h3>BackPocket</h3>} bordered>
-                            <Login />
+                            {/* <Login /> */}
                         </Panel>
                     </FlexboxGrid.Item>
                 </FlexboxGrid>
