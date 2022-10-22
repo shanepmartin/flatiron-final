@@ -31,40 +31,43 @@ const NewDegree = () => {
         level: StringType().isRequired("please enter the degree level"),
     })
 
+    const styles = {
+        display: 'inline-table'
+    }
+
     return (
         <>
-            <h1 style={{ margin: 40 }}>New Degree</h1>
-            <Form 
-                style={{ margin: 40 }}
-                ref={formRef}
-                model={model}
-                onSubmit={handleDegreeSubmit}
-                fluid
-            >
-                <Form.Group controlId='name'>
-                    <Form.ControlLabel>Degree</Form.ControlLabel>
-                    <Form.Control name='name' />
-                    <Form.HelpText tooltip>Degree</Form.HelpText>
-                </Form.Group>
-                <Form.Group controlId='date'>
-                    <Form.ControlLabel>level</Form.ControlLabel>
-                    <Form.Control name='date' />
-                    <Form.HelpText tooltip>level</Form.HelpText>
-                </Form.Group>
-                <ButtonToolbar>
-                    <Whisper
-                        placement='right'
-                        trigger='active'
-                        speaker={<Popover arrow={false}>Submitted!</Popover>}>
-                        <Button appearance='ghost' type='submit'>
-                            Submit
-                        </Button>
-
-                    </Whisper>
-
-                </ButtonToolbar>
-
-            </Form>
+            <div className="form-heading-div" style={styles}>
+            <h1 className="form-new-heading">New Degree</h1>
+                <Form 
+                    className="form-new"
+                    ref={formRef}
+                    model={model}
+                    onSubmit={handleDegreeSubmit}
+                    fluid
+                >
+                    <Form.Group controlId='name'>
+                        <Form.ControlLabel>degree</Form.ControlLabel>
+                        <Form.Control name='name' />
+                        <Form.HelpText tooltip>please enter the name of the degree you received </Form.HelpText>
+                    </Form.Group>
+                    <Form.Group controlId='date'>
+                        <Form.ControlLabel>level</Form.ControlLabel>
+                        <Form.Control name='date' />
+                        <Form.HelpText tooltip>please enter the level of the degree you received</Form.HelpText>
+                    </Form.Group>
+                    <ButtonToolbar>
+                        <Whisper
+                            placement='right'
+                            trigger='active'
+                            speaker={<Popover arrow={false}>Submitted!</Popover>}>
+                            <Button appearance='default' type='submit'>
+                                Submit
+                            </Button>
+                        </Whisper>
+                    </ButtonToolbar>
+                </Form>
+            </div>
         </>
     )
 }

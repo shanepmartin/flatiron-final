@@ -34,45 +34,48 @@ const NewFeel = () => {
         entry: StringType().isRequired("make an entry, share your feels!")
     })
 
+    const styles = {
+        display: 'inline-table'
+    }
+
     return (
         <>
-            <h1 style={{ margin: 40 }}>New Feel</h1>
-            <Form 
-                style={{ margin: 40 }}
-                ref={formRef}
-                model={model}
-                onSubmit={handleFeelSubmit}
-                fluid
-            >
-                <Form.Group controlId='date'>
-                    <Form.ControlLabel>Date</Form.ControlLabel>
-                    <Form.Control name='date' />
-                    <Form.HelpText tooltip>Date</Form.HelpText>
-                </Form.Group>
-                <Form.Group controlId='time'>
-                    <Form.ControlLabel>Time</Form.ControlLabel>
-                    <Form.Control name='time' />
-                    <Form.HelpText tooltip>Time</Form.HelpText>
-                </Form.Group>
-                <Form.Group controlId='entry'>
-                    <Form.ControlLabel>Entry</Form.ControlLabel>
-                    <Form.Control rows={13} name='entry' accepter={Textarea} />
-                    <Form.HelpText tooltip>Entry</Form.HelpText>
-                </Form.Group>
-                <ButtonToolbar>
-                    <Whisper
-                        placement='right'
-                        trigger='active'
-                        speaker={<Popover arrow={false}>Clicked</Popover>}>
-                        <Button appearance='ghost' type='submit'>
-                            Submit
-                        </Button>
-
-                    </Whisper>
-
-                </ButtonToolbar>
-
-            </Form>
+            <div className="form-heading-div" style={styles}>
+                <h1 className="form-new-heading">New Feel</h1>
+                <Form 
+                    className="form-new"
+                    ref={formRef}
+                    model={model}
+                    onSubmit={handleFeelSubmit}
+                    fluid
+                >
+                    <Form.Group controlId='date'>
+                        <Form.ControlLabel>date</Form.ControlLabel>
+                        <Form.Control name='date' />
+                        <Form.HelpText tooltip>please enter today's date</Form.HelpText>
+                    </Form.Group>
+                    <Form.Group controlId='time'>
+                        <Form.ControlLabel>time</Form.ControlLabel>
+                        <Form.Control name='time' />
+                        <Form.HelpText tooltip>please enter the current time</Form.HelpText>
+                    </Form.Group>
+                    <Form.Group controlId='entry'>
+                        <Form.ControlLabel>entry</Form.ControlLabel>
+                        <Form.Control rows={13} name='entry' accepter={Textarea} />
+                        <Form.HelpText tooltip>let out your feely feels</Form.HelpText>
+                    </Form.Group>
+                    <ButtonToolbar>
+                        <Whisper
+                            placement='right'
+                            trigger='active'
+                            speaker={<Popover arrow={false}>Clicked</Popover>}>
+                            <Button appearance='default' type='submit'>
+                                Submit
+                            </Button>
+                        </Whisper>
+                    </ButtonToolbar>
+                </Form>
+            </div>
         </>
     )
 }

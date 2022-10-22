@@ -35,50 +35,53 @@ const NewAchievement = () => {
         description: StringType().isRequired("please enter a description")
     })
 
+    const styles = {
+        display: 'inline-table'
+    }
+
     return (
         <>
-            <h1 style={{ margin: 40 }}>New Achievement</h1>
-            <Form 
-                style={{ margin: 40 }}
-                ref={formRef}
-                model={model}
-                onSubmit={handleAchievementSubmit}
-                fluid
-            >
-                <Form.Group controlId='name'>
-                    <Form.ControlLabel>Achievement</Form.ControlLabel>
-                    <Form.Control name='name' />
-                    <Form.HelpText tooltip>Achievement</Form.HelpText>
-                </Form.Group>
-                <Form.Group controlId='date'>
-                    <Form.ControlLabel>date</Form.ControlLabel>
-                    <Form.Control name='date' />
-                    <Form.HelpText tooltip>date</Form.HelpText>
-                </Form.Group>
-                <Form.Group controlId='category'>
-                    <Form.ControlLabel>category</Form.ControlLabel>
-                    <Form.Control name='category' />
-                    <Form.HelpText tooltip>category</Form.HelpText>
-                </Form.Group>
-                <Form.Group controlId='description'>
-                    <Form.ControlLabel>description</Form.ControlLabel>
-                    <Form.Control name='description' />
-                    <Form.HelpText tooltip>description</Form.HelpText>
-                </Form.Group>
-                <ButtonToolbar>
-                    <Whisper
-                        placement='right'
-                        trigger='active'
-                        speaker={<Popover arrow={false}>Submitted!</Popover>}>
-                        <Button appearance='ghost' type='submit'>
-                            Submit
-                        </Button>
-
-                    </Whisper>
-
-                </ButtonToolbar>
-
-            </Form>
+            <div className="form-heading-div" style={styles}>
+                <h1 className="form-new-heading">New Achievement</h1>
+                <Form 
+                    className="form-new"
+                    ref={formRef}
+                    model={model}
+                    onSubmit={handleAchievementSubmit}
+                    fluid
+                >
+                    <Form.Group controlId='name'>
+                        <Form.ControlLabel>name</Form.ControlLabel>
+                        <Form.Control name='name' />
+                        <Form.HelpText tooltip>please enter the name of your achievement</Form.HelpText>
+                    </Form.Group>
+                    <Form.Group controlId='date'>
+                        <Form.ControlLabel>date</Form.ControlLabel>
+                        <Form.Control name='date' />
+                        <Form.HelpText tooltip>please enter the date you made your achievement</Form.HelpText>
+                    </Form.Group>
+                    <Form.Group controlId='category'>
+                        <Form.ControlLabel>category</Form.ControlLabel>
+                        <Form.Control name='category' />
+                        <Form.HelpText tooltip>please enter the category of your achievement</Form.HelpText>
+                    </Form.Group>
+                    <Form.Group controlId='description'>
+                        <Form.ControlLabel>description</Form.ControlLabel>
+                        <Form.Control name='description' />
+                        <Form.HelpText tooltip>please enter a description of your achievement</Form.HelpText>
+                    </Form.Group>
+                    <ButtonToolbar>
+                        <Whisper
+                            placement='right'
+                            trigger='active'
+                            speaker={<Popover arrow={false}>Submitted!</Popover>}>
+                            <Button appearance='default' type='submit'>
+                                Submit
+                            </Button>
+                        </Whisper>
+                    </ButtonToolbar>
+                </Form>
+            </div>
         </>
     )
 }

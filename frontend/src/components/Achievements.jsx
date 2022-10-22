@@ -1,5 +1,6 @@
 import NewAchievement from "../forms/NewAchievement"
 import DashBoardSideBar from "../dashboard/DashboardSideBar";
+import DashboardHeader from "../dashboard/DashboardHeader";
 import { useState } from "react"
 
 const Achievements = () => {
@@ -8,6 +9,11 @@ const Achievements = () => {
     const [expanded, setExpand] = useState(true);
     return (
         <>
+            <DashboardHeader
+                appearance="subtle"
+                activeKey={activeKey}
+                onSelect={setActiveKey}
+            />
             <DashBoardSideBar 
                 activeKey={activeKey}
                 openKeys={openKeys}

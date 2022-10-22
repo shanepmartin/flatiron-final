@@ -23,7 +23,6 @@ const NewContact = () => {
             console.log(data)           
         })
     }
-
    
     const formRef = useRef()
 
@@ -33,45 +32,48 @@ const NewContact = () => {
         address: StringType().isRequired("please enter an address")
     })
 
+    const styles = {
+        display: 'inline-table'
+    }
+
     return (
         <>
-            <h1 style={{ margin: 40 }}>New Contact</h1>
-            <Form 
-                style={{ margin: 40 }}
-                ref={formRef}
-                model={model}
-                onSubmit={handleContactSubmit}
-                fluid
-            >
-                <Form.Group controlId='name'>
-                    <Form.ControlLabel>Contact Name</Form.ControlLabel>
-                    <Form.Control name='name' />
-                    <Form.HelpText tooltip>Contact Name is required</Form.HelpText>
-                </Form.Group>
-                <Form.Group controlId='phone'>
-                    <Form.ControlLabel>Phone Number</Form.ControlLabel>
-                    <Form.Control name='phone' />
-                    <Form.HelpText tooltip>Phone Number</Form.HelpText>
-                </Form.Group>
-                <Form.Group controlId='address'>
-                    <Form.ControlLabel>Address</Form.ControlLabel>
-                    <Form.Control name='address' />
-                    <Form.HelpText tooltip>Address</Form.HelpText>
-                </Form.Group>
-                <ButtonToolbar>
-                    <Whisper
-                        placement='right'
-                        trigger='active'
-                        speaker={<Popover arrow={false}>Submitted!</Popover>}>
-                        <Button appearance='ghost' type='submit'>
-                            Submit
-                        </Button>
-
-                    </Whisper>
-
-                </ButtonToolbar>
-
-            </Form>
+            <div className="form-heading-div" style={styles}>
+                <h1 className="form-new-heading">Add Contact</h1>
+                <Form 
+                    className="form-new"
+                    ref={formRef}
+                    model={model}
+                    onSubmit={handleContactSubmit}
+                    fluid
+                >
+                    <Form.Group controlId='name'>
+                        <Form.ControlLabel>Name</Form.ControlLabel>
+                        <Form.Control name='name' />
+                        <Form.HelpText tooltip>please enter the name of your new contact</Form.HelpText>
+                    </Form.Group>
+                    <Form.Group controlId='phone'>
+                        <Form.ControlLabel>Phone Number</Form.ControlLabel>
+                        <Form.Control name='phone' />
+                        <Form.HelpText tooltip>please enter the phone number of your new contact</Form.HelpText>
+                    </Form.Group>
+                    <Form.Group controlId='address'>
+                        <Form.ControlLabel>Address</Form.ControlLabel>
+                        <Form.Control name='address' />
+                        <Form.HelpText tooltip>please enter the address of your new contact</Form.HelpText>
+                    </Form.Group>
+                    <ButtonToolbar>
+                        <Whisper
+                            placement='right'
+                            trigger='active'
+                            speaker={<Popover arrow={false}>Submitted!</Popover>}>
+                            <Button appearance='default' type='submit'>
+                                Submit
+                            </Button>
+                        </Whisper>
+                    </ButtonToolbar>
+                </Form>
+            </div>
         </>
     )
 }

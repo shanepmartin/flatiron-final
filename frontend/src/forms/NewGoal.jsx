@@ -35,50 +35,57 @@ const NewGoal = () => {
         description: StringType().isRequired("please enter a description")
     })
 
+    const styles = {
+        display: 'inline-table'
+    }
+
     return (
         <>
-            <h1 style={{ margin: 40 }}>New Goal</h1>
-            <Form 
-                style={{ margin: 40 }}
-                ref={formRef}
-                model={model}
-                onSubmit={handleGoalSubmit}
-                fluid
-            >
-                <Form.Group controlId='name'>
-                    <Form.ControlLabel>Goal</Form.ControlLabel>
-                    <Form.Control name='name' />
-                    <Form.HelpText tooltip>Goal</Form.HelpText>
-                </Form.Group>
-                <Form.Group controlId='date'>
-                    <Form.ControlLabel>date</Form.ControlLabel>
-                    <Form.Control name='date' />
-                    <Form.HelpText tooltip>date</Form.HelpText>
-                </Form.Group>
-                <Form.Group controlId='category'>
-                    <Form.ControlLabel>category</Form.ControlLabel>
-                    <Form.Control name='category' />
-                    <Form.HelpText tooltip>category</Form.HelpText>
-                </Form.Group>
-                <Form.Group controlId='description'>
-                    <Form.ControlLabel>description</Form.ControlLabel>
-                    <Form.Control name='description' />
-                    <Form.HelpText tooltip>description</Form.HelpText>
-                </Form.Group>
-                <ButtonToolbar>
-                    <Whisper
-                        placement='right'
-                        trigger='active'
-                        speaker={<Popover arrow={false}>Submitted!</Popover>}>
-                        <Button appearance='ghost' type='submit'>
-                            Submit
-                        </Button>
-
-                    </Whisper>
-
-                </ButtonToolbar>
-
-            </Form>
+            <div className="form-heading-div" style={styles}>
+                <h1 className="form-new-heading">New Goal</h1>
+                <Form 
+                    className="form-new"
+                    ref={formRef}
+                    model={model}
+                    onSubmit={handleGoalSubmit}
+                    fluid
+                >
+                    <Form.Group controlId='name'>
+                        <Form.ControlLabel>goal</Form.ControlLabel>
+                        <Form.Control name='name' />
+                        <Form.HelpText tooltip>please enter the name of the goal you want to achieve</Form.HelpText>
+                    </Form.Group>
+                    <Form.Group controlId='date'>
+                        <Form.ControlLabel>date</Form.ControlLabel>
+                        <Form.Control name='date' />
+                        <Form.HelpText tooltip>please enter today's date</Form.HelpText>
+                    </Form.Group>
+                    <Form.Group controlId='category'>
+                        <Form.ControlLabel>category</Form.ControlLabel>
+                        <Form.Control name='category' />
+                        <Form.HelpText tooltip>please enter the category of your goal</Form.HelpText>
+                    </Form.Group>
+                    <Form.Group controlId='description'>
+                        <Form.ControlLabel>description</Form.ControlLabel>
+                        <Form.Control name='description' />
+                        <Form.HelpText tooltip>please enter a description of your goal</Form.HelpText>
+                    </Form.Group>
+                    <ButtonToolbar>
+                        <Whisper
+                            placement='right'
+                            trigger='active'
+                            speaker={<Popover arrow={false}>Submitted!</Popover>}>
+                            <Button 
+                                appearance='default' 
+                                type='submit'
+                                size='lg'
+                            >
+                                Submit
+                            </Button>
+                        </Whisper>
+                    </ButtonToolbar>
+                </Form>
+            </div>
         </>
     )
 }

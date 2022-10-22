@@ -1,4 +1,5 @@
 import NewContact from "../forms/NewContact";
+import DashboardHeader from "../dashboard/DashboardHeader";
 import DashBoardSideBar from "../dashboard/DashboardSideBar";
 import { useState } from "react"
 
@@ -8,6 +9,11 @@ const Contacts = () => {
     const [expanded, setExpand] = useState(true);
     return (
         <>
+            <DashboardHeader
+                appearance="subtle"
+                activeKey={activeKey}
+                onSelect={setActiveKey}
+            />
             <DashBoardSideBar
                 activeKey={activeKey}
                 openKeys={openKeys}

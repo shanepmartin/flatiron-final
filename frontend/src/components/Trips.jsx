@@ -1,4 +1,5 @@
 import NewTrip from "../forms/NewTrip"
+import DashboardHeader from "../dashboard/DashboardHeader";
 import DashBoardSideBar from "../dashboard/DashboardSideBar";
 import { useState } from "react"
 
@@ -8,6 +9,11 @@ const Trips = () => {
     const [expanded, setExpand] = useState(true);
     return (
         <>
+            <DashboardHeader
+                appearance="subtle"
+                activeKey={activeKey}
+                onSelect={setActiveKey}
+            />
             <DashBoardSideBar
                 activeKey={activeKey}
                 openKeys={openKeys}

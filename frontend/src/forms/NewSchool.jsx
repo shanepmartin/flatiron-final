@@ -33,45 +33,48 @@ const NewSchool = () => {
         date: StringType().isRequired(" please enter the dates you attended ")
     })
 
+    const styles = {
+        display: 'inline-table'
+    }
+
     return (
         <>
-            <h1 style={{ margin: 40 }}>New School</h1>
-            <Form 
-                style={{ margin: 40 }}
-                ref={formRef}
-                model={model}
-                onSubmit={handleSchoolSubmit}
-                fluid
-            >
-                <Form.Group controlId='name'>
-                    <Form.ControlLabel>School</Form.ControlLabel>
-                    <Form.Control name='name' />
-                    <Form.HelpText tooltip>School Name</Form.HelpText>
-                </Form.Group>
-                <Form.Group controlId='location'>
-                    <Form.ControlLabel>location</Form.ControlLabel>
-                    <Form.Control name='location' />
-                    <Form.HelpText tooltip>location</Form.HelpText>
-                </Form.Group>
-                <Form.Group controlId='date'>
-                    <Form.ControlLabel>date</Form.ControlLabel>
-                    <Form.Control name='date' />
-                    <Form.HelpText tooltip>dates attended</Form.HelpText>
-                </Form.Group>
-                <ButtonToolbar>
-                    <Whisper
-                        placement='right'
-                        trigger='active'
-                        speaker={<Popover arrow={false}>Submitted!</Popover>}>
-                        <Button appearance='ghost' type='submit'>
-                            Submit
-                        </Button>
-
-                    </Whisper>
-
-                </ButtonToolbar>
-
-            </Form>
+            <div className="form-heading-div" style={styles}>
+                <h1 className="form-new-heading">New School</h1>
+                <Form 
+                    className="form-new"
+                    ref={formRef}
+                    model={model}
+                    onSubmit={handleSchoolSubmit}
+                    fluid
+                >
+                    <Form.Group controlId='name'>
+                        <Form.ControlLabel>school</Form.ControlLabel>
+                        <Form.Control name='name' />
+                        <Form.HelpText tooltip>please enter then name of the school you attended</Form.HelpText>
+                    </Form.Group>
+                    <Form.Group controlId='location'>
+                        <Form.ControlLabel>location</Form.ControlLabel>
+                        <Form.Control name='location' />
+                        <Form.HelpText tooltip>please enter the location of the school you attended</Form.HelpText>
+                    </Form.Group>
+                    <Form.Group controlId='date'>
+                        <Form.ControlLabel>date</Form.ControlLabel>
+                        <Form.Control name='date' />
+                        <Form.HelpText tooltip>please enter the date range you attended the school</Form.HelpText>
+                    </Form.Group>
+                    <ButtonToolbar>
+                        <Whisper
+                            placement='right'
+                            trigger='active'
+                            speaker={<Popover arrow={false}>Submitted!</Popover>}>
+                            <Button appearance='default' type='submit'>
+                                Submit
+                            </Button>
+                        </Whisper>
+                    </ButtonToolbar>
+                </Form>
+            </div>
         </>
     )
 }

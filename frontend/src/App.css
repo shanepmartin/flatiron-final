@@ -1,5 +1,8 @@
 .App {
   background-color: #FAF9F6;
+  width: 100%;
+  height: 100%;
+  position: absolute;
 }
 
 .App-logo {
@@ -81,52 +84,67 @@
   background-color: #FAF9F6;
 }
 
-.dropdown {
-  color: black;
-  font-weight: bold;
-  background-color: #FAF9F6;
-}
-
-.dropdown-toggle-list {
-  color: black;
-  font-weight: bold;
-  background-color: #FAF9F6;
-}
-
-.dropdown-toggle {
-  color: black;
-  font-weight: bold;
-  background-color: #FAF9F6;
-}
-
-.dropdown-select {
-  color: black;
-  font-weight: bold;
-  background-color: #FAF9F6;
-}
-
-.dropdown-menu {
-  background-color: #FAF9F6;
-}
-
-.dropdown-item {
-  background-color: #FAF9F6;
-}
-
-.heading {
-  font-weight: bold;
-  background-color: #FAF9F6;
-}
-
-.btn-primary {
-  background-color: #FAF9F6;
-}
-
-.show-dropdown {
-  background-color: #FAF9F6;
-}
-
 .dashboard-side-bar {
   background-color: #FAF9F6;
+  font-size: 23px;
+}
+
+.rs-sidenav-toggle-button {
+  background-color: #FAF9F6;
+  font-size: 23px;
+}
+
+.toggle-button {
+  background-color: #FAF9F6;
+}
+
+.form-heading-div {
+  width: 66%;
+  height: 66%;
+  display: 'inline-table';
+  position: relative;
+}
+
+.form-new-heading {
+  text-align: center;
+}
+
+.form-new {
+  margin-top: 56px;
+  margin-left: 235px;
+  margin-right: 235px;
+  position: relative;
+  font-size: 23px;
+}
+
+.dashboard-header {
+  font-size: 23px;
+}
+
+.nav {
+  font-size: 23px;
+}
+
+.sidenav-body {
+  font-size: 23px;
+}
+
+.nav-item {
+  font-size: 23px;
+}
+
+.nav-menu {
+  font-size: 23px;
+}
+
+.rs-dropdown {
+  font-size: 23px;
+}
+
+.date-and-time {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  margin-left: 1000px;
+  margin-right: 1000px;
 }
 

@@ -32,45 +32,48 @@ const NewTrip = () => {
         date: StringType().isRequired("describe your trip !")
     })
 
+    const styles = {
+        display: 'inline-table'
+    }
+
     return (
         <>
-            <h1 style={{ margin: 40 }}>New Trip</h1>
-            <Form 
-                style={{ margin: 40 }}
-                ref={formRef}
-                model={model}
-                onSubmit={handleTripSubmit}
-                fluid
-            >
-                <Form.Group controlId='country'>
-                    <Form.ControlLabel>country</Form.ControlLabel>
-                    <Form.Control country='country' />
-                    <Form.HelpText tooltip>what country did you go to ?</Form.HelpText>
-                </Form.Group>
-                <Form.Group controlId='city'>
-                    <Form.ControlLabel>city</Form.ControlLabel>
-                    <Form.Control country='city' />
-                    <Form.HelpText tooltip>what city did you go to ?</Form.HelpText>
-                </Form.Group>
-                <Form.Group controlId='date'>
-                    <Form.ControlLabel>date</Form.ControlLabel>
-                    <Form.Control country='date' />
-                    <Form.HelpText tooltip>when did you go ?</Form.HelpText>
-                </Form.Group>
-                <ButtonToolbar>
-                    <Whisper
-                        placement='right'
-                        trigger='active'
-                        speaker={<Popover arrow={false}>Clicked</Popover>}>
-                        <Button appearance='ghost' type='submit'>
-                            Submit
-                        </Button>
-
-                    </Whisper>
-
-                </ButtonToolbar>
-
-            </Form>
+            <div className="form-heading-div" style={styles}>
+                <h1 className="form-new-heading">New Trip</h1>
+                <Form 
+                    className="form-new"
+                    ref={formRef}
+                    model={model}
+                    onSubmit={handleTripSubmit}
+                    fluid
+                >
+                    <Form.Group controlId='country'>
+                        <Form.ControlLabel>country</Form.ControlLabel>
+                        <Form.Control country='country' />
+                        <Form.HelpText tooltip>what country did you go to ?</Form.HelpText>
+                    </Form.Group>
+                    <Form.Group controlId='city'>
+                        <Form.ControlLabel>city</Form.ControlLabel>
+                        <Form.Control country='city' />
+                        <Form.HelpText tooltip>what city did you go to ?</Form.HelpText>
+                    </Form.Group>
+                    <Form.Group controlId='date'>
+                        <Form.ControlLabel>date</Form.ControlLabel>
+                        <Form.Control country='date' />
+                        <Form.HelpText tooltip>when did you go ?</Form.HelpText>
+                    </Form.Group>
+                    <ButtonToolbar>
+                        <Whisper
+                            placement='right'
+                            trigger='active'
+                            speaker={<Popover arrow={false}>Clicked</Popover>}>
+                            <Button appearance='default' type='submit'>
+                                Submit
+                            </Button>
+                        </Whisper>
+                    </ButtonToolbar>
+                </Form>
+            </div>
         </>
     )
 }

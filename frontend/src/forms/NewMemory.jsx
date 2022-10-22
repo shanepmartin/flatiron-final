@@ -31,40 +31,43 @@ const NewMemory = () => {
         description: StringType().isRequired("please enter a description")
     })
 
+    const styles = {
+        display: 'inline-table'
+    }
+
     return (
         <>
-            <h1 style={{ margin: 40 }}>New Memory</h1>
-            <Form 
-                style={{ margin: 40 }}
-                ref={formRef}
-                model={model}
-                onSubmit={handleMemorySubmit}
-                fluid
-            >
-                <Form.Group controlId='name'>
-                    <Form.ControlLabel>Memory</Form.ControlLabel>
-                    <Form.Control name='name' />
-                    <Form.HelpText tooltip>Memory</Form.HelpText>
-                </Form.Group>
-                <Form.Group controlId='description'>
-                    <Form.ControlLabel>description</Form.ControlLabel>
-                    <Form.Control name='description' />
-                    <Form.HelpText tooltip>description</Form.HelpText>
-                </Form.Group>
-                <ButtonToolbar>
-                    <Whisper
-                        placement='right'
-                        trigger='active'
-                        speaker={<Popover arrow={false}>Submitted!</Popover>}>
-                        <Button appearance='ghost' type='submit'>
-                            Submit
-                        </Button>
-
-                    </Whisper>
-
-                </ButtonToolbar>
-
-            </Form>
+            <div className="form-heading-div" style={styles}>
+                <h1 className="form-new-heading">New Memory</h1>
+                <Form 
+                    className="form-new"
+                    ref={formRef}
+                    model={model}
+                    onSubmit={handleMemorySubmit}
+                    fluid
+                >
+                    <Form.Group controlId='name'>
+                        <Form.ControlLabel>memory</Form.ControlLabel>
+                        <Form.Control name='name' />
+                        <Form.HelpText tooltip>please give your memory a name</Form.HelpText>
+                    </Form.Group>
+                    <Form.Group controlId='description'>
+                        <Form.ControlLabel>description</Form.ControlLabel>
+                        <Form.Control name='description' />
+                        <Form.HelpText tooltip>please provide a description of your memory</Form.HelpText>
+                    </Form.Group>
+                    <ButtonToolbar>
+                        <Whisper
+                            placement='right'
+                            trigger='active'
+                            speaker={<Popover arrow={false}>Submitted!</Popover>}>
+                            <Button appearance='default' type='submit'>
+                                Submit
+                            </Button>
+                        </Whisper>
+                    </ButtonToolbar>
+                </Form>
+            </div>
         </>
     )
 }

@@ -1,83 +1,185 @@
 import { useNavigate } from "react-router-dom"
 import { useState } from "react"
-import { Sidenav, Nav, Toggle } from 'rsuite';
+import { Sidenav, Nav } from 'rsuite';
+// import "../style.css"
 
-const DashBoardSideBar = () => {
+const styles = {
+    width: 340,
+    display: 'inline-table',
+    marginRight: 10
+};
+
+const DashBoardSideBar = ({appearance}) => {
 
     let navigate = useNavigate()
 
     const [expanded, setExpanded] = useState(false);
     const [activeKey, setActiveKey] = useState('1');
     return (
-        <div className="dashboard-side-bar" style={{ width: 240 }}>
-            <hr />
-            <Sidenav expanded={expanded}>
-                <Sidenav.Body>
-                    <Nav activeKey={activeKey} onSelect={setActiveKey}>
-                        <Nav.Item className="dropdown" eventKey="1" >
-                            Dashboard
-                        </Nav.Item>
-                        <Nav.Menu
-                            placement="rightStart"
-                            eventKey="2"
-                            title="Goals"
-                        >
-                            <Nav.Item eventKey="2-1">Add Goal</Nav.Item>
-                            <Nav.Item eventKey="2-2">Goals Log</Nav.Item>
-                        </Nav.Menu>
-                        <Nav.Menu
-                            placement="rightStart"
-                            eventKey="3"
-                            title="Achievements"
-                        >
-                            <Nav.Item eventKey="3-1">Add Achievements</Nav.Item>
-                            <Nav.Item eventKey="3-2">Achievements Log</Nav.Item>
-                        </Nav.Menu>
-                        <Nav.Menu
-                            placement="rightStart"
-                            eventKey="4"
-                            title="Trips"
-                        >
-                            <Nav.Item eventKey="4-1">Add Trip</Nav.Item>
-                            <Nav.Item eventKey="4-2">Trips Log</Nav.Item>
-                            <Nav.Menu eventKey="4-5" title="Memories">
-                                <Nav.Item eventKey="4-5-1">Add Memory</Nav.Item>
-                                <Nav.Item eventKey="4-5-2">Memories Log</Nav.Item>
+        <>
+            <div className="dashboard-side-bar" style={styles}> 
+                <hr />
+                <Sidenav 
+                    // className="side-nav" 
+                    expanded={expanded}
+                    appearance={appearance}
+                >
+                    <Sidenav.Body className="sidenav-body">
+                        <Nav className="nav" activeKey={activeKey} onSelect={setActiveKey}>
+                            <Nav.Item className="nav-item" eventKey="1" >
+                                Dashboard
+                            </Nav.Item>
+                            <Nav.Menu
+                                className="nav-menu"
+                                placement="rightStart"
+                                eventKey="2"
+                                title="Goals"
+                            >
+                                <Nav.Item 
+                                    className="nav-item" 
+                                    eventKey="2-1"
+                                    onClick={() => navigate('/goals')}
+                                    >Add Goal
+                                </Nav.Item>
+                                <Nav.Item 
+                                    className="nav-item" 
+                                    eventKey="2-2"
+                                >Goals Log
+                                </Nav.Item>
                             </Nav.Menu>
-                        </Nav.Menu>
-                        <Nav.Menu
-                            placement="rightStart"
-                            eventKey="5"
-                            title="Studies"
-                        >
-                            <Nav.Item eventKey="5-1">Add Studies</Nav.Item>
-                            <Nav.Item eventKey="5-2">Studies Log</Nav.Item>
-                            <Nav.Menu eventKey="5-5" title="Degrees">
-                                <Nav.Item eventKey="5-5-1">Add Degree</Nav.Item>
-                                <Nav.Item eventKey="5-5-2">Degrees Log</Nav.Item>
+                            <Nav.Menu
+                                className="nav-menu"
+                                placement="rightStart"
+                                eventKey="3"
+                                title="Achievements"
+                            >
+                                <Nav.Item 
+                                    className="nav-item" 
+                                    eventKey="3-1"
+                                    onClick={() => navigate('/achievements')}
+                                    >Add Achievements
+                                </Nav.Item>
+                                <Nav.Item 
+                                    className="nav-item" 
+                                    eventKey="3-2"
+                                    >Achievements Log
+                                </Nav.Item>
                             </Nav.Menu>
-                        </Nav.Menu>
-                        <Nav.Menu
-                            placement="rightStart"
-                            eventKey="6"
-                            title="Contacts"
-                        >
-                            <Nav.Item eventKey="6-1">Add Contact</Nav.Item>
-                            <Nav.Item eventKey="6-2">Contacts Log</Nav.Item>
-                        </Nav.Menu>
-                        <Nav.Menu
-                            placement="rightStart"
-                            eventKey="7"
-                            title="Feels"
-                        >
-                            <Nav.Item eventKey="7-1">Add Feels</Nav.Item>
-                            <Nav.Item eventKey="7-2">Feely Feels</Nav.Item>
-                        </Nav.Menu>
-                    </Nav>
-                </Sidenav.Body>
-                <Sidenav.Toggle expanded={expanded} onToggle={expanded => setExpanded(expanded)} />
-            </Sidenav>
-        </div>
+                            <Nav.Menu
+                                className="nav-menu"
+                                placement="rightStart"
+                                eventKey="4"
+                                title="Trips"
+                            >
+                                <Nav.Item 
+                                    className="nav-item" 
+                                    eventKey="4-1"
+                                    onClick={() => navigate('/trips')}
+                                >Add Trip
+                                </Nav.Item>
+                                <Nav.Item 
+                                    className="nav-item" 
+                                    eventKey="4-2"
+                                >Trips Log
+                                </Nav.Item>
+                                <Nav.Menu 
+                                    className="nav-menu" 
+                                    eventKey="4-5" 
+                                    title="Memories"
+                                >
+                                    <Nav.Item 
+                                        className="nav-item" 
+                                        eventKey="4-5-1"
+                                    >Add Memory
+                                    </Nav.Item>
+                                    <Nav.Item 
+                                        className="nav-item" 
+                                        eventKey="4-5-2"
+                                    >Memories Log
+                                    </Nav.Item>
+                                </Nav.Menu>
+                            </Nav.Menu>
+                            <Nav.Menu
+                                className="nav-menu"
+                                placement="rightStart"
+                                eventKey="5"
+                                title="Studies"
+                            >
+                                <Nav.Item 
+                                    className="nav-item" 
+                                    eventKey="5-1"
+                                    onClick={() => navigate('/schools')}
+                                >Add Studies
+                                </Nav.Item>
+                                <Nav.Item 
+                                    className="nav-item" 
+                                    eventKey="5-2"
+                                >Studies Log
+                                </Nav.Item>
+                                <Nav.Menu 
+                                    className="nav-menu" 
+                                    eventKey="5-5" 
+                                    title="Degrees"
+                                >
+                                    <Nav.Item 
+                                        className="nav-item" 
+                                        eventKey="5-5-1"
+                                        onClick={() => navigate('/degrees')}
+                                    >Add Degree
+                                    </Nav.Item>
+                                    <Nav.Item 
+                                        className="nav-item" 
+                                        eventKey="5-5-2"
+                                    >Degrees Log
+                                    </Nav.Item>
+                                </Nav.Menu>
+                            </Nav.Menu>
+                            <Nav.Menu
+                                className="nav-menu"
+                                placement="rightStart"
+                                eventKey="6"
+                                title="Contacts"
+                            >
+                                <Nav.Item 
+                                    className="nav-item" 
+                                    eventKey="6-1"
+                                    onClick={() => navigate('/contacts')}
+                                >Add Contact
+                                </Nav.Item>
+                                <Nav.Item 
+                                    className="nav-item" 
+                                    eventKey="6-2"
+                                >Contacts Log
+                                </Nav.Item>
+                            </Nav.Menu>
+                            <Nav.Menu
+                                className="nav-menu"
+                                placement="rightStart"
+                                eventKey="7"
+                                title="Feels"
+                            >
+                                <Nav.Item 
+                                    className="nav-item" 
+                                    eventKey="7-1"
+                                    onClick={() => navigate('/feels')}
+                                >Add Feels
+                                </Nav.Item>
+                                <Nav.Item 
+                                    className="nav-item" 
+                                    eventKey="7-2"
+                                >Feely Feels
+                                </Nav.Item>
+                            </Nav.Menu>
+                        </Nav>
+                    </Sidenav.Body>
+                    <Sidenav.Toggle 
+                        className="toggle-button"
+                        expanded={expanded} 
+                        onToggle={expanded => setExpanded(expanded)} 
+                    />
+                </Sidenav>
+            </div>
+        </>
     );
 };
 
