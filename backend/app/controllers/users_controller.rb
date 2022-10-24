@@ -45,7 +45,7 @@ class UsersController < ApplicationController
         render json: users
     end
 
-    # user profile methods...
+    # user profile count methods...
 
     def achievements_count
         token = request.headers["token"]
@@ -92,6 +92,56 @@ class UsersController < ApplicationController
             render json: goals
         else
             render json: { errors: goals.errors.full_messages }, status: 422
+        end
+    end
+
+    # user profile list methods...
+
+    def achievements_list 
+        token = request.headers["token"]
+        user_id = decode_token(token)
+        user = User.find(user_id)
+        if user
+            achievements = user.achievements
+            render json: achievements
+        else
+            render json: { errors: achievements.errors.full_messages }
+        end
+    end
+
+    def contacts_list 
+        token = request.headers["token"]
+        user_id = decode_token(token)
+        user = User.find(user_id)
+        if user
+            contacts = user.contacts
+            render json: contacts
+        else
+            render json: { errors: contacts.errors.full_messages }
+        end
+    end
+
+    def feels_list 
+        token = request.headers["token"]
+        user_id = decode_token(token)
+        user = User.find(user_id)
+        if user
+            feels = user.feels
+            render json: feels
+        else
+            render json: { errors: feels.errors.full_messages }
+        end
+    end
+
+    def goals_list 
+        token = request.headers["token"]
+        user_id = decode_token(token)
+        user = User.find(user_id)
+        if user
+            goals = user.goals
+            render json: goals
+        else
+            render json: { errors: goals.errors.full_messages }
         end
     end
 

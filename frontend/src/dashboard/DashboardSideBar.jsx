@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom"
 import { useState } from "react"
 import { Sidenav, Nav } from 'rsuite';
 // import "../style.css"
+import AchievementsLog from "../lists/AchievementsLog";
 
 const styles = {
     width: 340,
@@ -38,12 +39,13 @@ const DashBoardSideBar = ({appearance}) => {
                                 <Nav.Item 
                                     className="nav-item" 
                                     eventKey="2-1"
-                                    onClick={() => navigate('/goals')}
+                                    onClick={() => navigate('/goals/new')}
                                     >Add Goal
                                 </Nav.Item>
                                 <Nav.Item 
                                     className="nav-item" 
                                     eventKey="2-2"
+                                    onClick={() => navigate('/goals')}
                                 >Goals Log
                                 </Nav.Item>
                             </Nav.Menu>
@@ -56,12 +58,13 @@ const DashBoardSideBar = ({appearance}) => {
                                 <Nav.Item 
                                     className="nav-item" 
                                     eventKey="3-1"
-                                    onClick={() => navigate('/achievements')}
+                                    onClick={() => navigate('/achievements/new')}
                                     >Add Achievements
                                 </Nav.Item>
                                 <Nav.Item 
                                     className="nav-item" 
                                     eventKey="3-2"
+                                    onClick={() => navigate('/achievements')}
                                     >Achievements Log
                                 </Nav.Item>
                             </Nav.Menu>
@@ -143,12 +146,13 @@ const DashBoardSideBar = ({appearance}) => {
                                 <Nav.Item 
                                     className="nav-item" 
                                     eventKey="6-1"
-                                    onClick={() => navigate('/contacts')}
+                                    onClick={() => navigate('/contacts/new')}
                                 >Add Contact
                                 </Nav.Item>
                                 <Nav.Item 
                                     className="nav-item" 
                                     eventKey="6-2"
+                                    onClick={() => navigate('/contacts')}
                                 >Contacts Log
                                 </Nav.Item>
                             </Nav.Menu>
@@ -161,12 +165,13 @@ const DashBoardSideBar = ({appearance}) => {
                                 <Nav.Item 
                                     className="nav-item" 
                                     eventKey="7-1"
-                                    onClick={() => navigate('/feels')}
+                                    onClick={() => navigate('/feels/new')}
                                 >Add Feels
                                 </Nav.Item>
                                 <Nav.Item 
                                     className="nav-item" 
                                     eventKey="7-2"
+                                    onClick={() => navigate('/feels')}
                                 >Feely Feels
                                 </Nav.Item>
                             </Nav.Menu>

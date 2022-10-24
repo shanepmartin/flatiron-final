@@ -12,10 +12,14 @@ import Dashboard from "./views/Dashboard"
 import Profile from "./dashboard/Profile"
 
 import Achievements from "./components/Achievements"
+import AchievementsLog from "./lists/AchievementsLog"
 import Contacts from "./components/Contacts"
+import ContactsLog from "./lists/ContactsLog";
 import Degrees from "./components/Degrees"
 import Feels from "./components/Feels";
+import FeelsLog from "./lists/FeelsLog";
 import Goals from "./components/Goals"
+import GoalsLog from "./lists/GoalsLog";
 import Memories from "./components/Memories"
 import Schools from "./components/Schools"
 import Trips from "./components/Trips";
@@ -37,9 +41,9 @@ const App = () => {
 
   // render user info to the console...
 
-  console.log(user ? "user exists" : "user does not exist")
-  console.log(user ? user : "user doesn't exist")
-  console.log(!user.isLoggedIn ? "user is not logged in" : "user logged in")
+  // console.log(user ? "user exists" : "user does not exist")
+  // console.log(user ? user : "user doesn't exist")
+  // console.log(!user.isLoggedIn ? "user is not logged in" : "user logged in")
 
   // Auto-Login //
   useEffect(() => {
@@ -71,11 +75,15 @@ const App = () => {
           <Route path="/signup" element={<SignUp />} />
           <Route path="/login" element={<Login />} />
           {/* <Route path="/profile" element={<DashBoardSideBar />} /> */}
-          <Route path="/achievements" element={<Achievements />} />
-          <Route path="/contacts" element={<Contacts />} />
+          <Route path="/achievements/new" element={<Achievements />} />
+          <Route path="/achievements" element={<AchievementsLog />} />
+          <Route path="/contacts/new" element={<Contacts />} />
+          <Route path="/contacts" element={<ContactsLog />} />
           <Route path="/degrees" element={<Degrees />} />
-          <Route path="/feels" element={<Feels />} />
-          <Route path="/goals" element={<Goals />} />
+          <Route path="/feels/new" element={<Feels />} />
+          <Route path="/feels" element={<FeelsLog />} />
+          <Route path="/goals/new" element={<Goals />} />
+          <Route path="/goals" element={<GoalsLog />} />
           <Route path="/memories" element={<Memories />} />
           <Route path="/schools" element={<Schools />} />
           <Route path="/trips" element={<Trips />} /> */

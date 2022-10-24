@@ -10,12 +10,21 @@ const Profile = () => {
 
     let navigate = useNavigate();
 
-    console.log('user', user)
+    // state for count methods...
 
     const [goalCount, setGoalCount] = useState();
     const [achievementCount, setAchievementCount] = useState();
     const [feelCount, setFeelCount] = useState();
     const [contactCount, setContactCount] = useState();
+
+    // state for list methods...
+
+    // const [goalArray, setGoalList] = useState([]);
+    // const [achievementArray, setAchievementList] = useState([]);
+    // const [feelArray, setFeelList] = useState([]);
+    // const [contactArray, setContactList] = useState([]);
+
+    // user stats count methods...
 
     const getAchievementsCount = () => {
         let token = localStorage.getItem("token");
@@ -28,7 +37,7 @@ const Profile = () => {
         })
         .then((res) => res.json())
         .then((count) => {
-            console.log(count)
+            console.log('how many achievements?', count)
             setAchievementCount(count)
         })
     }
@@ -44,7 +53,7 @@ const Profile = () => {
         })
         .then((res) => res.json())
         .then((count) => {
-            console.log(count)
+            console.log('how many contacts?', count)
             setContactCount(count)
         })
     }
@@ -60,7 +69,7 @@ const Profile = () => {
         })
         .then((res) => res.json())
         .then((count) => {
-            console.log(count)
+            console.log('how many feels?', count)
             setFeelCount(count)
         })
     }
@@ -76,7 +85,7 @@ const Profile = () => {
         })
         .then((res) => res.json())
         .then((count) => {
-            console.log(count)
+            console.log('how many goals?', count)
             setGoalCount(count)
         })
     }
@@ -87,6 +96,36 @@ const Profile = () => {
         getFeelsCount();
         getContactsCount();
     }, []);
+
+    // user list methods...
+
+    // const getAchievementsList = () => {
+    //     let token = localStorage.getItem("token");
+    //     fetch(`http://localhost:3000/achievements_list/${user.id}`, {
+    //         method: "GET",
+    //         headers: {
+    //             token: token,
+    //             "Content-Type": "application/json"
+    //         },
+    //     })
+    //     .then((res) => res.json())
+    //     .then((list) => {
+    //         console.log('list of achievements', list)
+    //         setAchievementList(list)
+    //     })
+    // }
+
+    // useEffect(() => {
+    //     getAchievementsList();
+    // }, []);
+
+    // const achievementsList = achievementArray.map((achievement) => 
+    //     <li>{achievement}</li>
+    // );
+
+
+
+
 
     return (
         <>
@@ -103,6 +142,7 @@ const Profile = () => {
                         </Panel>
                         <Panel header="Achievements">
                             <h4>Total Achievements: {achievementCount}</h4>
+                            {/* <ul>{achievementsList}</ul> */}
                         </Panel>
                         <Panel header="Trips">
                             <h4>Total Trips: </h4>
