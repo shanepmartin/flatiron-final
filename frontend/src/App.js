@@ -9,6 +9,7 @@ import SignUp from "./auth/SignUp"
 import Login from "./auth/Login"
 
 import Dashboard from "./views/Dashboard"
+import Profile from "./dashboard/Profile"
 
 import Achievements from "./components/Achievements"
 import Contacts from "./components/Contacts"
@@ -67,9 +68,9 @@ const App = () => {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Landing />} /> 
-          {/* <Route path="/signup" element={<SignUp />} />
+          <Route path="/signup" element={<SignUp />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/profile" element={<DashBoardSideBar />} /> */}
+          {/* <Route path="/profile" element={<DashBoardSideBar />} /> */}
           <Route path="/achievements" element={<Achievements />} />
           <Route path="/contacts" element={<Contacts />} />
           <Route path="/degrees" element={<Degrees />} />
@@ -79,6 +80,7 @@ const App = () => {
           <Route path="/schools" element={<Schools />} />
           <Route path="/trips" element={<Trips />} /> */
           <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/profile" element={<Profile />} />
         </Routes>
       </BrowserRouter>
     </div>

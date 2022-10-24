@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
 
-    # standard user methods...
+    # create user methods...
 
     def create # for /signup
         user = User.create!(signup_params)
@@ -48,11 +48,11 @@ class UsersController < ApplicationController
     # user profile methods...
 
     def achievements_count
-        # token = request.headers["token"]
-        # user_id = decode_token(token)
-        user = User.find(params[:id])
-        achievements = user.achievements.length
+        token = request.headers["token"]
+        user_id = decode_token(token)
+        user = User.find(user_id)
         if user
+            achievements = user.achievements.length
             render json: achievements
         else
             render json: { errors: achievements.errors.full_messages }
@@ -60,11 +60,11 @@ class UsersController < ApplicationController
     end
 
     def contacts_count
-        # token = request.headers["token"]
-        # user_id = decode_token(token)
-        user = User.find(params[:id])
-        contacts = user.contacts.length
+        token = request.headers["token"]
+        user_id = decode_token(token)
+        user = User.find(user_id)
         if user
+            contacts = user.contacts.length
             render json: contacts
         else
             render json: { errors: contacts.errors.full_messages }
@@ -72,11 +72,11 @@ class UsersController < ApplicationController
     end
 
     def feels_count
-        # token = request.headers["token"]
-        # user_id = decode_token(token)
-        user = User.find(params[:id])
-        feels = user.feels.length
+        token = request.headers["token"]
+        user_id = decode_token(token)
+        user = User.find(user_id)
         if user
+            feels = user.feels.length
             render json: feels
         else
             render json: { errors: feels.errors.full_messages }
@@ -84,11 +84,11 @@ class UsersController < ApplicationController
     end
 
     def goals_count
-        # token = request.headers["token"]
-        # user_id = decode_token(token)
-        user = User.find(params[:id])
-        goals = user.goals.length
+        token = request.headers["token"]
+        user_id = decode_token(token)
+        user = User.find(user_id)
         if user 
+            goals = user.goals.length
             render json: goals
         else
             render json: { errors: goals.errors.full_messages }, status: 422

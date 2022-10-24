@@ -50,7 +50,7 @@ const SignUp = () => {
             localStorage.setItem('token', data.token)
             dispatch(setUser(data.user))
             // need to navigate to the profile next...
-            navigate('/profile')
+            navigate('/dashboard')
             console.log('signup data', data)
         }); 
 

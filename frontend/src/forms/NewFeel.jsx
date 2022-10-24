@@ -40,7 +40,7 @@ const NewFeel = () => {
 
     return (
         <>
-            <div className="form-heading-div" style={styles}>
+        <div className="form-heading-div" style={styles}>
                 <h1 className="form-new-heading">New Feel</h1>
                 <Form 
                     className="form-new"
