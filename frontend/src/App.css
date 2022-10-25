@@ -112,7 +112,7 @@
 }
 
 .dashboard-header {
-  font-size: 23px;
+  font-size: 33px;
 }
 
 .nav {
@@ -207,4 +207,12 @@
 
 .rs-sidenav-collapse-in {
   font-size: 23px;
+}
+
+.footer {
+    margin-top: 56px;
+    margin-left: 5px;
+    margin-right: 235px;
+    position: relative;
+    font-size: 23px;
 }

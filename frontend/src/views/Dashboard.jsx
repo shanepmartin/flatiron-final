@@ -1,5 +1,6 @@
 import DashBoardSideBar from "../dashboard/DashboardSideBar";
 import DashboardHeader from "../dashboard/DashboardHeader";
+import DashboardFooter from "../dashboard/DashboardFooter"
 
 import { useState } from "react"
 
@@ -18,6 +19,7 @@ const Dashboard = () => {
                 onSelect={setActiveKey}
                 appearance="subtle" 
             />
+            <DashboardFooter />
         </>
     )
 }

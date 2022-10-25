@@ -40,9 +40,9 @@ class ContactsController < ApplicationController
             if params[:address]
                 contact.update(address: params[:address])
             end
-            if params[:user_id]
-            contact.update(user_id: params[:user_id])
-            end
+            # if params[:user_id]
+            # contact.update(user_id: params[:user_id])
+            # end
         else
             render json: { errors: contact.errors.full_messages }
         end

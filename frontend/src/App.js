@@ -15,6 +15,8 @@ import Achievements from "./components/Achievements"
 import AchievementsLog from "./lists/AchievementsLog"
 import Contacts from "./components/Contacts"
 import ContactsLog from "./lists/ContactsLog";
+import UpdateContact from "./forms/UpdateContact";
+import EditContact from "./forms/EditContact";
 import Degrees from "./components/Degrees"
 import Feels from "./components/Feels";
 import FeelsLog from "./lists/FeelsLog";
@@ -34,7 +36,7 @@ import DashBoardSideBar from "./dashboard/DashboardSideBar";
 const App = () => {
 
   const user = useSelector((state) => state.user);
-
+   // state current contact
   const dispatch = useDispatch()
 
   // render user info to the console...
@@ -76,7 +78,7 @@ const App = () => {
           <Route path="/achievements/new" element={<Achievements />} />
           <Route path="/achievements" element={<AchievementsLog />} />
           <Route path="/contacts/new" element={<Contacts />} />
-          <Route path="/contacts/update" element={<Contacts />} />
+          <Route path="/contacts/:id" element={<UpdateContact  />} />
           <Route path="/contacts" element={<ContactsLog />} />
           <Route path="/degrees" element={<Degrees />} />
           <Route path="/feels/new" element={<Feels />} />

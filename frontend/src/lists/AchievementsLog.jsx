@@ -20,11 +20,11 @@ const AchievementsLog = () => {
                 "Content-Type": "application/json"
             },
         })
-            .then((res) => res.json())
-            .then((list) => {
-                console.log('list of achievements', list)
-                setAchievementList(list)
-            })
+        .then((res) => res.json())
+        .then((list) => {
+            console.log('list of achievements', list)
+            setAchievementList(list)
+        })
 
     }
 

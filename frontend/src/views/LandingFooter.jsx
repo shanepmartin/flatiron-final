@@ -1,10 +1,10 @@
 import { Footer, Container, Button } from 'rsuite'
 import { useNavigate } from 'react-router-dom';
 
-const LandingFooter = () => {
+const DashboardFooter = () => {
     let navigate = useNavigate()
     return (
-        <div className="flex w-full component-preview items-center justify-center font-sans">
+        <div className='footer'>
             <Container>
                 <Footer>
                     <Button onClick={() => navigate('/signup')}>SignUp</Button>
@@ -14,4 +14,4 @@ const LandingFooter = () => {
     )
 }
 
-export default LandingFooter;
+export default DashboardFooter;
