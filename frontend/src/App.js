@@ -16,7 +16,6 @@ import AchievementsLog from "./lists/AchievementsLog"
 import Contacts from "./components/Contacts"
 import ContactsLog from "./lists/ContactsLog";
 import UpdateContact from "./forms/UpdateContact";
-import EditContact from "./forms/EditContact";
 import Degrees from "./components/Degrees"
 import Feels from "./components/Feels";
 import FeelsLog from "./lists/FeelsLog";

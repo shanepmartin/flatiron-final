@@ -71,10 +71,10 @@ const Login = () => {
     }
 
     return (
-        <div className="Login">
+        <div className="login">
             <div>
-                <h1>BackPocket</h1>
-                <form onSubmit={e => loginSubmit(e)}>
+                <h1 className="login-heading">BackPocket</h1>
+                <form className="login-form" onSubmit={e => loginSubmit(e)}>
                     <input
                         onChange={loginChange}
                         type="text"
@@ -91,6 +91,8 @@ const Login = () => {
                     />
                     <input type="submit" />
                 </form>
+                <br>
+                </br>
                 <button onClick={() => navigate('/signup')}>SignUp</button>
             </div>
         </div>

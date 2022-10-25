@@ -210,9 +210,46 @@
 }
 
 .footer {
-    margin-top: 56px;
-    margin-left: 5px;
-    margin-right: 235px;
-    position: relative;
-    font-size: 23px;
+  margin-top: 56px;
+  margin-left: 5px;
+  margin-right: 235px;
+  position: relative;
+  font-size: 23px;
 }
+
+.form-update {
+  margin-top: 56px;
+  margin-left: 235px;
+  margin-right: 235px;
+  position: relative;
+  font-size: 23px;
+}
+
+.form-update-heading {
+  text-align: center;
+}
+
+.update-form-div {
+  margin-top: 56px;
+  margin-left: 235px;
+  margin-right: 235px;
+  position: relative;
+  font-size: 23px;
+}
+
+.login {
+  margin-top: 456px;
+  margin-left: 1235px;
+  margin-right: 1235px;
+  position: relative;
+  font-size: 23px;
+}
+
+.login-form {
+  width: 66%;
+  height: 66%;
+  display: 'inline-table';
+  position: relative;
+}
+
+
