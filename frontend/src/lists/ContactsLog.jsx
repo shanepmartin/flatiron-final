@@ -2,6 +2,9 @@ import { useEffect, useState } from "react"
 import { useSelector } from "react-redux"
 import { List, Panel } from 'rsuite';
 
+import DashboardHeader from "../dashboard/DashboardHeader"
+import DashBoardSideBar from "../dashboard/DashboardSideBar"
+
 const ContactsLog = () => {
 
     const user = useSelector((state) => state.user)
@@ -28,9 +31,15 @@ const ContactsLog = () => {
         getcontactsList();
     }, []);
 
+    const styles = {
+        display: 'inline-table'
+    }
+
     return (
         <>
-            <div className="list-title"> Contacts Log
+            <DashboardHeader />
+            <DashBoardSideBar />
+            <div className="list" style={styles}> Contacts Log
                 {contactsArray.map((contact, index) => {
                     return (
                         <Panel>

@@ -4,9 +4,14 @@ import { useNavigate } from "react-router-dom"
 import { PanelGroup, Panel } from 'rsuite'
 import { setUser } from "../auth/UserState"
 
+import DashboardHeader from "./DashboardHeader"
+import DashBoardSideBar from "./DashboardSideBar"
+
 const Profile = () => {
 
     const user = useSelector((state) => state.user)
+
+    const [username, setUsername] = useState();
 
     let navigate = useNavigate();
 
@@ -23,6 +28,22 @@ const Profile = () => {
     // const [achievementArray, setAchievementList] = useState([]);
     // const [feelArray, setFeelList] = useState([]);
     // const [contactArray, setContactList] = useState([]);
+
+    const getUsername = () => {
+        let token = localStorage.getItem("token");
+        fetch(`http://localhost:3000/me`, {
+            method: "GET",
+            headers: {
+                token: token,
+                "Content-Type": "application/json"
+            },
+        })
+        .then((res) => res.json())
+        .then((user) => {
+            console.log('the name of the user is...', user.name)
+            setUsername(user.name)
+        })
+    }
 
     // user stats count methods...
 
@@ -95,65 +116,42 @@ const Profile = () => {
         getAchievementsCount();
         getFeelsCount();
         getContactsCount();
+        getUsername();
     }, []);
 
-    // user list methods...
-
-    // const getAchievementsList = () => {
-    //     let token = localStorage.getItem("token");
-    //     fetch(`http://localhost:3000/achievements_list/${user.id}`, {
-    //         method: "GET",
-    //         headers: {
-    //             token: token,
-    //             "Content-Type": "application/json"
-    //         },
-    //     })
-    //     .then((res) => res.json())
-    //     .then((list) => {
-    //         console.log('list of achievements', list)
-    //         setAchievementList(list)
-    //     })
-    // }
-
-    // useEffect(() => {
-    //     getAchievementsList();
-    // }, []);
-
-    // const achievementsList = achievementArray.map((achievement) => 
-    //     <li>{achievement}</li>
-    // );
-
-
-
+    const styles = {
+        display: 'inline-table'
+    }
 
 
     return (
         <>
-            <div className="profile-heading-div">
-                <h1 className="profile-heading">Profile</h1>
+            <DashboardHeader />
+            <DashBoardSideBar />
+            <div className="profile-div" style={styles}>
+                {/* <h1 className="profile-heading">{username}</h1> */}
                 <div className="user-details">
                     <PanelGroup accordion bordered>
-                        <Panel header="User Details" defaultExpanded>
-                            <h3>Welcome back {user.name} !</h3>
-                            <h4>Refer to your index below...</h4>
+                        <Panel className="panel" header="User Details" defaultExpanded>
+                            <h3>Welcome back {username} !</h3>
+                            <h4>Take a look at your stats below...</h4>
                         </Panel>
-                        <Panel header="Goals">
+                        <Panel className="panel" header="Goals">
                             <h4>Total Goals: {goalCount}</h4>
                         </Panel>
-                        <Panel header="Achievements">
+                        <Panel className="panel" header="Achievements">
                             <h4>Total Achievements: {achievementCount}</h4>
-                            {/* <ul>{achievementsList}</ul> */}
                         </Panel>
-                        <Panel header="Trips">
+                        <Panel className="panel" header="Trips">
                             <h4>Total Trips: </h4>
                         </Panel>
-                        <Panel header="Studies">
+                        <Panel className="panel" header="Studies">
                             <h4>Schools Attended: </h4>
                         </Panel>
-                        <Panel header="Contacts">
+                        <Panel className="panel" header="Contacts">
                             <h4>Total Contacts: {contactCount}</h4>
                         </Panel>
-                        <Panel header="Feels">
+                        <Panel className="panel" header="Feels">
                             <h4>Total Feels: {feelCount}</h4>
                         </Panel>
                     </PanelGroup>

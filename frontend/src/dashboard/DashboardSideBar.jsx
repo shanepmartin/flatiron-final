@@ -2,7 +2,6 @@ import { useNavigate } from "react-router-dom"
 import { useState } from "react"
 import { Sidenav, Nav } from 'rsuite';
 // import "../style.css"
-import AchievementsLog from "../lists/AchievementsLog";
 
 const styles = {
     width: 340,
@@ -19,14 +18,17 @@ const DashBoardSideBar = ({appearance}) => {
     return (
         <>
             <div className="dashboard-side-bar" style={styles}> 
-                <hr />
                 <Sidenav 
                     // className="side-nav" 
                     expanded={expanded}
-                    appearance={appearance}
+                    appearance="subtle"
                 >
                     <Sidenav.Body className="sidenav-body">
-                        <Nav className="nav" activeKey={activeKey} onSelect={setActiveKey}>
+                        <Nav 
+                            className="nav" 
+                            activeKey={activeKey} 
+                            onSelect={setActiveKey}
+                        >
                             <Nav.Item className="nav-item" eventKey="1" >
                                 Dashboard
                             </Nav.Item>

@@ -40,17 +40,6 @@ Rails.application.routes.draw do
   patch '/trips', to: 'trips#update'
 
 
-
-  # get names...
-  
-  # get '/contacts_names', to: 'contacts#names'
-  # get '/feels_entries', to: 'feels#entries'
-  # get '/journeys_names', to: 'journeys#names'
-  # get '/goals_names', to: 'goals#names'
-  # get '/skills_names', to: 'skills#names'
-  # get '/trips_names', to: 'trips_names'
-  # get '/usernames', to: 'users#names'
-
   # user session routes...
   get '/users', to: 'users#index'
   get '/me', to: 'users#me'

@@ -35,8 +35,6 @@ const App = () => {
 
   const user = useSelector((state) => state.user);
 
-  // let navigate = useNavigate();
-
   const dispatch = useDispatch()
 
   // render user info to the console...
@@ -78,6 +76,7 @@ const App = () => {
           <Route path="/achievements/new" element={<Achievements />} />
           <Route path="/achievements" element={<AchievementsLog />} />
           <Route path="/contacts/new" element={<Contacts />} />
+          <Route path="/contacts/update" element={<Contacts />} />
           <Route path="/contacts" element={<ContactsLog />} />
           <Route path="/degrees" element={<Degrees />} />
           <Route path="/feels/new" element={<Feels />} />

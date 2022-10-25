@@ -2,6 +2,9 @@ import { useEffect, useState } from "react"
 import { useSelector } from "react-redux"
 import { List, Panel } from 'rsuite';
 
+import DashboardHeader from "../dashboard/DashboardHeader"
+import DashBoardSideBar from "../dashboard/DashboardSideBar"
+
 const AchievementsLog = () => {
 
     const user = useSelector((state) => state.user)
@@ -29,9 +32,15 @@ const AchievementsLog = () => {
         getAchievementsList();
     }, [] );
 
+    const styles = {
+        display: 'inline-table'
+    }
+
     return (
         <>
-            <div className="list-title"> Achievements Log
+            <DashboardHeader />
+            <DashBoardSideBar />
+            <div className="list" style={styles}>Achievements Log
                 {achievementsArray.map((achievement, index) => {
                     return (
                         <Panel> 

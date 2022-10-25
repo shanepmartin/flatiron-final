@@ -2,6 +2,9 @@ import { useEffect, useState } from "react"
 import { useSelector } from "react-redux"
 import { List, Panel } from 'rsuite';
 
+import DashboardHeader from "../dashboard/DashboardHeader"
+import DashBoardSideBar from "../dashboard/DashboardSideBar"
+
 const GoalsLog = () => {
 
     const user = useSelector((state) => state.user)
@@ -29,9 +32,15 @@ const GoalsLog = () => {
         getGoalsList();
     }, []);
 
+    const styles = {
+        display: 'inline-table'
+    }
+
     return (
         <>
-            <div className="list-title"> Goals Log
+            <DashboardHeader />
+            <DashBoardSideBar />
+            <div className="list" style={styles}> Goals Log
                 {goalsArray.map((goal, index) => {
                     return (
                         <Panel>

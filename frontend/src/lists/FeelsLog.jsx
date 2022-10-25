@@ -2,6 +2,9 @@ import { useEffect, useState } from "react"
 import { useSelector } from "react-redux"
 import { List, Panel } from 'rsuite';
 
+import DashboardHeader from "../dashboard/DashboardHeader"
+import DashBoardSideBar from "../dashboard/DashboardSideBar"
+
 const FeelsLog = () => {
 
     const user = useSelector((state) => state.user)
@@ -29,9 +32,15 @@ const FeelsLog = () => {
         getFeelsList();
     }, []);
 
+    const styles = {
+        display: 'inline-table'
+    }
+
     return (
         <>
-            <div className="list-title"> Feels Log
+            <DashboardHeader />
+            <DashBoardSideBar />
+            <div className="list" style={styles}> Feels Log
                 {feelsArray.map((feel, index) => {
                     return (
                         <Panel>

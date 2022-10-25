@@ -1,5 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit"
 
+import { useState } from "react"
+
 export const userSlice = createSlice({
 
     name: "user",
@@ -20,6 +22,7 @@ export const userSlice = createSlice({
         }
     },
 });
+
 
 export const { setUser, logout } = userSlice.actions;
 

@@ -28,23 +28,23 @@ class ContactsController < ApplicationController
         end
     end
 
-    def update
-        token = request.headers["token"]
-        user_id = decode_token(token)
-        user = User.find(user_id)
-        if user
-            contact = Contact.find_by!(id: params[:id])
-            if contact
-                if params[:name]
-                    contact.update(name: params[:name])
-                end
-                if params[:phone_number]
-                    contact.update(phone_number: params[:phone_number])
-                end
-                if params[:address]
-                    contact.update(address: params[:address])
-                end
+    def update 
+        contact = Contact.find_by!(id: params[:id])
+        if contact
+            if params[:name]
+                contact.update(name: params[:name])
             end
+            if params[:phone_number]
+                contact.update(phone_number: params[:phone_number])
+            end
+            if params[:address]
+                contact.update(address: params[:address])
+            end
+            if params[:user_id]
+            contact.update(user_id: params[:user_id])
+            end
+        else
+            render json: { errors: contact.errors.full_messages }
         end
     end
 

@@ -11,7 +11,7 @@ const DashboardHeader = ({ onSelect, activeKey, ...props }) => {
     
     return (
         <div className="dashboard-header">
-            <Navbar {...props}>
+            <Navbar {...props} appearance="subtle">
                 <Navbar.Brand href="/dashboard" icon={<HomeIcon />}>BackPocket</Navbar.Brand>
                 <Nav className="date-and-time">
                     <Nav.Item icon={<TimeIcon />}>we'll put the date & time here</Nav.Item>
