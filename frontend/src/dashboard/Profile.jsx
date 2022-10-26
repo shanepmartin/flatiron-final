@@ -21,6 +21,10 @@ const Profile = () => {
     const [achievementCount, setAchievementCount] = useState();
     const [feelCount, setFeelCount] = useState();
     const [contactCount, setContactCount] = useState();
+    const [degreeCount, setDegreeCount] = useState();
+    const [memoryCount, setMemoryCount] = useState();
+    const [schoolCount, setSchoolCount] = useState();
+    const [tripCount, setTripCount] = useState();
 
     // state for list methods...
 
@@ -79,6 +83,22 @@ const Profile = () => {
         })
     }
 
+    const getDegreesCount = async () => {
+        let token = localStorage.getItem("token");
+        fetch(`http://localhost:3000/degrees_count/${user.id}`, {
+            method: "GET",
+            headers: {
+                token: token,
+                "Content-Type": "application/json"
+            },
+        })
+        .then((res) => res.json())
+        .then((count) => {
+            console.log('how many degrees?', count)
+            setDegreeCount(count)
+        })
+    }
+
     const getFeelsCount = async () => {
         let token = localStorage.getItem("token");
         fetch(`http://localhost:3000/feels_count/${user.id}`, {
@@ -111,11 +131,63 @@ const Profile = () => {
         })
     }
 
+    const getMemoriesCount = async () => {
+        let token = localStorage.getItem("token");
+        fetch(`http://localhost:3000/memories_count/${user.id}`, {
+            method: "GET",
+            headers: {
+                token: token,
+                "Content-Type": "application/json"
+            },
+        })
+        .then((res) => res.json())
+        .then((count) => {
+            console.log('how many memories?', count)
+            setMemoryCount(count)
+        })
+    }
+
+    const getSchoolsCount = async () => {
+        let token = localStorage.getItem("token");
+        fetch(`http://localhost:3000/schools_count/${user.id}`, {
+            method: "GET",
+            headers: {
+                token: token,
+                "Content-Type": "application/json"
+            },
+        })
+        .then((res) => res.json())
+        .then((count) => {
+            console.log('how many schools?', count)
+            setSchoolCount(count)
+        })
+    }
+
+    const getTripsCount = async () => {
+        let token = localStorage.getItem("token");
+        fetch(`http://localhost:3000/trips_count/${user.id}`, {
+            method: "GET",
+            headers: {
+                token: token,
+                "Content-Type": "application/json"
+            },
+        })
+        .then((res) => res.json())
+        .then((count) => {
+            console.log('how many trips?', count)
+            setTripCount(count)
+        })
+    }
+
     useEffect(() => {
         getGoalsCount();
         getAchievementsCount();
         getFeelsCount();
         getContactsCount();
+        getDegreesCount();
+        getMemoriesCount();
+        getSchoolsCount();
+        getTripsCount();
         getUsername();
     }, []);
 
@@ -143,10 +215,10 @@ const Profile = () => {
                             <h4>Total Achievements: {achievementCount}</h4>
                         </Panel>
                         <Panel className="panel" header="Trips">
-                            <h4>Total Trips: </h4>
+                            <h4>Total Trips: {tripCount}</h4>
                         </Panel>
                         <Panel className="panel" header="Studies">
-                            <h4>Schools Attended: </h4>
+                            <h4>Schools Attended: {schoolCount}</h4>
                         </Panel>
                         <Panel className="panel" header="Contacts">
                             <h4>Total Contacts: {contactCount}</h4>

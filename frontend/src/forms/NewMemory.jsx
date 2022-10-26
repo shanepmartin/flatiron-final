@@ -1,6 +1,8 @@
-import { useRef } from "react"
-import { Form, Button, ButtonToolbar, Popover, Whisper } from 'rsuite'
+import { useRef, forwardRef } from "react"
+import { Form, Input, Button, ButtonToolbar, Popover, Whisper } from 'rsuite'
 import { SchemaModel, StringType } from "schema-typed"
+
+const Textarea = forwardRef((props, ref) => <Input {...props} as="textarea" ref={ref} />);
 
 const NewMemory = () => {
 
@@ -53,7 +55,7 @@ const NewMemory = () => {
                     </Form.Group>
                     <Form.Group controlId='description'>
                         <Form.ControlLabel>description</Form.ControlLabel>
-                        <Form.Control name='description' />
+                        <Form.Control rows={13} name='entry' accepter={Textarea} />
                         <Form.HelpText tooltip>please provide a description of your memory</Form.HelpText>
                     </Form.Group>
                     <ButtonToolbar>

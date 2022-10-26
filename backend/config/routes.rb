@@ -61,5 +61,7 @@ Rails.application.routes.draw do
   get '/feels_list/:id', to: 'users#feels_list'
   get '/contacts_count/:id', to: 'users#contacts_count'
   get '/contacts_list/:id', to: 'users#contacts_list'
+  get '/schools_count/:id', to: 'users#schools_count'
+  get '/schools_list/:id', to: 'users#schools_list'
 
 end

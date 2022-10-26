@@ -17,13 +17,17 @@ import Contacts from "./components/Contacts"
 import ContactsLog from "./lists/ContactsLog";
 import UpdateContact from "./forms/UpdateContact";
 import Degrees from "./components/Degrees"
+import DegreesLog from "./lists/DegreesLog";
 import Feels from "./components/Feels";
 import FeelsLog from "./lists/FeelsLog";
 import Goals from "./components/Goals"
 import GoalsLog from "./lists/GoalsLog";
 import Memories from "./components/Memories"
+import MemoriesLog from "./lists/MemoriesLog";
 import Schools from "./components/Schools"
+import SchoolsLog from "./lists/SchoolsLog";
 import Trips from "./components/Trips";
+import TripsLog from "./lists/TripsLog";
 
 // Redux login state modules...
 import { setUser, logout } from "./auth/UserState"
@@ -79,14 +83,18 @@ const App = () => {
           <Route path="/contacts/new" element={<Contacts />} />
           <Route path="/contacts/:id" element={<UpdateContact  />} />
           <Route path="/contacts" element={<ContactsLog />} />
-          <Route path="/degrees" element={<Degrees />} />
+          <Route path="/degrees/new" element={<Degrees />} />
+          <Route path="/degrees" element={<DegreesLog />} />
           <Route path="/feels/new" element={<Feels />} />
           <Route path="/feels" element={<FeelsLog />} />
           <Route path="/goals/new" element={<Goals />} />
           <Route path="/goals" element={<GoalsLog />} />
-          <Route path="/memories" element={<Memories />} />
-          <Route path="/schools" element={<Schools />} />
-          <Route path="/trips" element={<Trips />} /> */
+          <Route path="/memories/new" element={<Memories />} />
+          <Route path="/memories" element={<MemoriesLog />} />
+          <Route path="/schools/new" element={<Schools />} />
+          <Route path="/schools" element={<SchoolsLog />} />
+          <Route path="/trips/new" element={<Trips />} /> 
+          <Route path="/trips" element={<TripsLog />} /> 
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/profile" element={<Profile />} />
         </Routes>
