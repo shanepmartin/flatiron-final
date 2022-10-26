@@ -93,12 +93,6 @@ const DashBoardSideBar = ({appearance}) => {
                                     eventKey="4-5" 
                                     title={<h3>Memories</h3>}
                                 >
-                                    {/* <Nav.Item 
-                                        className="nav-item" 
-                                        eventKey="4-5-1"
-                                        onClick={() => navigate('/memories/new')}
-                                    >Add Memory
-                                    </Nav.Item> */}
                                     <Nav.Item 
                                         className="nav-item" 
                                         eventKey="4-5-1"
@@ -133,12 +127,6 @@ const DashBoardSideBar = ({appearance}) => {
                                     <Nav.Item 
                                         className="nav-item" 
                                         eventKey="5-5-1"
-                                        onClick={() => navigate('/degrees/new')}
-                                    >Add Degree
-                                    </Nav.Item>
-                                    <Nav.Item 
-                                        className="nav-item" 
-                                        eventKey="5-5-2"
                                         onClick={() => navigate('/degrees')}
                                     >Degrees Log
                                     </Nav.Item>

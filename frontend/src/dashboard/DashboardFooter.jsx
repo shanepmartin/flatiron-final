@@ -15,7 +15,7 @@ const DashboardFooter = () => {
         <div className='footer'>
             <Container>
                 <Footer>
-                    <IconButton icon={<ExitIcon />} size="lg" onClick={logout}>SignOut</IconButton>
+                    <IconButton icon={<ExitIcon />} size="lg" appearance="subtle" onClick={logout}>SignOut</IconButton>
                 </Footer>
             </Container>
         </div>

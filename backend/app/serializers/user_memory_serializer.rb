@@ -1,5 +1,5 @@
 class UserMemorySerializer < ActiveModel::Serializer
-  attributes :id, :name, :description
+  attributes :id, :name, :username
 
-  has_one :user
+  has_many :memories
 end

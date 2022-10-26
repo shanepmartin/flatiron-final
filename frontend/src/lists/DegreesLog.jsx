@@ -36,18 +36,40 @@ const DegreesLog = () => {
         display: 'inline-table'
     }
 
+    const [activeKey, setActiveKey] = useState('1');
+    const [openKeys, setOpenKeys] = useState(['3', '4']);
+    const [expanded, setExpand] = useState(true);
+
     return (
         <>
-            <DashboardHeader />
-            <DashBoardSideBar />
-            <div className="list" style={styles}>Degrees Log
+            <DashboardHeader
+                appearance="subtle"
+                activeKey={activeKey}
+                onSelect={setActiveKey}
+            />
+            <br>
+            </br>
+            <DashBoardSideBar
+                activeKey={activeKey}
+                openKeys={openKeys}
+                onOpenChange={setOpenKeys}
+                onSelect={setActiveKey}
+                expanded={expanded}
+                onExpand={setExpand}
+                appearance="subtle"
+            />
+            <div className="log" style={styles}>
+                <h1 className="log-title">Degrees Log</h1>
                 {degreesArray.map((degree, index) => {
                     return (
                         <Panel>
                             <List bordered>
-                                <div className="list-heading"> {index + 1}: {degree.name}
+                                <div className="list"> 
+                                    <h2>[{index + 1}] {degree.name}</h2>
                                     <List key={index} bordered>
-                                        <List.Item>level: {degree.level}</List.Item>
+                                        <List.Item>
+                                            <h3>level: {degree.level}</h3>
+                                        </List.Item>
                                     </List>
                                 </div>
                             </List>

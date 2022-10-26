@@ -36,20 +36,46 @@ const GoalsLog = () => {
         display: 'inline-table'
     }
 
+    const [activeKey, setActiveKey] = useState('1');
+    const [openKeys, setOpenKeys] = useState(['3', '4']);
+    const [expanded, setExpand] = useState(true);
+
     return (
         <>
-            <DashboardHeader />
-            <DashBoardSideBar />
-            <div className="list" style={styles}> Goals Log
+            <DashboardHeader
+                appearance="subtle"
+                activeKey={activeKey}
+                onSelect={setActiveKey}
+            />
+            <br>
+            </br>
+            <DashBoardSideBar
+                activeKey={activeKey}
+                openKeys={openKeys}
+                onOpenChange={setOpenKeys}
+                onSelect={setActiveKey}
+                expanded={expanded}
+                onExpand={setExpand}
+                appearance="subtle"
+            />
+            <div className="log" style={styles}>
+                <h1 className="log-title">Goals Log</h1>
                 {goalsArray.map((goal, index) => {
                     return (
                         <Panel>
                             <List bordered>
-                                <div className="list-heading"> {index + 1}: {goal.name}
+                                <div className="list"> 
+                                    <h2>[{index + 1}] {goal.name}</h2>
                                     <List key={index} bordered>
-                                        <List.Item>date: {goal.date}</List.Item>
-                                        <List.Item>category: {goal.category}</List.Item>
-                                        <List.Item>description: {goal.description}</List.Item>
+                                        <List.Item>
+                                            <h3>date: {goal.date}</h3>
+                                        </List.Item>
+                                        <List.Item>
+                                            <h3>category: {goal.category}</h3>
+                                        </List.Item>
+                                        <List.Item>
+                                            <h3>description: {goal.description}</h3>
+                                        </List.Item>
                                     </List>
                                 </div>
                             </List>

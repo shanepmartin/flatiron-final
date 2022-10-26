@@ -39,20 +39,47 @@ const TripsLog = () => {
         display: 'inline-table'
     }
 
+    const [activeKey, setActiveKey] = useState('1');
+    const [openKeys, setOpenKeys] = useState(['3', '4']);
+    const [expanded, setExpand] = useState(true);
+
     return (
         <>
-            <DashboardHeader />
-            <DashBoardSideBar />
-            <div className="list" style={styles}>Trips Log
+            <DashboardHeader
+                appearance="subtle"
+                activeKey={activeKey}
+                onSelect={setActiveKey}
+            />
+            <br>
+            </br>
+            <DashBoardSideBar
+                activeKey={activeKey}
+                openKeys={openKeys}
+                onOpenChange={setOpenKeys}
+                onSelect={setActiveKey}
+                expanded={expanded}
+                onExpand={setExpand}
+                appearance="subtle"
+            />
+            <div className="log" style={styles}>
+                <h1 className="log-title">Trips Log</h1>
                 {tripsArray.map((trip, index) => {
                     return (
                         <Panel>
                             <List bordered>
-                                <div className="list-heading"> {index + 1}: {trip.country}
+                                <div className="list"> 
+                                    <h2>[{index + 1}] {trip.country}</h2>
                                     <List key={index} bordered>
-                                        <List.Item>city: {trip.city}</List.Item>
-                                        <List.Item>date: {trip.date}</List.Item>
-                                        <Button onClick={() => navigate(`/memories/new/${trip.id}`)}>add memory</Button>
+                                        <List.Item>
+                                            <h3>city: {trip.city}</h3>
+                                        </List.Item>
+                                        <List.Item>
+                                            <h3>date: {trip.date}</h3>
+                                        </List.Item>
+                                        <Button 
+                                            onClick={() => navigate(`/memories/new/${trip.id}`)}
+                                        >add memory
+                                        </Button>
                                     </List>
                                 </div>
                             </List>

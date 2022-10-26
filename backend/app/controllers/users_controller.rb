@@ -211,11 +211,12 @@ class UsersController < ApplicationController
         user = User.find(user_id)
         if user
             memories = user.memories
-            render json: memories, serializer: UserMemorySerializer
+            render json: memories
         else
             render json: { errors: memories.errors.full_messages }
         end
     end
+
 
     def schools_list 
         token = request.headers["token"]

@@ -73,6 +73,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_19_231223) do
     t.text "location"
     t.text "date"
     t.integer "user_id"
+    t.integer "degree_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -82,6 +83,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_19_231223) do
     t.text "city"
     t.text "date"
     t.integer "user_id"
+    t.integer "memory_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

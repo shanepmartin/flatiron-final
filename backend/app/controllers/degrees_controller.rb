@@ -11,8 +11,14 @@ class DegreesController < ApplicationController
     end
 
     def create
-        degree = Degree.create!(degree_params)
-        render json: degree
+        school_id = School.find_by!(id: params[:id])
+        school = School.find_by!(id: school_id)
+        degree = Degree.new(name: params[:name], level: params[:level], school_id: school.id)
+        if degree.save
+            render json: degree
+        else
+            render json: { errors: degree.errors.full_messages }
+        end
     end
 
     private

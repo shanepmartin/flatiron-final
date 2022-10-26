@@ -36,20 +36,46 @@ const AchievementsLog = () => {
         display: 'inline-table'
     }
 
+    const [activeKey, setActiveKey] = useState('1');
+    const [openKeys, setOpenKeys] = useState(['3', '4']);
+    const [expanded, setExpand] = useState(true);
+
     return (
         <>
-            <DashboardHeader />
-            <DashBoardSideBar />
-            <div className="list" style={styles}>Achievements Log
+            <DashboardHeader
+                appearance="subtle"
+                activeKey={activeKey}
+                onSelect={setActiveKey}
+            />
+            <br>
+            </br>
+            <DashBoardSideBar
+                activeKey={activeKey}
+                openKeys={openKeys}
+                onOpenChange={setOpenKeys}
+                onSelect={setActiveKey}
+                expanded={expanded}
+                onExpand={setExpand}
+                appearance="subtle"
+            />
+            <div className="log" style={styles}>
+                <h1 className="log-title">Achievements Log</h1>
                 {achievementsArray.map((achievement, index) => {
                     return (
                         <Panel> 
                             <List bordered>
-                                <div className="list-heading"> {index + 1}: {achievement.name}
+                                <div className="list"> 
+                                    <h2>[{index + 1}] {achievement.name}</h2>
                                     <List key={index} bordered>
-                                        <List.Item>date: {achievement.date}</List.Item>
-                                        <List.Item>category: {achievement.category}</List.Item>
-                                        <List.Item>description: {achievement.description}</List.Item>
+                                        <List.Item>
+                                            <h3>date: {achievement.date}</h3>
+                                        </List.Item>
+                                        <List.Item>
+                                            <h3>category: {achievement.category}</h3>
+                                        </List.Item>
+                                        <List.Item>
+                                            <h3>description: {achievement.description}</h3>
+                                        </List.Item>
                                     </List>
                                 </div>
                             </List>

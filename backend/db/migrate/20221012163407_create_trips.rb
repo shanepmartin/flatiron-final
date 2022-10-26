@@ -5,6 +5,7 @@ class CreateTrips < ActiveRecord::Migration[7.0]
       t.text :city
       t.text :date
       t.integer :user_id
+      t.integer :memory_id
 
       t.timestamps
     end

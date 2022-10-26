@@ -1,15 +1,37 @@
-import { useRef } from "react"
+import { useRef, useEffect, useState } from "react"
+import { useParams } from "react-router-dom"
 import { Form, Button, ButtonToolbar, Popover, Whisper } from 'rsuite'
 import { SchemaModel, StringType } from "schema-typed"
 
 const NewDegree = () => {
 
+    const { id } = useParams()
+
+    const [school, setSchool] = useState()
+
+    const fetchSchools = () => {
+        fetch(`http://localhost:3000/schools/${id}`, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json"
+            },
+        })
+            .then((res) => res.json())
+            .then((res) => {
+                console.log('this is the user school we will assign a degree to...', res)
+                setSchool(res)
+            })
+    }
+
+    useEffect(() => {
+        fetchSchools();
+
+    }, []);
+
     const handleDegreeSubmit = async (e) => {
-        let token = localStorage.getItem("token");
-        fetch(`http://localhost:3000/degrees`, {
+        let req = await fetch(`http://localhost:3000/degrees/new/${id}`, {
             method: "POST",
             headers: {
-                token: token,
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
@@ -17,18 +39,16 @@ const NewDegree = () => {
                 level: formRef.current.root[1].value,
             })
         })
-            .then((res) => res.json())
-            .then((data) => {
-                console.log(data)
-            })
+        let res = await req.json()
+        console.log('res', res)
     }
 
 
     const formRef = useRef()
 
     const model = SchemaModel({
-        name: StringType().isRequired("please enter a name"),
-        level: StringType().isRequired("please enter the degree level"),
+        name: StringType().isRequired("please enter the name of your degree"),
+        level: StringType().isRequired("please enter the degree level you attained"),
     })
 
     const styles = {

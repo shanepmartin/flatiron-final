@@ -34,7 +34,6 @@ const NewMemory = () => {
     }, []);
 
     const handleMemorySubmit = async () => {
-        // let token = localStorage.getItem("token");
         let req = await fetch(`http://localhost:3000/memories/new/${id}`, {
             method: "POST",
             headers: {

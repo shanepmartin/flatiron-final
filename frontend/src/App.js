@@ -17,6 +17,7 @@ import Contacts from "./components/Contacts"
 import ContactsLog from "./lists/ContactsLog";
 import UpdateContact from "./forms/UpdateContact";
 import Degrees from "./components/Degrees"
+import NewDegree from "./forms/NewDegree";
 import DegreesLog from "./lists/DegreesLog";
 import Feels from "./components/Feels";
 import FeelsLog from "./lists/FeelsLog";
@@ -80,6 +81,7 @@ const App = () => {
           <Route path="/contacts/:id" element={<UpdateContact  />} />
           <Route path="/contacts" element={<ContactsLog />} />
           <Route path="/degrees/new" element={<Degrees />} />
+          <Route path="/degrees/new/:id" element={<NewDegree />} />
           <Route path="/degrees" element={<DegreesLog />} />
           <Route path="/feels/new" element={<Feels />} />
           <Route path="/feels" element={<FeelsLog />} />
