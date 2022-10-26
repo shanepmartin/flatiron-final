@@ -32,20 +32,6 @@ class TripsController < ApplicationController
         render json: trip
     end
 
-    def trip_memory
-        trip = Trip.find_by!(id: params[:id])
-        if trip
-            memory = Memory.new(name: params[:name], description: params[:description], trip_id: trip.id)
-            if memory.save
-                render json: memory, serializer: MemorySerializer
-            else
-                render json: { errors: memory.errors.full_messages }
-            end
-        else
-            render json: { errors: trip.errors.full_messages }
-        end
-    end
-
 
     private
 

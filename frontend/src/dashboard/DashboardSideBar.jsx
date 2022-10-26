@@ -93,15 +93,15 @@ const DashBoardSideBar = ({appearance}) => {
                                     eventKey="4-5" 
                                     title={<h3>Memories</h3>}
                                 >
-                                    <Nav.Item 
+                                    {/* <Nav.Item 
                                         className="nav-item" 
                                         eventKey="4-5-1"
                                         onClick={() => navigate('/memories/new')}
                                     >Add Memory
-                                    </Nav.Item>
+                                    </Nav.Item> */}
                                     <Nav.Item 
                                         className="nav-item" 
-                                        eventKey="4-5-2"
+                                        eventKey="4-5-1"
                                         onClick={() => navigate('/memories')}
                                     >Memories Log
                                     </Nav.Item>

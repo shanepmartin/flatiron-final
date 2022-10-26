@@ -3,6 +3,9 @@ import { useParams } from "react-router-dom"
 import { Form, Input, Button, ButtonToolbar, Popover, Whisper } from 'rsuite'
 import { SchemaModel, StringType } from "schema-typed"
 
+import DashboardHeader from "../dashboard/DashboardHeader"
+import DashBoardSideBar from "../dashboard/DashboardSideBar"
+
 const Textarea = forwardRef((props, ref) => <Input {...props} as="textarea" ref={ref} />);
 
 const NewMemory = () => {
@@ -31,11 +34,10 @@ const NewMemory = () => {
     }, []);
 
     const handleMemorySubmit = async () => {
-        let token = localStorage.getItem("token");
-        fetch(`http://localhost:3000/memories`, {
+        // let token = localStorage.getItem("token");
+        let req = await fetch(`http://localhost:3000/memories/new/${id}`, {
             method: "POST",
             headers: {
-                token: token,
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
@@ -43,10 +45,8 @@ const NewMemory = () => {
                 description: formRef.current.root[1].value,
             })
         })
-        .then((res) => res.json())
-        .then((data) => {
-            console.log(data)
-        })
+        let res = await req.json()
+        console.log('res', res)
     }
 
 
@@ -63,6 +63,8 @@ const NewMemory = () => {
 
     return (
         <>
+            <DashboardHeader />
+            <DashBoardSideBar />
             <div className="form-heading-div" style={styles}>
                 <h1 className="form-new-heading">New Memory</h1>
                 <Form 

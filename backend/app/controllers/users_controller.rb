@@ -211,7 +211,7 @@ class UsersController < ApplicationController
         user = User.find(user_id)
         if user
             memories = user.memories
-            render json: memories
+            render json: memories, serializer: UserMemorySerializer
         else
             render json: { errors: memories.errors.full_messages }
         end

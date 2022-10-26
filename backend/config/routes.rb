@@ -39,7 +39,7 @@ Rails.application.routes.draw do
   post '/trips', to: 'trips#create'
   patch '/trips', to: 'trips#update'
 
-  post 'memories/new/:id', to: 'trips#trip_memory'
+  post 'memories/new/:id', to: 'memories#create'
 
 
   # user session routes...
@@ -65,5 +65,6 @@ Rails.application.routes.draw do
   get '/contacts_list/:id', to: 'users#contacts_list'
   get '/schools_count/:id', to: 'users#schools_count'
   get '/schools_list/:id', to: 'users#schools_list'
+  get '/memories_list/:id', to: 'users#memories_list'
 
 end

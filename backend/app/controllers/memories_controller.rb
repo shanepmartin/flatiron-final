@@ -6,25 +6,23 @@ class MemoriesController < ApplicationController
     end
 
     def show
-        memory = Memeory.find_by!(id: params[:id])
+        memory = Memory.find_by!(id: params[:id])
         render json: memory
     end
 
+    # create memories associated with trips...
+
     def create
-        token = request.headers["token"]
-        user_id = decode_token(token)
-        user = User.find(user_id)
-        if user
-            memory = Memory.new(name: params[:name], description: params[:description], trip_id: trip.id)
-            if memory.save
-                render json: memory, serializer: TripMemorySerializer
-            else
-                render json: { errors: memory.errors.full_messages } 
-            end
+        trip_id = Trip.find_by!(id: params[:id])
+        trip = Trip.find_by!(id: trip_id)
+        memory = Memory.new(name: params[:name], description: params[:description], trip_id: trip.id)
+        if memory.save
+            render json: memory
         else
-            render json: { error: "401 incorrect token" }, status: 401
+            render json: { errors: memory.errors.full_messages } 
         end
     end
+
 
     private
 

@@ -43,12 +43,6 @@ const App = () => {
    // state current contact
   const dispatch = useDispatch()
 
-  // render user info to the console...
-
-  // console.log(user ? "user exists" : "user does not exist")
-  // console.log(user ? user : "user doesn't exist")
-  // console.log(!user.isLoggedIn ? "user is not logged in" : "user logged in")
-
   // Auto-Login //
   useEffect(() => {
     let token = localStorage.getItem("token");
@@ -70,7 +64,8 @@ const App = () => {
   }, [])
 
 
-  // Render to the page...
+  // index of routes...
+
   return (
     <div className="App">
       <BrowserRouter>
@@ -92,7 +87,7 @@ const App = () => {
           <Route path="/goals" element={<GoalsLog />} />
           <Route path="/memories/new" element={<Memories />} />
           <Route path="/memories" element={<MemoriesLog />} />
-          <Route path="/tripmemory" element={<NewMemory />} />
+          <Route path="/memories/new/:id" element={<NewMemory />} />
           <Route path="/schools/new" element={<Schools />} />
           <Route path="/schools" element={<SchoolsLog />} />
           <Route path="/trips/new" element={<Trips />} /> 
