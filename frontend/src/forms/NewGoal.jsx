@@ -53,22 +53,22 @@ const NewGoal = () => {
                     fluid
                 >
                     <Form.Group controlId='name'>
-                        <Form.ControlLabel>goal</Form.ControlLabel>
+                        <Form.ControlLabel><h2>name</h2></Form.ControlLabel>
                         <Form.Control name='name' />
                         <Form.HelpText tooltip>please enter the name of the goal you want to achieve</Form.HelpText>
                     </Form.Group>
                     <Form.Group controlId='date'>
-                        <Form.ControlLabel>date</Form.ControlLabel>
+                        <Form.ControlLabel><h2>date</h2></Form.ControlLabel>
                         <Form.Control name='date' />
                         <Form.HelpText tooltip>please enter today's date</Form.HelpText>
                     </Form.Group>
                     <Form.Group controlId='category'>
-                        <Form.ControlLabel>category</Form.ControlLabel>
+                        <Form.ControlLabel><h2>category</h2></Form.ControlLabel>
                         <Form.Control name='category' />
                         <Form.HelpText tooltip>please enter the category of your goal</Form.HelpText>
                     </Form.Group>
                     <Form.Group controlId='description'>
-                        <Form.ControlLabel>description</Form.ControlLabel>
+                        <Form.ControlLabel><h2>description</h2></Form.ControlLabel>
                         <Form.Control rows={13} name='entry' accepter={Textarea} />
                         <Form.HelpText tooltip>please enter a description of your goal</Form.HelpText>
                     </Form.Group>
@@ -78,11 +78,11 @@ const NewGoal = () => {
                             trigger='active'
                             speaker={<Popover arrow={false}>Submitted!</Popover>}>
                             <Button 
-                                appearance='default' 
+                                appearance='subtle' 
                                 type='submit'
                                 size='lg'
                             >
-                                Submit
+                                <h2>submit</h2>
                             </Button>
                         </Whisper>
                     </ButtonToolbar>

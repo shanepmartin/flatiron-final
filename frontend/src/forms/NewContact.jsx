@@ -48,17 +48,17 @@ const NewContact = () => {
                     fluid
                 >
                     <Form.Group controlId='name'>
-                        <Form.ControlLabel>Name</Form.ControlLabel>
+                        <Form.ControlLabel><h2>name</h2></Form.ControlLabel>
                         <Form.Control name='name' />
                         <Form.HelpText tooltip>please enter the name of your new contact</Form.HelpText>
                     </Form.Group>
                     <Form.Group controlId='phone'>
-                        <Form.ControlLabel>Phone Number</Form.ControlLabel>
+                        <Form.ControlLabel><h2>phone number</h2></Form.ControlLabel>
                         <Form.Control name='phone' />
                         <Form.HelpText tooltip>please enter the phone number of your new contact</Form.HelpText>
                     </Form.Group>
                     <Form.Group controlId='address'>
-                        <Form.ControlLabel>Address</Form.ControlLabel>
+                        <Form.ControlLabel><h2>address</h2></Form.ControlLabel>
                         <Form.Control name='address' />
                         <Form.HelpText tooltip>please enter the address of your new contact</Form.HelpText>
                     </Form.Group>
@@ -67,8 +67,8 @@ const NewContact = () => {
                             placement='right'
                             trigger='active'
                             speaker={<Popover arrow={false}>Submitted!</Popover>}>
-                            <Button appearance='default' type='submit'>
-                                Submit
+                            <Button appearance='subtle' type='submit'>
+                                <h2>Submit</h2>
                             </Button>
                         </Whisper>
                     </ButtonToolbar>

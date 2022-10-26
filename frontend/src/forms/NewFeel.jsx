@@ -50,17 +50,17 @@ const NewFeel = () => {
                     fluid
                 >
                     <Form.Group controlId='date'>
-                        <Form.ControlLabel>date</Form.ControlLabel>
+                        <Form.ControlLabel><h2>date</h2></Form.ControlLabel>
                         <Form.Control name='date' />
                         <Form.HelpText tooltip>please enter today's date</Form.HelpText>
                     </Form.Group>
                     <Form.Group controlId='time'>
-                        <Form.ControlLabel>time</Form.ControlLabel>
+                        <Form.ControlLabel><h2>time</h2></Form.ControlLabel>
                         <Form.Control name='time' />
                         <Form.HelpText tooltip>please enter the current time</Form.HelpText>
                     </Form.Group>
                     <Form.Group controlId='entry'>
-                        <Form.ControlLabel>entry</Form.ControlLabel>
+                        <Form.ControlLabel><h2>entry</h2></Form.ControlLabel>
                         <Form.Control rows={13} name='entry' accepter={Textarea} />
                         <Form.HelpText tooltip>let out your feely feels</Form.HelpText>
                     </Form.Group>
@@ -69,8 +69,8 @@ const NewFeel = () => {
                             placement='right'
                             trigger='active'
                             speaker={<Popover arrow={false}>Clicked</Popover>}>
-                            <Button appearance='default' type='submit'>
-                                Submit
+                            <Button appearance='subtle' type='submit'>
+                                <h2>submit</h2>
                             </Button>
                         </Whisper>
                     </ButtonToolbar>

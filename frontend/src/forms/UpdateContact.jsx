@@ -12,8 +12,6 @@ const UpdateContact = () => {
 
     const navigate = useNavigate();
 
-    // onClick = {() => navigate(`/contacts/update/${id}`)} 
-
     const user = useSelector((state) => state.user)
 
     const [contacts, setContacts] = useState([]);
@@ -22,10 +20,7 @@ const UpdateContact = () => {
 
     const { id } = useParams()
 
-    // fetch the USER's list of contacts to select from...
-
     const fetchContacts = () => {
-        // let token = localStorage.getItem("token");
         fetch(`http://localhost:3000/contacts/${id}`, {
             method: "GET", 
             headers: {
@@ -90,6 +85,10 @@ const UpdateContact = () => {
         console.log('res', res)
         updateAddress()
     }
+
+    // const backToContacts = () => {
+    //     navigate(`/contacts`)
+    // }
 
     const formRef = useRef()
 

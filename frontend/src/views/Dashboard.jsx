@@ -14,11 +14,15 @@ const Dashboard = () => {
                 activeKey={activeKey} 
                 onSelect={setActiveKey} 
             />
+            <br>
+            </br>
             <DashBoardSideBar 
                 activeKey={activeKey}
                 onSelect={setActiveKey}
                 appearance="subtle" 
             />
+            <br>
+            </br>
             <DashboardFooter />
         </>
     )

@@ -50,8 +50,12 @@ class ContactsController < ApplicationController
 
     def destroy
         contact = Contact.find_by!(id: params[:id])
-        contact.destroy
-        head :no_content
+        if contact
+            contact.destroy()
+            render json: {}, status: 200
+        else
+            render json: { errors: "Contact not found" }, status: 404
+        end
     end
 
     private 

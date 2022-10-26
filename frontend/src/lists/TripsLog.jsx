@@ -1,11 +1,14 @@
 import { useEffect, useState } from "react"
 import { useSelector } from "react-redux"
-import { List, Panel } from 'rsuite';
+import { List, Panel, Button } from 'rsuite';
+import { useNavigate } from "react-router-dom";
 
 import DashboardHeader from "../dashboard/DashboardHeader"
 import DashBoardSideBar from "../dashboard/DashboardSideBar"
 
 const TripsLog = () => {
+
+    const navigate = useNavigate();
 
     const user = useSelector((state) => state.user)
 
@@ -49,6 +52,7 @@ const TripsLog = () => {
                                     <List key={index} bordered>
                                         <List.Item>city: {trip.city}</List.Item>
                                         <List.Item>date: {trip.date}</List.Item>
+                                        <Button onClick={() => navigate(`/memories/new/${trip.id}`)}>add memory</Button>
                                     </List>
                                 </div>
                             </List>

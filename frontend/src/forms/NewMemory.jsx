@@ -1,4 +1,5 @@
-import { useRef, forwardRef } from "react"
+import { useRef, forwardRef, useEffect, useState } from "react"
+import { useParams } from "react-router-dom"
 import { Form, Input, Button, ButtonToolbar, Popover, Whisper } from 'rsuite'
 import { SchemaModel, StringType } from "schema-typed"
 
@@ -6,7 +7,30 @@ const Textarea = forwardRef((props, ref) => <Input {...props} as="textarea" ref=
 
 const NewMemory = () => {
 
-    const handleMemorySubmit = async (e) => {
+    const { id } = useParams()
+
+    const [trip, setTrip] = useState();
+
+    const fetchTrips = () => {
+        fetch(`http://localhost:3000/trips/${id}`, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json"
+            },
+        })
+        .then((res) => res.json())
+        .then((res) => {
+            console.log('this is the user trip we are assign a memory to...', res)
+            setTrip(res)
+        })
+    }
+
+    useEffect(() => {
+        fetchTrips();
+
+    }, []);
+
+    const handleMemorySubmit = async () => {
         let token = localStorage.getItem("token");
         fetch(`http://localhost:3000/memories`, {
             method: "POST",
@@ -19,10 +43,10 @@ const NewMemory = () => {
                 description: formRef.current.root[1].value,
             })
         })
-            .then((res) => res.json())
-            .then((data) => {
-                console.log(data)
-            })
+        .then((res) => res.json())
+        .then((data) => {
+            console.log(data)
+        })
     }
 
 
@@ -49,12 +73,12 @@ const NewMemory = () => {
                     fluid
                 >
                     <Form.Group controlId='name'>
-                        <Form.ControlLabel>memory</Form.ControlLabel>
+                        <Form.ControlLabel><h2>memory</h2></Form.ControlLabel>
                         <Form.Control name='name' />
                         <Form.HelpText tooltip>please give your memory a name</Form.HelpText>
                     </Form.Group>
                     <Form.Group controlId='description'>
-                        <Form.ControlLabel>description</Form.ControlLabel>
+                        <Form.ControlLabel><h2>description</h2></Form.ControlLabel>
                         <Form.Control rows={13} name='entry' accepter={Textarea} />
                         <Form.HelpText tooltip>please provide a description of your memory</Form.HelpText>
                     </Form.Group>
@@ -63,8 +87,8 @@ const NewMemory = () => {
                             placement='right'
                             trigger='active'
                             speaker={<Popover arrow={false}>Submitted!</Popover>}>
-                            <Button appearance='default' type='submit'>
-                                Submit
+                            <Button appearance='subtle' type='submit'>
+                                <h2>submit</h2>
                             </Button>
                         </Whisper>
                     </ButtonToolbar>

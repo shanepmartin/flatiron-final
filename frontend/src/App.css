@@ -239,8 +239,8 @@
 
 .login {
   margin-top: 456px;
-  margin-left: 1235px;
-  margin-right: 1235px;
+  margin-left: 1435px;
+  margin-right: 1435px;
   position: relative;
   font-size: 23px;
 }
@@ -252,4 +252,29 @@
   position: relative;
 }
 
+.login-heading {
+  display: inline-block
+}
 
+.sign-up {
+  margin-top: 456px;
+  margin-left: 1435px;
+  margin-right: 1435px;
+  position: relative;
+  font-size: 23px;
+}
+
+.sign-up-form {
+  width: 66%;
+  height: 66%;
+  display: 'inline-table';
+  position: relative;
+}
+
+.sign-up-heading {
+  display: inline-block
+}
+
+.title {
+  font-size: 23px;
+}

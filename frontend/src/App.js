@@ -23,6 +23,7 @@ import FeelsLog from "./lists/FeelsLog";
 import Goals from "./components/Goals"
 import GoalsLog from "./lists/GoalsLog";
 import Memories from "./components/Memories"
+import NewMemory from "./forms/NewMemory";
 import MemoriesLog from "./lists/MemoriesLog";
 import Schools from "./components/Schools"
 import SchoolsLog from "./lists/SchoolsLog";
@@ -91,6 +92,7 @@ const App = () => {
           <Route path="/goals" element={<GoalsLog />} />
           <Route path="/memories/new" element={<Memories />} />
           <Route path="/memories" element={<MemoriesLog />} />
+          <Route path="/tripmemory" element={<NewMemory />} />
           <Route path="/schools/new" element={<Schools />} />
           <Route path="/schools" element={<SchoolsLog />} />
           <Route path="/trips/new" element={<Trips />} /> 

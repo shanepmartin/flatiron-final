@@ -30,19 +30,19 @@ const DashBoardSideBar = ({appearance}) => {
                             onSelect={setActiveKey}
                         >
                             <Nav.Item className="nav-item" eventKey="1" >
-                                Dashboard
+                                <h2>Dashboard</h2>
                             </Nav.Item>
                             <Nav.Menu
                                 className="nav-menu"
                                 placement="rightStart"
                                 eventKey="2"
-                                title="Goals"
+                                title= {<h3>Goals</h3>}
                             >
                                 <Nav.Item 
                                     className="nav-item" 
                                     eventKey="2-1"
                                     onClick={() => navigate('/goals/new')}
-                                    >Add Goal
+                                >Add Goal
                                 </Nav.Item>
                                 <Nav.Item 
                                     className="nav-item" 
@@ -55,7 +55,7 @@ const DashBoardSideBar = ({appearance}) => {
                                 className="nav-menu"
                                 placement="rightStart"
                                 eventKey="3"
-                                title="Achievements"
+                                title={<h3>Achievements</h3>}
                             >
                                 <Nav.Item 
                                     className="nav-item" 
@@ -74,7 +74,7 @@ const DashBoardSideBar = ({appearance}) => {
                                 className="nav-menu"
                                 placement="rightStart"
                                 eventKey="4"
-                                title="Trips"
+                                title={<h3>Trips</h3>}
                             >
                                 <Nav.Item 
                                     className="nav-item" 
@@ -91,7 +91,7 @@ const DashBoardSideBar = ({appearance}) => {
                                 <Nav.Menu 
                                     className="nav-menu" 
                                     eventKey="4-5" 
-                                    title="Memories"
+                                    title={<h3>Memories</h3>}
                                 >
                                     <Nav.Item 
                                         className="nav-item" 
@@ -111,7 +111,7 @@ const DashBoardSideBar = ({appearance}) => {
                                 className="nav-menu"
                                 placement="rightStart"
                                 eventKey="5"
-                                title="Studies"
+                                title={<h3>Studies</h3>}
                             >
                                 <Nav.Item 
                                     className="nav-item" 
@@ -128,7 +128,7 @@ const DashBoardSideBar = ({appearance}) => {
                                 <Nav.Menu 
                                     className="nav-menu" 
                                     eventKey="5-5" 
-                                    title="Degrees"
+                                    title={<h3>Degrees</h3>}
                                 >
                                     <Nav.Item 
                                         className="nav-item" 
@@ -148,7 +148,7 @@ const DashBoardSideBar = ({appearance}) => {
                                 className="nav-menu"
                                 placement="rightStart"
                                 eventKey="6"
-                                title="Contacts"
+                                title={<h3>Contacts</h3>}
                             >
                                 <Nav.Item 
                                     className="nav-item" 
@@ -167,7 +167,7 @@ const DashBoardSideBar = ({appearance}) => {
                                 className="nav-menu"
                                 placement="rightStart"
                                 eventKey="7"
-                                title="Feels"
+                                title={<h3>Feels</h3>}
                             >
                                 <Nav.Item 
                                     className="nav-item" 

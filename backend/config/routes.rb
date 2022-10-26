@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   get '/contacts/:id', to: 'contacts#show'
   post '/contacts', to: 'contacts#create'
   patch '/contacts/:id', to: 'contacts#update'
-  delete '/contacts', to: 'contacts#destroy'
+  delete '/contacts/:id', to: 'contacts#destroy'
 
   get '/degrees', to: 'degrees#index'
   get '/degrees/:id', to: 'degrees#show'
@@ -38,6 +38,8 @@ Rails.application.routes.draw do
   get '/trips/:id', to: 'trips#show'
   post '/trips', to: 'trips#create'
   patch '/trips', to: 'trips#update'
+
+  post 'memories/new/:id', to: 'trips#trip_memory'
 
 
   # user session routes...

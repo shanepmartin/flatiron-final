@@ -82,13 +82,17 @@ const Login = () => {
                         placeholder="username"
                         value={loginData.username}
                     />
+                    <br>
+                    </br>
                     <input
                         onChange={loginChange}
-                        type="text"
+                        type="password"
                         name="password"
                         placeholder="password"
                         value={loginData.password}
                     />
+                    <br>
+                    </br>
                     <input type="submit" />
                 </form>
                 <br>

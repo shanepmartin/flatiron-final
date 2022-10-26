@@ -36,6 +36,16 @@ const ContactsLog = () => {
         getContactsList();
     }, []);
 
+
+    // const deleteContact = async () => {
+    //     let req = await fetch(`http://localhost:3000/contacts/${id}`, {
+    //         method: "DELETE",
+    //     })
+    //     let res = await req.json();
+    //     console.log('the contact we are deleting...', res)
+    //     deleteContact()
+    // }
+
     const styles = {
         display: 'inline-table'
     }
@@ -51,7 +61,7 @@ const ContactsLog = () => {
                             <List bordered>
                                 <div className="list-heading"> {index + 1}: {contact.name} 
                                     <Button appearance="default" placement="right" onClick={() => navigate(`/contacts/${contact.id}`)}>Update</Button>
-                                    <IconButton icon={<WarningRoundIcon />} placement="right" appearance="link" active></IconButton>
+                                    <IconButton icon={<WarningRoundIcon />} placement="right" appearance="link"  active></IconButton>
                                     <List 
                                         key={index} 
                                         bordered

@@ -54,22 +54,22 @@ const NewAchievement = () => {
                         fluid
                     >
                         <Form.Group controlId='name' >
-                            <Form.ControlLabel>name</Form.ControlLabel>
+                            <Form.ControlLabel><h2>name</h2></Form.ControlLabel>
                             <Form.Control name='name' />
                             <Form.HelpText tooltip>please enter the name of your achievement</Form.HelpText>
                         </Form.Group>
                         <Form.Group controlId='date'>
-                            <Form.ControlLabel>date</Form.ControlLabel>
+                            <Form.ControlLabel><h2>date</h2></Form.ControlLabel>
                             <Form.Control name='date' />
                             <Form.HelpText tooltip>please enter the date you made your achievement</Form.HelpText>
                         </Form.Group>
                         <Form.Group controlId='category'>
-                            <Form.ControlLabel>category</Form.ControlLabel>
+                            <Form.ControlLabel><h2>category</h2></Form.ControlLabel>
                             <Form.Control name='category' />
                             <Form.HelpText tooltip>please enter the category of your achievement</Form.HelpText>
                         </Form.Group>
                         <Form.Group controlId='description'>
-                            <Form.ControlLabel>description</Form.ControlLabel>
+                            <Form.ControlLabel><h2>description</h2></Form.ControlLabel>
                             <Form.Control rows={13} name='entry' accepter={Textarea} />
                             <Form.HelpText tooltip>please enter a description of your achievement</Form.HelpText>
                         </Form.Group>
@@ -78,8 +78,10 @@ const NewAchievement = () => {
                                 placement='right'
                                 trigger='active'
                                 speaker={<Popover arrow={false}>Submitted!</Popover>}>
-                                <Button appearance='default' type='submit'>
-                                    Submit
+                                <Button 
+                                    appearance='subtle' 
+                                    type='submit'>
+                                    <h2>Submit</h2>
                                 </Button>
                             </Whisper>
                         </ButtonToolbar>

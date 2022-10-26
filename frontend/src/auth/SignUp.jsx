@@ -61,34 +61,41 @@ const SignUp = () => {
     }
 
     return (
-        <div className="SignUp">
-                <div>
-                    <h1>Welcome, Sign Up</h1>
-                    <form onSubmit={e => handleSignUp(e)}>
-                        <input
-                            onChange={signUpChange}
-                            type="text" 
-                            name="name" 
-                            placeholder="name" 
-                            value={signUpData.name} 
-                        />
-                        <input 
-                            onChange={signUpChange}
-                            type="text" 
-                            name="username" 
-                            placeholder="username" 
-                            value={signUpData.username} 
-                        />
-                        <input 
-                            onChange={signUpChange}
-                            type="text" 
-                            name="password" 
-                            placeholder="password" 
-                            value={signUpData.password} 
-                        />
-                        <input type="submit"/>
-                    </form>
-                </div>
+        <div className="sign-up">
+            <h1 className="sign-up-heading">Sign Up</h1>
+            <form 
+                className="sign-up-form" 
+                onSubmit={e => handleSignUp(e)}
+            >
+                <input
+                    onChange={signUpChange}
+                    type="text" 
+                    name="name" 
+                    placeholder="name" 
+                    value={signUpData.name} 
+                />
+                <br>
+                </br>
+                <input 
+                    onChange={signUpChange}
+                    type="text" 
+                    name="username" 
+                    placeholder="username" 
+                    value={signUpData.username} 
+                />
+                <br>
+                </br>
+                <input 
+                    onChange={signUpChange}
+                    type="password" 
+                    name="password" 
+                    placeholder="password" 
+                    value={signUpData.password} 
+                />
+                <br>
+                </br>
+                <input type="submit"/>
+            </form>
         </div>
     );
 }

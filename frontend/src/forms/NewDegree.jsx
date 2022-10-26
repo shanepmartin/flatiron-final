@@ -47,12 +47,12 @@ const NewDegree = () => {
                     fluid
                 >
                     <Form.Group controlId='name'>
-                        <Form.ControlLabel>degree</Form.ControlLabel>
+                        <Form.ControlLabel><h2>name of degree</h2></Form.ControlLabel>
                         <Form.Control name='name' />
                         <Form.HelpText tooltip>please enter the name of the degree you received </Form.HelpText>
                     </Form.Group>
                     <Form.Group controlId='date'>
-                        <Form.ControlLabel>level</Form.ControlLabel>
+                        <Form.ControlLabel><h2>level of degree</h2></Form.ControlLabel>
                         <Form.Control name='date' />
                         <Form.HelpText tooltip>please enter the level of the degree you received</Form.HelpText>
                     </Form.Group>
@@ -61,8 +61,8 @@ const NewDegree = () => {
                             placement='right'
                             trigger='active'
                             speaker={<Popover arrow={false}>Submitted!</Popover>}>
-                            <Button appearance='default' type='submit'>
-                                Submit
+                            <Button appearance='subtle' type='submit'>
+                                <h2>submit</h2>
                             </Button>
                         </Whisper>
                     </ButtonToolbar>
