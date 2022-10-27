@@ -1,6 +1,6 @@
 import { useRef, useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
-import { Form, Button, ButtonToolbar, Popover, Whisper } from 'rsuite'
+import { Form, Button, ButtonToolbar, Popover, Whisper, Container, Grid, Col, Row } from 'rsuite'
 import { SchemaModel, StringType } from "schema-typed"
 
 import DashboardHeader from "../dashboard/DashboardHeader"
@@ -49,68 +49,76 @@ const NewDegree = () => {
 
     const formRef = useRef()
 
-    const model = SchemaModel({
-        name: StringType().isRequired("please enter the name of your degree"),
-        level: StringType().isRequired("please enter the degree level you attained"),
-    })
-
-    const styles = {
-        display: 'inline-table'
-    }
-
     const [activeKey, setActiveKey] = useState('1');
     const [openKeys, setOpenKeys] = useState(['3', '4']);
     const [expanded, setExpand] = useState(true);
 
     return (
         <>
-            <DashboardHeader
-                appearance="subtle"
-                activeKey={activeKey}
-                onSelect={setActiveKey}
-            />
-            <br>
-            </br>
-            <DashBoardSideBar
-                activeKey={activeKey}
-                openKeys={openKeys}
-                onOpenChange={setOpenKeys}
-                onSelect={setActiveKey}
-                expanded={expanded}
-                onExpand={setExpand}
-                appearance="subtle"
-            />
-            <div className="form-heading-div" style={styles}>
-            <h1 className="form-new-heading">New Degree</h1>
-                <Form 
-                    className="form-new"
-                    ref={formRef}
-                    model={model}
-                    onSubmit={handleDegreeSubmit}
-                    fluid
-                >
-                    <Form.Group controlId='name'>
-                        <Form.ControlLabel><h2>name of degree</h2></Form.ControlLabel>
-                        <Form.Control name='name' />
-                        <Form.HelpText tooltip>please enter the name of the degree you received </Form.HelpText>
-                    </Form.Group>
-                    <Form.Group controlId='date'>
-                        <Form.ControlLabel><h2>level of degree</h2></Form.ControlLabel>
-                        <Form.Control name='date' />
-                        <Form.HelpText tooltip>please enter the level of the degree you received</Form.HelpText>
-                    </Form.Group>
-                    <ButtonToolbar>
-                        <Whisper
-                            placement='right'
-                            trigger='active'
-                            speaker={<Popover arrow={false}>Submitted!</Popover>}>
-                            <Button appearance='subtle' type='submit'>
-                                <h2>submit</h2>
-                            </Button>
-                        </Whisper>
-                    </ButtonToolbar>
-                </Form>
-            </div>
+            <Grid fluid>
+                <DashboardHeader
+                    appearance="subtle"
+                    activeKey={activeKey}
+                    onSelect={setActiveKey}
+                />
+                <br>
+                </br>
+                <Row>
+                    <Col xs={8}>
+                        <DashBoardSideBar
+                            activeKey={activeKey}
+                            openKeys={openKeys}
+                            onOpenChange={setOpenKeys}
+                            onSelect={setActiveKey}
+                            expanded={expanded}
+                            onExpand={setExpand}
+                            appearance="subtle"
+                        />
+                    </Col>
+                    <Col xs={8}>
+                        <Container>
+                            <Form 
+                                className="form-new"
+                                ref={formRef}
+                                onSubmit={handleDegreeSubmit}
+                                fluid
+                            >
+                                <h1 className="form-new-heading">New Degree</h1>
+                                <br>
+                                </br>
+                                <Form.Group controlId='name'>
+                                    <Form.ControlLabel><h2>name</h2></Form.ControlLabel>
+                                    <Form.Control 
+                                        name='name' 
+                                        size="lg"
+                                        placeholder="please enter the name of the degree you received..."
+                                    />
+                                </Form.Group>
+                                <br>
+                                </br>
+                                <Form.Group controlId='date'>
+                                    <Form.ControlLabel><h2>level</h2></Form.ControlLabel>
+                                    <Form.Control 
+                                        name='date'
+                                        size="lg"
+                                        placeholder="please enter the level of the degree you received..." 
+                                    />
+                                </Form.Group>
+                                <ButtonToolbar>
+                                    <Whisper
+                                        placement='right'
+                                        trigger='active'
+                                        speaker={<Popover arrow={false}>Submitted!</Popover>}>
+                                        <Button appearance='subtle' type='submit'>
+                                            <h3>submit</h3>
+                                        </Button>
+                                    </Whisper>
+                                </ButtonToolbar>
+                            </Form>
+                        </Container>
+                    </Col>
+                </Row>
+            </Grid>
         </>
     )
 }

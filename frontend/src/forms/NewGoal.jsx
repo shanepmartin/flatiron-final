@@ -1,5 +1,5 @@
 import { useRef, forwardRef } from "react"
-import { Form, Input, Button, ButtonToolbar, Popover, Whisper } from 'rsuite'
+import { Form, Input, Button, ButtonToolbar, Popover, Whisper, Container } from 'rsuite'
 import { SchemaModel, StringType } from "schema-typed"
 
 const Textarea = forwardRef((props, ref) => <Input {...props} as="textarea" ref={ref} />);
@@ -30,47 +30,50 @@ const NewGoal = () => {
 
     const formRef = useRef()
 
-    const model = SchemaModel({
-        name: StringType().isRequired("please enter a name"),
-        date: StringType().isRequired("please enter today's date"),
-        category: StringType().isRequired("please enter an category"),
-        description: StringType().isRequired("please enter a description")
-    })
-
-    const styles = {
-        display: 'inline-table'
-    }
-
     return (
         <>
-            <div className="form-heading-div" style={styles}>
-                <h1 className="form-new-heading">New Goal</h1>
+            <Container>
                 <Form 
                     className="form-new"
                     ref={formRef}
-                    model={model}
                     onSubmit={handleGoalSubmit}
                     fluid
                 >
+                    <h1 className="form-new-heading">New Goal</h1>
+                    <br>
+                    </br>
                     <Form.Group controlId='name'>
                         <Form.ControlLabel><h2>name</h2></Form.ControlLabel>
-                        <Form.Control name='name' />
-                        <Form.HelpText tooltip>please enter the name of the goal you want to achieve</Form.HelpText>
+                        <Form.Control 
+                            name='name'
+                            size='lg'
+                            placeholder="please enter the name of the goal you want to achieve..." 
+                        />
                     </Form.Group>
                     <Form.Group controlId='date'>
                         <Form.ControlLabel><h2>date</h2></Form.ControlLabel>
-                        <Form.Control name='date' />
-                        <Form.HelpText tooltip>please enter today's date</Form.HelpText>
+                        <Form.Control 
+                            name='date'
+                            size='lg'
+                            placeholder="please enter today's date..." 
+                        />
                     </Form.Group>
                     <Form.Group controlId='category'>
                         <Form.ControlLabel><h2>category</h2></Form.ControlLabel>
-                        <Form.Control name='category' />
-                        <Form.HelpText tooltip>please enter the category of your goal</Form.HelpText>
+                        <Form.Control 
+                            name='category'
+                            size='lg'
+                            placeholder="please enter the category of your goal..." 
+                        />
                     </Form.Group>
                     <Form.Group controlId='description'>
                         <Form.ControlLabel><h2>description</h2></Form.ControlLabel>
-                        <Form.Control rows={13} name='entry' accepter={Textarea} />
-                        <Form.HelpText tooltip>please enter a description of your goal</Form.HelpText>
+                        <Form.Control 
+                            rows={13} 
+                            name='entry' 
+                            accepter={Textarea}
+                            placeholder="please enter a description of your goal..." 
+                        />
                     </Form.Group>
                     <ButtonToolbar>
                         <Whisper
@@ -87,7 +90,7 @@ const NewGoal = () => {
                         </Whisper>
                     </ButtonToolbar>
                 </Form>
-            </div>
+            </Container>
         </>
     )
 }

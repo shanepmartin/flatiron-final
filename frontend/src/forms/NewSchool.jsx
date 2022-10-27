@@ -1,5 +1,5 @@
 import { useRef } from "react"
-import { Form, Button, ButtonToolbar, Popover, Whisper } from 'rsuite'
+import { Form, Button, ButtonToolbar, Popover, Whisper, Container } from 'rsuite'
 import { SchemaModel, StringType } from "schema-typed"
 
 const NewSchool = () => {
@@ -27,54 +27,54 @@ const NewSchool = () => {
 
     const formRef = useRef()
 
-    const model = SchemaModel({
-        name: StringType().isRequired(" please enter your school's name "),
-        location: StringType().isRequired(" please enter your school's location "),
-        date: StringType().isRequired(" please enter the dates you attended ")
-    })
-
-    const styles = {
-        display: 'inline-table'
-    }
-
     return (
         <>
-            <div className="form-heading-div" style={styles}>
-                <h1 className="form-new-heading">New Studies</h1>
+            <Container>
                 <Form 
                     className="form-new"
                     ref={formRef}
-                    model={model}
                     onSubmit={handleSchoolSubmit}
                     fluid
                 >
+                    <h1 className="form-new-heading">New Studies</h1>
+                    <br>
+                    </br>
                     <Form.Group controlId='name'>
                         <Form.ControlLabel><h2>school name</h2></Form.ControlLabel>
-                        <Form.Control name='name' />
-                        <Form.HelpText tooltip>please enter then name of the school you attended</Form.HelpText>
+                        <Form.Control 
+                            name='name'
+                            size='lg'
+                            placeholder="please enter the name of the school you attended..." 
+                        />
                     </Form.Group>
                     <Form.Group controlId='location'>
                         <Form.ControlLabel><h2>location</h2></Form.ControlLabel>
-                        <Form.Control name='location' />
-                        <Form.HelpText tooltip>please enter the location of the school you attended</Form.HelpText>
+                        <Form.Control 
+                            name='location'
+                            size='lg'
+                            placeholder="please enter the location of the school you attended..." 
+                        />
                     </Form.Group>
                     <Form.Group controlId='date'>
-                        <Form.ControlLabel><h2>date</h2></Form.ControlLabel>
-                        <Form.Control name='date' />
-                        <Form.HelpText tooltip>please enter the date range you attended the school</Form.HelpText>
+                        <Form.ControlLabel><h2>dates attended</h2></Form.ControlLabel>
+                        <Form.Control 
+                            name='date'
+                            size='lg'
+                            placeholder="please enter the date range you attended the school..." 
+                        />
                     </Form.Group>
                     <ButtonToolbar>
                         <Whisper
                             placement='right'
                             trigger='active'
-                            speaker={<Popover arrow={false}>Submitted!</Popover>}>
+                            speaker={<Popover arrow={false}>new studies submitted!</Popover>}>
                             <Button appearance='subtle' type='submit'>
-                                <h2>submit</h2>
+                                <h3>submit</h3>
                             </Button>
                         </Whisper>
                     </ButtonToolbar>
                 </Form>
-            </div>
+            </Container>
         </>
     )
 }

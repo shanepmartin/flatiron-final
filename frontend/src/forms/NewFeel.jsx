@@ -1,5 +1,5 @@
 import { useRef, forwardRef } from "react"
-import { Form, Input, Button, ButtonToolbar, Popover, Whisper } from 'rsuite'
+import { Form, Input, Button, ButtonToolbar, Popover, Whisper, Container } from 'rsuite'
 import { SchemaModel, StringType } from "schema-typed"
 
 
@@ -30,52 +30,56 @@ const NewFeel = () => {
 
     const formRef = useRef()
 
-    const model = SchemaModel({
-        entry: StringType().isRequired("make an entry, share your feels!")
-    })
-
-    const styles = {
-        display: 'inline-table'
-    }
-
     return (
         <>
-        <div className="form-heading-div" style={styles}>
-                <h1 className="form-new-heading">New Feel</h1>
+            <Container>
                 <Form 
                     className="form-new"
                     ref={formRef}
-                    model={model}
                     onSubmit={handleFeelSubmit}
                     fluid
                 >
+                    <h1 className="form-new-heading">New Feel</h1>
+                    <br>
+                    </br>
                     <Form.Group controlId='date'>
                         <Form.ControlLabel><h2>date</h2></Form.ControlLabel>
-                        <Form.Control name='date' />
-                        <Form.HelpText tooltip>please enter today's date</Form.HelpText>
+                        <Form.Control 
+                            name='date'
+                            size='lg'
+                            placeholder="please enter today's date..." 
+                        />
                     </Form.Group>
                     <Form.Group controlId='time'>
                         <Form.ControlLabel><h2>time</h2></Form.ControlLabel>
-                        <Form.Control name='time' />
-                        <Form.HelpText tooltip>please enter the current time</Form.HelpText>
+                        <Form.Control 
+                            name='time'
+                            size='lg'
+                            placeholder="please enter the current time..." 
+                        />
                     </Form.Group>
                     <Form.Group controlId='entry'>
                         <Form.ControlLabel><h2>entry</h2></Form.ControlLabel>
-                        <Form.Control rows={13} name='entry' accepter={Textarea} />
-                        <Form.HelpText tooltip>let out your feely feels</Form.HelpText>
+                        <Form.Control 
+                            rows={13} 
+                            name='entry' 
+                            accepter={Textarea}
+                            size="lg"
+                            placeholder="let out your feely feels..." 
+                        />
                     </Form.Group>
                     <ButtonToolbar>
                         <Whisper
                             placement='right'
                             trigger='active'
-                            speaker={<Popover arrow={false}>Clicked</Popover>}>
+                            speaker={<Popover arrow={false}>feels submitted!</Popover>}>
                             <Button appearance='subtle' type='submit'>
-                                <h2>submit</h2>
+                                <h3>submit</h3>
                             </Button>
                         </Whisper>
                     </ButtonToolbar>
                 </Form>
-            </div>
+            </Container>
         </>
     )
 }

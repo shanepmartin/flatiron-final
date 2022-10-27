@@ -21,10 +21,10 @@ const NewAchievement = () => {
                 description: formRef.current.root[3].value,
             })
         })
-            .then((res) => res.json())
-            .then((data) => {
-                console.log(data)
-            })
+        .then((res) => res.json())
+        .then((data) => {
+            console.log(data)
+        })
     }
 
 
@@ -39,7 +39,7 @@ const NewAchievement = () => {
                     onSubmit={handleAchievementSubmit}
                     fluid
                 >
-                    <h1 className="form-new-heading">New Achievement</h1>
+                    <h1>New Achievement</h1>
                     <br>
                     </br>
                     <Form.Group controlId='name' >
@@ -50,6 +50,8 @@ const NewAchievement = () => {
                             placeholder="please enter the name of your achievement..."
                         />
                     </Form.Group>
+                    <br>
+                    </br>
                     <Form.Group controlId='date'>
                         <Form.ControlLabel><h2>date</h2></Form.ControlLabel>
                         <Form.Control 
@@ -58,6 +60,8 @@ const NewAchievement = () => {
                             placeholder="please enter the date you made your achievement..."
                         />
                     </Form.Group>
+                    <br>
+                    </br>
                     <Form.Group controlId='category'>
                         <Form.ControlLabel><h2>category</h2></Form.ControlLabel>
                         <Form.Control 
@@ -66,6 +70,8 @@ const NewAchievement = () => {
                             placeholder="please enter the category of your achievement..."
                         />
                     </Form.Group>
+                    <br>
+                    </br>
                     <Form.Group controlId='description'>
                         <Form.ControlLabel><h2>description</h2></Form.ControlLabel>
                         <Form.Control 
