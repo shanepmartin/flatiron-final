@@ -115,17 +115,17 @@
   font-size: 33px;
 }
 
-.nav {
+/* .nav {
   font-size: 23px;
-}
+} */
 
 .sidenav-body {
   font-size: 23px;
 }
 
-.nav-item {
+/* .nav-item {
   font-size: 23px;
-}
+} */
 
 .nav-menu {
   font-size: 23px;
@@ -283,3 +283,14 @@
 .title {
   font-size: 23px;
 }
+
+/* right here is where we started using the rsuite css tags... */
+
+.rs-row {
+  font-family: 'Courier New';
+}
+
+.rs-sidenav-body {
+  font-family: 'Courier New';
+}
+

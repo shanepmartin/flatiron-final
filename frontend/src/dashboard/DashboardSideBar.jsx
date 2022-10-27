@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom"
 import { useState } from "react"
-import { Sidenav, Nav } from 'rsuite';
+import { Sidenav, Nav, Container } from 'rsuite';
 
 // sidebar icons...
 import { Icon } from '@rsuite/icons';
@@ -28,7 +28,7 @@ const DashBoardSideBar = ({appearance}) => {
     const [activeKey, setActiveKey] = useState('1');
     return (
         <>
-            <div className="dashboard-side-bar" style={styles}> 
+            <Container style={styles}>
                 <Sidenav 
                     className="side-nav" 
                     expanded={expanded}
@@ -58,13 +58,13 @@ const DashBoardSideBar = ({appearance}) => {
                                     className="nav-item" 
                                     eventKey="2-1"
                                     onClick={() => navigate('/goals/new')}
-                                >Add Goal
+                                ><h4>Add Goal</h4>
                                 </Nav.Item>
                                 <Nav.Item 
                                     className="nav-item" 
                                     eventKey="2-2"
                                     onClick={() => navigate('/goals')}
-                                >Goals Log
+                                ><h4>Goals Log</h4>
                                 </Nav.Item>
                             </Nav.Menu>
                             <Nav.Menu
@@ -77,13 +77,13 @@ const DashBoardSideBar = ({appearance}) => {
                                     className="nav-item" 
                                     eventKey="3-1"
                                     onClick={() => navigate('/achievements/new')}
-                                    >Add Achievements
+                                    ><h4>Add Achievements</h4>
                                 </Nav.Item>
                                 <Nav.Item 
                                     className="nav-item" 
                                     eventKey="3-2"
                                     onClick={() => navigate('/achievements')}
-                                    >Achievements Log
+                                    ><h4>Achievements Log</h4>
                                 </Nav.Item>
                             </Nav.Menu>
                             <Nav.Menu
@@ -96,13 +96,13 @@ const DashBoardSideBar = ({appearance}) => {
                                     className="nav-item" 
                                     eventKey="4-1"
                                     onClick={() => navigate('/trips/new')}
-                                >Add Trip
+                                ><h4>Add Trip</h4>
                                 </Nav.Item>
                                 <Nav.Item 
                                     className="nav-item" 
                                     eventKey="4-2"
                                     onClick={() => navigate('/trips')}
-                                >Trips Log
+                                ><h4>Trips Log</h4>
                                 </Nav.Item>
                                 <Nav.Menu 
                                     className="nav-menu" 
@@ -113,7 +113,7 @@ const DashBoardSideBar = ({appearance}) => {
                                         className="nav-item" 
                                         eventKey="4-5-1"
                                         onClick={() => navigate('/memories')}
-                                    >Memories Log
+                                    ><h4>Memories Log</h4>
                                     </Nav.Item>
                                 </Nav.Menu>
                             </Nav.Menu>
@@ -127,13 +127,13 @@ const DashBoardSideBar = ({appearance}) => {
                                     className="nav-item" 
                                     eventKey="5-1"
                                     onClick={() => navigate('/schools/new')}
-                                >Add Studies
+                                ><h4>Add Studies</h4>
                                 </Nav.Item>
                                 <Nav.Item 
                                     className="nav-item" 
                                     eventKey="5-2"
                                     onClick={() => navigate('/schools')}
-                                >Studies Log
+                                ><h4>Studies Log</h4>
                                 </Nav.Item>
                                 <Nav.Menu 
                                     className="nav-menu" 
@@ -144,7 +144,7 @@ const DashBoardSideBar = ({appearance}) => {
                                         className="nav-item" 
                                         eventKey="5-5-1"
                                         onClick={() => navigate('/degrees')}
-                                    >Degrees Log
+                                    ><h4>Degrees Log</h4>
                                     </Nav.Item>
                                 </Nav.Menu>
                             </Nav.Menu>
@@ -158,13 +158,13 @@ const DashBoardSideBar = ({appearance}) => {
                                     className="nav-item" 
                                     eventKey="6-1"
                                     onClick={() => navigate('/contacts/new')}
-                                >Add Contact
+                                ><h4>Add Contact</h4>
                                 </Nav.Item>
                                 <Nav.Item 
                                     className="nav-item" 
                                     eventKey="6-2"
                                     onClick={() => navigate('/contacts')}
-                                >Contacts Log
+                                ><h4>Contacts Log</h4>
                                 </Nav.Item>
                             </Nav.Menu>
                             <Nav.Menu
@@ -177,13 +177,13 @@ const DashBoardSideBar = ({appearance}) => {
                                     className="nav-item" 
                                     eventKey="7-1"
                                     onClick={() => navigate('/feels/new')}
-                                >Add Feels
+                                ><h4>Add Feels</h4>
                                 </Nav.Item>
                                 <Nav.Item 
                                     className="nav-item" 
                                     eventKey="7-2"
                                     onClick={() => navigate('/feels')}
-                                >Feely Feels
+                                ><h4>Feely Feels</h4>
                                 </Nav.Item>
                             </Nav.Menu>
                         </Nav>
@@ -194,7 +194,7 @@ const DashBoardSideBar = ({appearance}) => {
                         onToggle={expanded => setExpanded(expanded)} 
                     />
                 </Sidenav>
-            </div>
+            </Container>
         </>
     );
 };
