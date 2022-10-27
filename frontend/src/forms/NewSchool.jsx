@@ -1,5 +1,5 @@
 import { useRef } from "react"
-import { Form, Button, ButtonToolbar, Popover, Whisper, Container } from 'rsuite'
+import { Form, Button, ButtonToolbar, Popover, Whisper, Container, Panel } from 'rsuite'
 import { SchemaModel, StringType } from "schema-typed"
 
 const NewSchool = () => {
@@ -29,52 +29,60 @@ const NewSchool = () => {
 
     return (
         <>
-            <Container>
-                <Form 
-                    className="form-new"
-                    ref={formRef}
-                    onSubmit={handleSchoolSubmit}
-                    fluid
-                >
-                    <h1 className="form-new-heading">New Studies</h1>
-                    <br>
-                    </br>
-                    <Form.Group controlId='name'>
-                        <Form.ControlLabel><h2>school name</h2></Form.ControlLabel>
-                        <Form.Control 
-                            name='name'
-                            size='lg'
-                            placeholder="please enter the name of the school you attended..." 
-                        />
-                    </Form.Group>
-                    <Form.Group controlId='location'>
-                        <Form.ControlLabel><h2>location</h2></Form.ControlLabel>
-                        <Form.Control 
-                            name='location'
-                            size='lg'
-                            placeholder="please enter the location of the school you attended..." 
-                        />
-                    </Form.Group>
-                    <Form.Group controlId='date'>
-                        <Form.ControlLabel><h2>dates attended</h2></Form.ControlLabel>
-                        <Form.Control 
-                            name='date'
-                            size='lg'
-                            placeholder="please enter the date range you attended the school..." 
-                        />
-                    </Form.Group>
-                    <ButtonToolbar>
-                        <Whisper
-                            placement='right'
-                            trigger='active'
-                            speaker={<Popover arrow={false}>new studies submitted!</Popover>}>
-                            <Button appearance='subtle' type='submit'>
-                                <h3>submit</h3>
-                            </Button>
-                        </Whisper>
-                    </ButtonToolbar>
-                </Form>
-            </Container>
+            <Panel bordered>
+                <Container>
+                    <Form 
+                        className="form-new"
+                        ref={formRef}
+                        onSubmit={handleSchoolSubmit}
+                        fluid
+                    >
+                        <Panel bordered>
+                            <h1 className="form-new-heading">Add Studies</h1>
+                        </Panel>
+                        <br>
+                        </br>
+                        <Form.Group controlId='name'>
+                            <Form.ControlLabel><h2>school name</h2></Form.ControlLabel>
+                            <Form.Control 
+                                name='name'
+                                size='lg'
+                                placeholder="please enter the name of the school you attended..." 
+                            />
+                        </Form.Group>
+                        <br>
+                        </br>
+                        <Form.Group controlId='location'>
+                            <Form.ControlLabel><h2>location</h2></Form.ControlLabel>
+                            <Form.Control 
+                                name='location'
+                                size='lg'
+                                placeholder="please enter the location of the school you attended..." 
+                            />
+                        </Form.Group>
+                        <br>
+                        </br>
+                        <Form.Group controlId='date'>
+                            <Form.ControlLabel><h2>dates attended</h2></Form.ControlLabel>
+                            <Form.Control 
+                                name='date'
+                                size='lg'
+                                placeholder="please enter the date range you attended the school..." 
+                            />
+                        </Form.Group>
+                        <ButtonToolbar>
+                            <Whisper
+                                placement='right'
+                                trigger='active'
+                                speaker={<Popover arrow={false}>studies submitted!</Popover>}>
+                                <Button appearance='subtle' type='submit'>
+                                    <h3>submit</h3>
+                                </Button>
+                            </Whisper>
+                        </ButtonToolbar>
+                    </Form>
+                </Container>
+            </Panel>
         </>
     )
 }

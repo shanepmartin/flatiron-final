@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { useSelector } from "react-redux"
-import { List, Panel, Button, IconButton } from 'rsuite';
+import { Panel, PanelGroup, Grid, Col, Row, Button } from 'rsuite';
 import { useNavigate } from "react-router-dom";
 
 import DashboardHeader from "../dashboard/DashboardHeader"
@@ -36,76 +36,66 @@ const ContactsLog = () => {
         getContactsList();
     }, []);
 
-
-    // const deleteContact = async () => {
-    //     let req = await fetch(`http://localhost:3000/contacts/${id}`, {
-    //         method: "DELETE",
-    //     })
-    //     let res = await req.json();
-    //     console.log('the contact we are deleting...', res)
-    //     deleteContact()
-    // }
-
-    const styles = {
-        display: 'inline-table'
-    }
-
     const [activeKey, setActiveKey] = useState('1');
     const [openKeys, setOpenKeys] = useState(['3', '4']);
     const [expanded, setExpand] = useState(true);
 
     return (
         <>
-            <DashboardHeader
-                appearance="subtle"
-                activeKey={activeKey}
-                onSelect={setActiveKey}
-            />
-            <br>
-            </br>
-            <DashBoardSideBar
-                activeKey={activeKey}
-                openKeys={openKeys}
-                onOpenChange={setOpenKeys}
-                onSelect={setActiveKey}
-                expanded={expanded}
-                onExpand={setExpand}
-                appearance="subtle"
-            />
-            <div className="log" style={styles}>
-                <h1 className="log-title">Contacts Log</h1>
-                {contactsArray.map((contact, index) => {
-                    return (
+            <Grid fluid>
+                <DashboardHeader
+                    appearance="subtle"
+                    activeKey={activeKey}
+                    onSelect={setActiveKey}
+                />
+                <br>
+                </br>
+                <Row>
+                    <Col xs={8}>
+                        <DashBoardSideBar
+                            activeKey={activeKey}
+                            openKeys={openKeys}
+                            onOpenChange={setOpenKeys}
+                            onSelect={setActiveKey}
+                            expanded={expanded}
+                            onExpand={setExpand}
+                            appearance="subtle"
+                        />
+                    </Col>
+                    <Col xs={8}>
                         <Panel>
-                            <List bordered>
-                                <div className="list"> 
-                                    <h2>{index + 1}: {contact.name}</h2>
-                                    <List 
-                                        key={index} 
-                                        bordered
-                                    >
-                                        <List.Item>
-                                            <h3>name: {contact.name}</h3>
-                                        </List.Item>
-                                        <List.Item>
-                                            <h3>phone: {contact.phone_number}</h3>
-                                        </List.Item>
-                                        <List.Item>
-                                            <h3>address: {contact.address}</h3>
-                                        </List.Item>
-                                    </List>
-                                    <Button 
-                                        appearance="default" 
-                                        placement="right" 
-                                        onClick={() => navigate(`/contacts/${contact.id}`)}
-                                    >Update
-                                    </Button>
-                                </div>
-                            </List>
+                            <h1 className="log-title">Contacts Log</h1>
                         </Panel>
-                    );
-                })}
-            </div>
+                            {contactsArray.map((contact, index) => {
+                            return (
+                                <PanelGroup accordion bordered>
+                                    <Panel
+                                        key={index}
+                                        className="panel"
+                                        header={<h2>[{index + 1}] {contact.name}</h2>}
+                                    >
+                                        <h3>name: {contact.name}</h3>
+                                        <br>
+                                        </br>
+                                        <h3>phone: {contact.phone_number}</h3>
+                                        <br>
+                                        </br>
+                                        <h3>address: {contact.address}</h3>
+                                        <br>
+                                        </br>
+                                        <Button
+                                            appearance="default"
+                                            placement="right"
+                                            onClick={() => navigate(`/contacts/${contact.id}`)}
+                                        >Update Contact
+                                        </Button>
+                                    </Panel>
+                                </PanelGroup>
+                            );
+                            })}
+                        </Col>
+                    </Row>
+                </Grid>
         </>
     )
 }

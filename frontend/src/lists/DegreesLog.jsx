@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { useSelector } from "react-redux"
-import { List, Panel } from 'rsuite';
+import { List, Panel, PanelGroup, Grid, Col, Row, Container } from 'rsuite';
 
 import DashboardHeader from "../dashboard/DashboardHeader"
 import DashBoardSideBar from "../dashboard/DashboardSideBar"
@@ -42,41 +42,46 @@ const DegreesLog = () => {
 
     return (
         <>
-            <DashboardHeader
-                appearance="subtle"
-                activeKey={activeKey}
-                onSelect={setActiveKey}
-            />
-            <br>
-            </br>
-            <DashBoardSideBar
-                activeKey={activeKey}
-                openKeys={openKeys}
-                onOpenChange={setOpenKeys}
-                onSelect={setActiveKey}
-                expanded={expanded}
-                onExpand={setExpand}
-                appearance="subtle"
-            />
-            <div className="log" style={styles}>
-                <h1 className="log-title">Degrees Log</h1>
-                {degreesArray.map((degree, index) => {
-                    return (
+            <Grid fluid>
+                <DashboardHeader
+                    appearance="subtle"
+                    activeKey={activeKey}
+                    onSelect={setActiveKey}
+                />
+                <br>
+                </br>
+                <Row>
+                    <Col xs={8}>
+                        <DashBoardSideBar
+                            activeKey={activeKey}
+                            openKeys={openKeys}
+                            onOpenChange={setOpenKeys}
+                            onSelect={setActiveKey}
+                            expanded={expanded}
+                            onExpand={setExpand}
+                            appearance="subtle"
+                        />
+                    </Col>
+                    <Col xs={8}>
                         <Panel>
-                            <List bordered>
-                                <div className="list"> 
-                                    <h2>[{index + 1}] {degree.name}</h2>
-                                    <List key={index} bordered>
-                                        <List.Item>
-                                            <h3>level: {degree.level}</h3>
-                                        </List.Item>
-                                    </List>
-                                </div>
-                            </List>
+                            <h1 className="log-title">Degrees Log</h1>
                         </Panel>
-                    );
-                })}
-            </div>
+                            {degreesArray.map((degree, index) => {
+                                return (
+                                    <PanelGroup accordion bordered>
+                                        <Panel
+                                            key={index}
+                                            className="panel"
+                                            header={<h2>[{index + 1}] {degree.name}</h2>}
+                                        >
+                                            <h3>level: {degree.level}</h3>
+                                        </Panel>
+                                    </PanelGroup>
+                                );
+                            })}
+                    </Col>
+                </Row>
+            </Grid>
         </>
     )
 }

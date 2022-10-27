@@ -1,6 +1,6 @@
 import { useRef, forwardRef, useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
-import { Form, Input, Button, ButtonToolbar, Popover, Whisper, Container } from 'rsuite'
+import { Form, Button, ButtonToolbar, Popover, Whisper, Container, Grid, Col, Row, Panel, Input } from 'rsuite'
 import { SchemaModel, StringType } from "schema-typed"
 
 import DashboardHeader from "../dashboard/DashboardHeader"
@@ -57,60 +57,72 @@ const NewMemory = () => {
 
     return (
         <>
-            <DashboardHeader
-                appearance="subtle"
-                activeKey={activeKey}
-                onSelect={setActiveKey}
-            />
-            <br>
-            </br>
-            <DashBoardSideBar
-                activeKey={activeKey}
-                openKeys={openKeys}
-                onOpenChange={setOpenKeys}
-                onSelect={setActiveKey}
-                expanded={expanded}
-                onExpand={setExpand}
-                appearance="subtle"
-            />
-            <Container>
-                <Form 
-                    className="form-new"
-                    ref={formRef}
-                    onSubmit={handleMemorySubmit}
-                    fluid
-                >
-                    <h1 className="form-new-heading">New Memory</h1>
-                    <br>
-                    </br>
-                    <Form.Group controlId='name'>
-                        <Form.ControlLabel><h2>memory</h2></Form.ControlLabel>
-                        <Form.Control 
-                            name='name'
-                            placeholder="please give your memory a name..." 
+            <Grid fluid>
+                <DashboardHeader
+                    appearance="subtle"
+                    activeKey={activeKey}
+                    onSelect={setActiveKey}
+                />
+                <br>
+                </br>
+                <Row>
+                    <Col xs={8}>
+                        <DashBoardSideBar
+                            activeKey={activeKey}
+                            openKeys={openKeys}
+                            onOpenChange={setOpenKeys}
+                            onSelect={setActiveKey}
+                            expanded={expanded}
+                            onExpand={setExpand}
+                            appearance="subtle"
                         />
-                    </Form.Group>
-                    <Form.Group controlId='description'>
-                        <Form.ControlLabel><h2>description</h2></Form.ControlLabel>
-                        <Form.Control 
-                        rows={13} 
-                        name='entry' 
-                        accepter={Textarea} 
-                        placeholder="please provide a description of your memory..."
-                        />
-                    </Form.Group>
-                    <ButtonToolbar>
-                        <Whisper
-                            placement='right'
-                            trigger='active'
-                            speaker={<Popover arrow={false}>memory submitted!</Popover>}>
-                            <Button appearance='subtle' type='submit'>
-                                <h3>submit</h3>
-                            </Button>
-                        </Whisper>
-                    </ButtonToolbar>
-                </Form>
-            </Container>
+                    </Col>
+                    <Col xs={8}>
+                        <Panel bordered>
+                            <Container>
+                                <Form 
+                                    className="form-new"
+                                    ref={formRef}
+                                    onSubmit={handleMemorySubmit}
+                                    fluid
+                                >
+                                    <h1 className="form-new-heading">Add Memory</h1>
+                                    <br>
+                                    </br>
+                                    <Form.Group controlId='name'>
+                                        <Form.ControlLabel><h2>memory</h2></Form.ControlLabel>
+                                        <Form.Control 
+                                            name='name'
+                                            placeholder="please give your memory a name..." 
+                                        />
+                                    </Form.Group>
+                                    <br>
+                                    </br>
+                                    <Form.Group controlId='description'>
+                                        <Form.ControlLabel><h2>description</h2></Form.ControlLabel>
+                                        <Form.Control 
+                                        rows={13} 
+                                        name='entry' 
+                                        accepter={Textarea} 
+                                        placeholder="please provide a description of your memory..."
+                                        />
+                                    </Form.Group>
+                                    <ButtonToolbar>
+                                        <Whisper
+                                            placement='right'
+                                            trigger='active'
+                                            speaker={<Popover arrow={false}>memory submitted!</Popover>}>
+                                            <Button appearance='subtle' type='submit'>
+                                                <h3>submit</h3>
+                                            </Button>
+                                        </Whisper>
+                                    </ButtonToolbar>
+                                </Form>
+                            </Container>
+                        </Panel>
+                    </Col>
+                </Row>
+            </Grid>
         </>
     )
 }

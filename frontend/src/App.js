@@ -56,7 +56,7 @@ const App = () => {
       })
         .then((res) => res.json())
         .then((data) => {
-          console.log('useEffect data', data) 
+          console.log('Current User', data) 
           // localStorage.setItem('token', data.token)
           dispatch(setUser(data.user))
         });
@@ -73,7 +73,6 @@ const App = () => {
           <Route path="/" element={<Landing />} /> 
           <Route path="/signup" element={<SignUp />} />
           <Route path="/login" element={<Login />} />
-          {/* <Route path="/profile" element={<DashBoardSideBar />} /> */}
           <Route path="/achievements/new" element={<Achievements />} />
           <Route path="/achievements" element={<AchievementsLog />} />
           <Route path="/contacts/new" element={<Contacts />} />

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { useSelector } from "react-redux"
-import { List, Panel } from 'rsuite';
+import { Panel, PanelGroup, Grid, Col, Row } from 'rsuite';
 
 import DashboardHeader from "../dashboard/DashboardHeader"
 import DashBoardSideBar from "../dashboard/DashboardSideBar"
@@ -32,9 +32,6 @@ const GoalsLog = () => {
         getGoalsList();
     }, []);
 
-    const styles = {
-        display: 'inline-table'
-    }
 
     const [activeKey, setActiveKey] = useState('1');
     const [openKeys, setOpenKeys] = useState(['3', '4']);
@@ -42,47 +39,53 @@ const GoalsLog = () => {
 
     return (
         <>
-            <DashboardHeader
-                appearance="subtle"
-                activeKey={activeKey}
-                onSelect={setActiveKey}
-            />
-            <br>
-            </br>
-            <DashBoardSideBar
-                activeKey={activeKey}
-                openKeys={openKeys}
-                onOpenChange={setOpenKeys}
-                onSelect={setActiveKey}
-                expanded={expanded}
-                onExpand={setExpand}
-                appearance="subtle"
-            />
-            <div className="log" style={styles}>
-                <h1 className="log-title">Goals Log</h1>
-                {goalsArray.map((goal, index) => {
-                    return (
+            <Grid fluid>
+                <DashboardHeader
+                    appearance="subtle"
+                    activeKey={activeKey}
+                    onSelect={setActiveKey}
+                />
+                <br>
+                </br>
+                <Row>
+                    <Col xs={8}>
+                        <DashBoardSideBar
+                            activeKey={activeKey}
+                            openKeys={openKeys}
+                            onOpenChange={setOpenKeys}
+                            onSelect={setActiveKey}
+                            expanded={expanded}
+                            onExpand={setExpand}
+                            appearance="subtle"
+                        />
+                    </Col>
+                    <Col xs={8}>
                         <Panel>
-                            <List bordered>
-                                <div className="list"> 
-                                    <h2>[{index + 1}] {goal.name}</h2>
-                                    <List key={index} bordered>
-                                        <List.Item>
-                                            <h3>date: {goal.date}</h3>
-                                        </List.Item>
-                                        <List.Item>
-                                            <h3>category: {goal.category}</h3>
-                                        </List.Item>
-                                        <List.Item>
-                                            <h3>description: {goal.description}</h3>
-                                        </List.Item>
-                                    </List>
-                                </div>
-                            </List>
+                            <h1 className="log-title">Goals Log</h1>
                         </Panel>
-                    );
-                })}
-            </div>
+                            {goalsArray.map((goal, index) => {
+                            return (
+                                <PanelGroup accordion bordered>
+                                    <Panel
+                                        key={index}
+                                        className="panel"
+                                        header={<h2>[{index + 1}] {goal.name}</h2>}
+                                    >
+                                        <h3>date: {goal.date}</h3>
+                                        <br>
+                                        </br>
+                                        <h3>category: {goal.category}</h3>
+                                        <br>
+                                        </br>
+                                        <h3>description: </h3>
+                                        <h3>{goal.description}</h3>
+                                    </Panel>
+                                </PanelGroup>
+                            );
+                            })}
+                        </Col>
+                    </Row>
+                </Grid>
         </>
     )
 }

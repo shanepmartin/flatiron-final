@@ -1,5 +1,5 @@
 import { useRef, forwardRef } from "react"
-import { Form, Input, Button, ButtonToolbar, Popover, Whisper, Container } from 'rsuite'
+import { Form, Input, Button, ButtonToolbar, Popover, Whisper, Container, Panel } from 'rsuite'
 import { SchemaModel, StringType } from "schema-typed"
 
 const Textarea = forwardRef((props, ref) => <Input {...props} as="textarea" ref={ref} />);
@@ -33,63 +33,74 @@ const NewGoal = () => {
     return (
         <>
             <Container>
-                <Form 
-                    className="form-new"
-                    ref={formRef}
-                    onSubmit={handleGoalSubmit}
-                    fluid
-                >
-                    <h1 className="form-new-heading">New Goal</h1>
-                    <br>
-                    </br>
-                    <Form.Group controlId='name'>
-                        <Form.ControlLabel><h2>name</h2></Form.ControlLabel>
-                        <Form.Control 
-                            name='name'
-                            size='lg'
-                            placeholder="please enter the name of the goal you want to achieve..." 
-                        />
-                    </Form.Group>
-                    <Form.Group controlId='date'>
-                        <Form.ControlLabel><h2>date</h2></Form.ControlLabel>
-                        <Form.Control 
-                            name='date'
-                            size='lg'
-                            placeholder="please enter today's date..." 
-                        />
-                    </Form.Group>
-                    <Form.Group controlId='category'>
-                        <Form.ControlLabel><h2>category</h2></Form.ControlLabel>
-                        <Form.Control 
-                            name='category'
-                            size='lg'
-                            placeholder="please enter the category of your goal..." 
-                        />
-                    </Form.Group>
-                    <Form.Group controlId='description'>
-                        <Form.ControlLabel><h2>description</h2></Form.ControlLabel>
-                        <Form.Control 
-                            rows={13} 
-                            name='entry' 
-                            accepter={Textarea}
-                            placeholder="please enter a description of your goal..." 
-                        />
-                    </Form.Group>
-                    <ButtonToolbar>
-                        <Whisper
-                            placement='right'
-                            trigger='active'
-                            speaker={<Popover arrow={false}>Submitted!</Popover>}>
-                            <Button 
-                                appearance='subtle' 
-                                type='submit'
+                <Panel bordered>
+                    <Form 
+                        className="form-new"
+                        ref={formRef}
+                        onSubmit={handleGoalSubmit}
+                        fluid
+                    >
+                        <Panel bordered>
+                            <h1 className="form-new-heading">New Goal</h1>
+                        </Panel>
+                        <br>
+                        </br>
+                        <Form.Group controlId='name'>
+                            <Form.ControlLabel><h2>name</h2></Form.ControlLabel>
+                            <Form.Control 
+                                name='name'
                                 size='lg'
-                            >
-                                <h2>submit</h2>
-                            </Button>
-                        </Whisper>
-                    </ButtonToolbar>
-                </Form>
+                                placeholder="please enter the name of the goal you want to achieve..." 
+                            />
+                        </Form.Group>
+                        <br>
+                        </br>
+                        <Form.Group controlId='date'>
+                            <Form.ControlLabel><h2>date</h2></Form.ControlLabel>
+                            <Form.Control 
+                                name='date'
+                                size='lg'
+                                placeholder="please enter today's date..." 
+                            />
+                        </Form.Group>
+                        <br>
+                        </br>
+                        <Form.Group controlId='category'>
+                            <Form.ControlLabel><h2>category</h2></Form.ControlLabel>
+                            <Form.Control 
+                                name='category'
+                                size='lg'
+                                placeholder="please enter the category of your goal..." 
+                            />
+                        </Form.Group>
+                        <br>
+                        </br>
+                        <Form.Group controlId='description'>
+                            <Form.ControlLabel><h2>description</h2></Form.ControlLabel>
+                            <Form.Control 
+                                rows={13} 
+                                name='entry' 
+                                accepter={Textarea}
+                                size='lg'
+                                placeholder="please enter a description of your goal..." 
+                            />
+                        </Form.Group>
+                        <ButtonToolbar>
+                            <Whisper
+                                placement='right'
+                                trigger='active'
+                                speaker={<Popover arrow={false}>Submitted!</Popover>}>
+                                <Button 
+                                    appearance='subtle' 
+                                    type='submit'
+                                    size='lg'
+                                >
+                                    <h2>submit</h2>
+                                </Button>
+                            </Whisper>
+                        </ButtonToolbar>
+                    </Form>
+                </Panel>
             </Container>
         </>
     )

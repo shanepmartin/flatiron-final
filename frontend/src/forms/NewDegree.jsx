@@ -1,6 +1,6 @@
 import { useRef, useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
-import { Form, Button, ButtonToolbar, Popover, Whisper, Container, Grid, Col, Row } from 'rsuite'
+import { Form, Button, ButtonToolbar, Popover, Whisper, Container, Grid, Col, Row, Panel } from 'rsuite'
 import { SchemaModel, StringType } from "schema-typed"
 
 import DashboardHeader from "../dashboard/DashboardHeader"
@@ -76,46 +76,48 @@ const NewDegree = () => {
                         />
                     </Col>
                     <Col xs={8}>
-                        <Container>
-                            <Form 
-                                className="form-new"
-                                ref={formRef}
-                                onSubmit={handleDegreeSubmit}
-                                fluid
-                            >
-                                <h1 className="form-new-heading">New Degree</h1>
-                                <br>
-                                </br>
-                                <Form.Group controlId='name'>
-                                    <Form.ControlLabel><h2>name</h2></Form.ControlLabel>
-                                    <Form.Control 
-                                        name='name' 
-                                        size="lg"
-                                        placeholder="please enter the name of the degree you received..."
-                                    />
-                                </Form.Group>
-                                <br>
-                                </br>
-                                <Form.Group controlId='date'>
-                                    <Form.ControlLabel><h2>level</h2></Form.ControlLabel>
-                                    <Form.Control 
-                                        name='date'
-                                        size="lg"
-                                        placeholder="please enter the level of the degree you received..." 
-                                    />
-                                </Form.Group>
-                                <ButtonToolbar>
-                                    <Whisper
-                                        placement='right'
-                                        trigger='active'
-                                        speaker={<Popover arrow={false}>Submitted!</Popover>}>
-                                        <Button appearance='subtle' type='submit'>
-                                            <h3>submit</h3>
-                                        </Button>
-                                    </Whisper>
-                                </ButtonToolbar>
-                            </Form>
-                        </Container>
+                        <Panel bordered>
+                            <Container>
+                                <Form 
+                                    className="form-new"
+                                    ref={formRef}
+                                    onSubmit={handleDegreeSubmit}
+                                    fluid
+                                >
+                                    <h1>Add Degree</h1>
+                                    <br>
+                                    </br>
+                                    <Form.Group controlId='name'>
+                                        <Form.ControlLabel><h2>name</h2></Form.ControlLabel>
+                                        <Form.Control 
+                                            name='name' 
+                                            size="lg"
+                                            placeholder="please enter the name of the degree you received..."
+                                        />
+                                    </Form.Group>
+                                    <br>
+                                    </br>
+                                    <Form.Group controlId='date'>
+                                        <Form.ControlLabel><h2>level</h2></Form.ControlLabel>
+                                        <Form.Control 
+                                            name='date'
+                                            size="lg"
+                                            placeholder="please enter the level of the degree you received..." 
+                                        />
+                                    </Form.Group>
+                                    <ButtonToolbar>
+                                        <Whisper
+                                            placement='right'
+                                            trigger='active'
+                                            speaker={<Popover arrow={false}>degree submitted!</Popover>}>
+                                            <Button appearance='subtle' type='submit'>
+                                                <h3>submit</h3>
+                                            </Button>
+                                        </Whisper>
+                                    </ButtonToolbar>
+                                </Form>
+                            </Container>
+                        </Panel>
                     </Col>
                 </Row>
             </Grid>
