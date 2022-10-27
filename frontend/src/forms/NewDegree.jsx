@@ -75,7 +75,7 @@ const NewDegree = () => {
                             appearance="subtle"
                         />
                     </Col>
-                    <Col xs={8}>
+                    <Col lg={12} xl={8} xxl={12}>
                         <Panel bordered>
                             <Container>
                                 <Form 

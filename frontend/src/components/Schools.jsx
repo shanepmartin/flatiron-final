@@ -20,7 +20,7 @@ const Schools = () => {
                 <br>
                 </br>
                 <Row>
-                    <Col xs={8}>
+                    <Col sm={24} md={8} lg={6}>
                         <DashBoardSideBar
                             activeKey={activeKey}
                             openKeys={openKeys}
@@ -31,7 +31,7 @@ const Schools = () => {
                             appearance="subtle"
                         />
                     </Col>
-                    <Col xs={8}>
+                    <Col sm={12} md={8} lg={12}>
                         <NewSchool />
                     </Col>
                 </Row>

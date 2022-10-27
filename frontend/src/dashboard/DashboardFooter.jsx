@@ -18,7 +18,7 @@ const DashboardFooter = () => {
             <Footer>
                 <Grid fluid>
                     <Row>
-                        <Col xs={8}>
+                        <Col sm={24} md={8} lg={6}>
                             <Button
                                 icon={<ExitIcon />}
                                 appearance="subtle"
@@ -27,7 +27,7 @@ const DashboardFooter = () => {
                                 <h3><Icon as={ExitIcon} size="10em" /> SignOut</h3>
                             </Button>
                         </Col>
-                        <Col xs={8}>
+                        <Col sm={12} md={8} lg={12}>
                             <Nav>
                                 <Nav.Item><h3>BackPocket 2022</h3></Nav.Item>
                                 <Nav.Item

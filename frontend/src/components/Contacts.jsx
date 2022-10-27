@@ -20,7 +20,7 @@ const Contacts = () => {
                 <br>
                 </br>
                 <Row>
-                    <Col xs={8}>
+                    <Col sm={24} md={8} lg={6}>
                         <DashBoardSideBar
                             activeKey={activeKey}
                             openKeys={openKeys}
@@ -31,7 +31,7 @@ const Contacts = () => {
                             appearance="subtle"
                         />
                     </Col>
-                    <Col xs={8}>
+                    <Col sm={12} md={8} lg={12}>
                         <NewContact />
                     </Col>
                 </Row>

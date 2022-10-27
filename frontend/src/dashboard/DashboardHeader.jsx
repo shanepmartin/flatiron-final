@@ -18,21 +18,21 @@ const DashboardHeader = ({ onSelect, activeKey, ...props }) => {
             <Header>
                 <Grid fluid>
                     <Row>
-                        <Col xs={8}>
+                        <Col sm={24} md={8} lg={6}>
                             <Navbar.Brand
                                 href="/dashboard"
                             >
                                 <h1><Icon as={PeopleExpandIcon} size="10em" /> BackPocket</h1>
                             </Navbar.Brand>
                         </Col>
-                        <Col xs={8}>
+                        <Col sm={12} md={8} lg={12}>
                             <Nav>
                                 <Nav.Item >
                                     <h2><Icon as={TimeIcon} size="10em" /> <GetTime /></h2>
                                 </Nav.Item>
                             </Nav>
                         </Col>
-                        <Col xs={8}>
+                        <Col sm={12} md={8} lg={6}>
                             <Nav pullRight>
                                 <Nav.Item
                                     onClick={() => navigate('/profile')}

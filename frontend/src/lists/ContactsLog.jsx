@@ -51,7 +51,7 @@ const ContactsLog = () => {
                 <br>
                 </br>
                 <Row>
-                    <Col xs={8}>
+                    <Col sm={24} md={8} lg={6}>
                         <DashBoardSideBar
                             activeKey={activeKey}
                             openKeys={openKeys}
@@ -62,7 +62,7 @@ const ContactsLog = () => {
                             appearance="subtle"
                         />
                     </Col>
-                    <Col xs={8}>
+                    <Col sm={12} md={8} lg={12}>
                         <Panel>
                             <h1 className="log-title">Contacts Log</h1>
                         </Panel>
