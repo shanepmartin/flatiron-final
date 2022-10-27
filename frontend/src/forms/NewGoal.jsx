@@ -40,7 +40,7 @@ const NewGoal = () => {
                         onSubmit={handleGoalSubmit}
                         fluid
                     >
-                        <Panel bordered>
+                        <Panel>
                             <h1 className="form-new-heading">New Goal</h1>
                         </Panel>
                         <br>
@@ -85,6 +85,8 @@ const NewGoal = () => {
                                 placeholder="please enter a description of your goal..." 
                             />
                         </Form.Group>
+                        <br>
+                        </br>
                         <ButtonToolbar>
                             <Whisper
                                 placement='right'

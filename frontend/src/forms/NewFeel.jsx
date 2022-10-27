@@ -40,7 +40,7 @@ const NewFeel = () => {
                         onSubmit={handleFeelSubmit}
                         fluid
                     >
-                        <Panel bordered>
+                        <Panel>
                             <h1 className="form-new-heading">New Feel</h1>
                         </Panel>
                         <br>
@@ -75,6 +75,8 @@ const NewFeel = () => {
                                 placeholder="let out your feely feels..." 
                             />
                         </Form.Group>
+                        <br>
+                        </br>
                         <ButtonToolbar>
                             <Whisper
                                 placement='right'

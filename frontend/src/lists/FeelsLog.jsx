@@ -66,15 +66,17 @@ const FeelsLog = () => {
                         <Panel>
                             <h1 className="log-title">Feely Feels</h1>
                         </Panel>
+                        <br>
+                        </br>
                         {feelsArray.map((feel, index) => {
                         return (
                             <PanelGroup accordion bordered>
                                 <Panel
                                     key={index}
                                     className="panel"
-                                    header={<h2>{feel.date} @ {feel.time}</h2>}
+                                    header={<h2>entry from {feel.date} @ {feel.time}</h2>}
                                 >
-                                    <h3>entry: {feel.entry}</h3>
+                                    <h3>{feel.entry}</h3>
                                 </Panel>
                             </PanelGroup>
                         );

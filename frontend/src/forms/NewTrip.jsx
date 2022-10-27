@@ -28,15 +28,15 @@ const NewTrip = () => {
 
     return (
         <>
-            <Panel bordered>
-                <Container>
+            <Container>
+                <Panel bordered>
                     <Form 
                         className="form-new"
                         ref={formRef}
                         onSubmit={handleTripSubmit}
                         fluid
                     >
-                        <Panel bordered>
+                        <Panel>
                             <h1 className="form-new-heading">Add Trip</h1>
                         </Panel>
                         <br>
@@ -69,6 +69,8 @@ const NewTrip = () => {
                                 placeholder="when did you go?"
                             />
                         </Form.Group>
+                        <br>
+                        </br>
                         <ButtonToolbar>
                             <Whisper
                                 placement='right'
@@ -80,8 +82,8 @@ const NewTrip = () => {
                             </Whisper>
                         </ButtonToolbar>
                     </Form>
-                </Container>
-            </Panel>
+                </Panel>
+            </Container>
         </>
     )
 }

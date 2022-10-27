@@ -62,6 +62,8 @@ const AchievementsLog = () => {
                         <Panel>
                             <h1 className="log-title">Achievements Log</h1>
                         </Panel>
+                        <br>
+                        </br>
                             {achievementsArray.map((achievement, index) => {
                             return (
                                 <PanelGroup accordion bordered>

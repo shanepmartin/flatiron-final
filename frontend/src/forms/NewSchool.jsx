@@ -37,7 +37,7 @@ const NewSchool = () => {
                         onSubmit={handleSchoolSubmit}
                         fluid
                     >
-                        <Panel bordered>
+                        <Panel>
                             <h1 className="form-new-heading">Add Studies</h1>
                         </Panel>
                         <br>
@@ -70,6 +70,8 @@ const NewSchool = () => {
                                 placeholder="please enter the date range you attended the school..." 
                             />
                         </Form.Group>
+                        <br>
+                        </br>
                         <ButtonToolbar>
                             <Whisper
                                 placement='right'

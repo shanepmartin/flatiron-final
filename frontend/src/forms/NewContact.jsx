@@ -36,7 +36,7 @@ const NewContact = () => {
                         onSubmit={handleContactSubmit}
                         fluid
                     >
-                        <Panel bordered>
+                        <Panel>
                             <h1 className="form-new-heading">Add Contact</h1>
                         </Panel>
                         <br>
@@ -69,6 +69,8 @@ const NewContact = () => {
                                 placeholder="please enter the address of your new contact" 
                             />
                         </Form.Group>
+                        <br>
+                        </br>
                         <ButtonToolbar>
                             <Whisper
                                 placement='right'

@@ -1,6 +1,8 @@
+@import url('https: //fonts.google.com/specimen/Courier+Prime?query=courier+prime')
+
 body {
   margin: 0;
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier Prime ',
       monospace;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -8,7 +10,7 @@ body {
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier Prime',
     monospace;
 }
 

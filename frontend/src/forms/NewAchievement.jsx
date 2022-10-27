@@ -40,7 +40,7 @@ const NewAchievement = () => {
                         onSubmit={handleAchievementSubmit}
                         fluid
                     >
-                        <Panel bordered>
+                        <Panel>
                             <h1 className="form-new-heading">Add Achievement</h1>
                         </Panel>
                         <br>
@@ -85,6 +85,8 @@ const NewAchievement = () => {
                                 placeholder="please enter a description of your achievement..."
                             />
                         </Form.Group>
+                        <br>
+                        </br>
                         <ButtonToolbar>
                             <Whisper
                                 placement='right'

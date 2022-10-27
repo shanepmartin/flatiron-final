@@ -105,6 +105,8 @@ const NewDegree = () => {
                                             placeholder="please enter the level of the degree you received..." 
                                         />
                                     </Form.Group>
+                                    <br>
+                                    </br>
                                     <ButtonToolbar>
                                         <Whisper
                                             placement='right'

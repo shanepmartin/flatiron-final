@@ -63,6 +63,8 @@ const GoalsLog = () => {
                         <Panel>
                             <h1 className="log-title">Goals Log</h1>
                         </Panel>
+                        <br>
+                        </br>
                             {goalsArray.map((goal, index) => {
                             return (
                                 <PanelGroup accordion bordered>
