@@ -1,5 +1,5 @@
 import { useRef, forwardRef } from "react"
-import { Form, Input, Button, ButtonToolbar, Popover, Whisper, Panel, PanelGroup } from 'rsuite'
+import { Form, Input, Button, ButtonToolbar, Popover, Whisper, Container } from 'rsuite'
 import { SchemaModel, StringType } from "schema-typed"
 
 const Textarea = forwardRef((props, ref) => <Input {...props} as="textarea" ref={ref} />);
@@ -30,66 +30,66 @@ const NewAchievement = () => {
 
     const formRef = useRef()
 
-    const styles = {
-        display: 'inline-table'
-    }
-
     return (
         <>
-            <div className="form-heading-div" style={styles}>
-                <h1 className="form-new-heading">New Achievement</h1>
-                <PanelGroup>
-                    <Form 
-                        className="form-new"
-                        ref={formRef}
-                        onSubmit={handleAchievementSubmit}
-                        fluid
-                    >
-                        <Form.Group controlId='name' >
-                            <Form.ControlLabel><h2>name</h2></Form.ControlLabel>
-                            <Form.Control 
-                                name='name' 
-                                placeholder="please enter the name of your achievement..."
-                            />
-                        </Form.Group>
-                        <Form.Group controlId='date'>
-                            <Form.ControlLabel><h2>date</h2></Form.ControlLabel>
-                            <Form.Control 
-                                name='date' 
-                                placeholder="please enter the date you made your achievement..."
-                            />
-                        </Form.Group>
-                        <Form.Group controlId='category'>
-                            <Form.ControlLabel><h2>category</h2></Form.ControlLabel>
-                            <Form.Control 
-                                name='category' 
-                                placeholder="please enter the category of your achievement..."
-                            />
-                        </Form.Group>
-                        <Form.Group controlId='description'>
-                            <Form.ControlLabel><h2>description</h2></Form.ControlLabel>
-                            <Form.Control 
-                                rows={13} 
-                                name='entry' 
-                                accepter={Textarea} 
-                                placeholder="please enter a description of your achievement..."
-                            />
-                        </Form.Group>
-                        <ButtonToolbar>
-                            <Whisper
-                                placement='right'
-                                trigger='active'
-                                speaker={<Popover arrow={false}>achievement submitted!</Popover>}>
-                                <Button 
-                                    appearance='subtle' 
-                                    type='submit'>
-                                    <h3>submit</h3>
-                                </Button>
-                            </Whisper>
-                        </ButtonToolbar>
-                    </Form>
-                </PanelGroup>
-            </div>
+            <Container>
+                <Form 
+                    className="form-new"
+                    ref={formRef}
+                    onSubmit={handleAchievementSubmit}
+                    fluid
+                >
+                    <h1 className="form-new-heading">New Achievement</h1>
+                    <br>
+                    </br>
+                    <Form.Group controlId='name' >
+                        <Form.ControlLabel><h2>name</h2></Form.ControlLabel>
+                        <Form.Control 
+                            name='name' 
+                            size="lg"
+                            placeholder="please enter the name of your achievement..."
+                        />
+                    </Form.Group>
+                    <Form.Group controlId='date'>
+                        <Form.ControlLabel><h2>date</h2></Form.ControlLabel>
+                        <Form.Control 
+                            name='date' 
+                            size="lg"
+                            placeholder="please enter the date you made your achievement..."
+                        />
+                    </Form.Group>
+                    <Form.Group controlId='category'>
+                        <Form.ControlLabel><h2>category</h2></Form.ControlLabel>
+                        <Form.Control 
+                            name='category' 
+                            size="lg"
+                            placeholder="please enter the category of your achievement..."
+                        />
+                    </Form.Group>
+                    <Form.Group controlId='description'>
+                        <Form.ControlLabel><h2>description</h2></Form.ControlLabel>
+                        <Form.Control 
+                            rows={13} 
+                            name='entry' 
+                            accepter={Textarea} 
+                            size="lg"
+                            placeholder="please enter a description of your achievement..."
+                        />
+                    </Form.Group>
+                    <ButtonToolbar>
+                        <Whisper
+                            placement='right'
+                            trigger='active'
+                            speaker={<Popover arrow={false}>achievement submitted!</Popover>}>
+                            <Button 
+                                appearance='subtle' 
+                                type='submit'>
+                                <h3>submit</h3>
+                            </Button>
+                        </Whisper>
+                    </ButtonToolbar>
+                </Form>
+            </Container>
         </>
     )
 }

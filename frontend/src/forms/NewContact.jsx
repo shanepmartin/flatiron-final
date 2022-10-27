@@ -1,5 +1,5 @@
 import { useRef } from "react"
-import { Form, Button, ButtonToolbar, Popover, Whisper } from 'rsuite'
+import { Form, Button, ButtonToolbar, Popover, Whisper, Container } from 'rsuite'
 import { SchemaModel, StringType } from "schema-typed"
 
 const NewContact = () => {
@@ -26,54 +26,54 @@ const NewContact = () => {
    
     const formRef = useRef()
 
-    const model = SchemaModel({
-        name: StringType().isRequired("please enter a name"),
-        phone_number: StringType().isRequired("please enter a phone number"),
-        address: StringType().isRequired("please enter an address")
-    })
-
-    const styles = {
-        display: 'inline-table'
-    }
-
     return (
         <>
-            <div className="form-heading-div" style={styles}>
-                <h1 className="form-new-heading">Add Contact</h1>
+            <Container>
                 <Form 
                     className="form-new"
                     ref={formRef}
-                    model={model}
                     onSubmit={handleContactSubmit}
                     fluid
                 >
+                    <h1 className="form-new-heading">Add Contact</h1>
+                    <br>
+                    </br>
                     <Form.Group controlId='name'>
                         <Form.ControlLabel><h2>name</h2></Form.ControlLabel>
-                        <Form.Control name='name' />
-                        <Form.HelpText tooltip>please enter the name of your new contact</Form.HelpText>
+                        <Form.Control 
+                            name='name' 
+                            size="lg"
+                            placeholder="please enter the name of your new contact"
+                        />
                     </Form.Group>
                     <Form.Group controlId='phone'>
                         <Form.ControlLabel><h2>phone number</h2></Form.ControlLabel>
-                        <Form.Control name='phone' />
-                        <Form.HelpText tooltip>please enter the phone number of your new contact</Form.HelpText>
+                        <Form.Control 
+                            name='phone'
+                            size="lg"
+                            placeholder="please enter the phone number of your new contact" 
+                        />
                     </Form.Group>
                     <Form.Group controlId='address'>
                         <Form.ControlLabel><h2>address</h2></Form.ControlLabel>
-                        <Form.Control name='address' />
-                        <Form.HelpText tooltip>please enter the address of your new contact</Form.HelpText>
+                        <Form.Control 
+                            name='address'
+                            size="lg"
+                            placeholder="please enter the address of your new contact" 
+                        />
                     </Form.Group>
                     <ButtonToolbar>
                         <Whisper
                             placement='right'
                             trigger='active'
-                            speaker={<Popover arrow={false}>Submitted!</Popover>}>
+                            speaker={<Popover arrow={false}>new contact submitted!</Popover>}>
                             <Button appearance='subtle' type='submit'>
-                                <h2>submit</h2>
+                                <h3>submit</h3>
                             </Button>
                         </Whisper>
                     </ButtonToolbar>
                 </Form>
-            </div>
+            </Container>
         </>
     )
 }

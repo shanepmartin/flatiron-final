@@ -1,3 +1,5 @@
+import { Col, Grid, Row } from 'rsuite';
+
 import NewContact from "../forms/NewContact";
 import DashboardHeader from "../dashboard/DashboardHeader";
 import DashBoardSideBar from "../dashboard/DashboardSideBar";
@@ -9,23 +11,31 @@ const Contacts = () => {
     const [expanded, setExpand] = useState(true);
     return (
         <>
-            <DashboardHeader
-                appearance="subtle"
-                activeKey={activeKey}
-                onSelect={setActiveKey}
-            />
-            <br>
-            </br>
-            <DashBoardSideBar
-                activeKey={activeKey}
-                openKeys={openKeys}
-                onOpenChange={setOpenKeys}
-                onSelect={setActiveKey}
-                expanded={expanded}
-                onExpand={setExpand}
-                appearance="subtle"
-            />
-            <NewContact />
+            <Grid fluid>
+                <DashboardHeader
+                    appearance="subtle"
+                    activeKey={activeKey}
+                    onSelect={setActiveKey}
+                />
+                <br>
+                </br>
+                <Row>
+                    <Col xs={8}>
+                        <DashBoardSideBar
+                            activeKey={activeKey}
+                            openKeys={openKeys}
+                            onOpenChange={setOpenKeys}
+                            onSelect={setActiveKey}
+                            expanded={expanded}
+                            onExpand={setExpand}
+                            appearance="subtle"
+                        />
+                    </Col>
+                    <Col xs={8}>
+                        <NewContact />
+                    </Col>
+                </Row>
+            </Grid>
         </>
     )
 }

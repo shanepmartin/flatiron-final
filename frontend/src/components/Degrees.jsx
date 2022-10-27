@@ -1,3 +1,5 @@
+import { Col, Grid, Row } from 'rsuite';
+
 import NewDegree from "../forms/NewDegree";
 import DashboardHeader from "../dashboard/DashboardHeader";
 import DashBoardSideBar from "../dashboard/DashboardSideBar";
@@ -9,23 +11,31 @@ const Degrees = () => {
     const [expanded, setExpand] = useState(true);
     return (
         <>
-            <DashboardHeader
-                appearance="subtle"
-                activeKey={activeKey}
-                onSelect={setActiveKey}
-            />
-            <br>
-            </br>
-            <DashBoardSideBar
-                activeKey={activeKey}
-                openKeys={openKeys}
-                onOpenChange={setOpenKeys}
-                onSelect={setActiveKey}
-                expanded={expanded}
-                onExpand={setExpand}
-                appearance="subtle"
-            />
-            <NewDegree />
+            <Grid fluid>
+                <DashboardHeader
+                    appearance="subtle"
+                    activeKey={activeKey}
+                    onSelect={setActiveKey}
+                />
+                <br>
+                </br>
+                <Row>
+                    <Col xs={8}>
+                        <DashBoardSideBar
+                            activeKey={activeKey}
+                            openKeys={openKeys}
+                            onOpenChange={setOpenKeys}
+                            onSelect={setActiveKey}
+                            expanded={expanded}
+                            onExpand={setExpand}
+                            appearance="subtle"
+                        />
+                    </Col>
+                    <Col xs={8}>
+                        <NewDegree />
+                    </Col>
+                </Row>
+            </Grid>
         </>
     )
 }
