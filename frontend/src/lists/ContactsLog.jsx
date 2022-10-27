@@ -50,26 +50,56 @@ const ContactsLog = () => {
         display: 'inline-table'
     }
 
+    const [activeKey, setActiveKey] = useState('1');
+    const [openKeys, setOpenKeys] = useState(['3', '4']);
+    const [expanded, setExpand] = useState(true);
+
     return (
         <>
-            <DashboardHeader />
-            <DashBoardSideBar />
-            <div className="list" style={styles}> Contacts Log
-                {contactsArray.map((contact, index, id) => {
+            <DashboardHeader
+                appearance="subtle"
+                activeKey={activeKey}
+                onSelect={setActiveKey}
+            />
+            <br>
+            </br>
+            <DashBoardSideBar
+                activeKey={activeKey}
+                openKeys={openKeys}
+                onOpenChange={setOpenKeys}
+                onSelect={setActiveKey}
+                expanded={expanded}
+                onExpand={setExpand}
+                appearance="subtle"
+            />
+            <div className="log" style={styles}>
+                <h1 className="log-title">Contacts Log</h1>
+                {contactsArray.map((contact, index) => {
                     return (
                         <Panel>
                             <List bordered>
-                                <div className="list-heading"> {index + 1}: {contact.name} 
-                                    <Button appearance="default" placement="right" onClick={() => navigate(`/contacts/${contact.id}`)}>Update</Button>
-                                    <IconButton icon={<WarningRoundIcon />} placement="right" appearance="link"  active></IconButton>
+                                <div className="list"> 
+                                    <h2>{index + 1}: {contact.name}</h2>
                                     <List 
                                         key={index} 
                                         bordered
                                     >
-                                        <List.Item>name: {contact.name}</List.Item>
-                                        <List.Item>phone: {contact.phone_number}</List.Item>
-                                        <List.Item>address: {contact.address}</List.Item>
+                                        <List.Item>
+                                            <h3>name: {contact.name}</h3>
+                                        </List.Item>
+                                        <List.Item>
+                                            <h3>phone: {contact.phone_number}</h3>
+                                        </List.Item>
+                                        <List.Item>
+                                            <h3>address: {contact.address}</h3>
+                                        </List.Item>
                                     </List>
+                                    <Button 
+                                        appearance="default" 
+                                        placement="right" 
+                                        onClick={() => navigate(`/contacts/${contact.id}`)}
+                                    >Update
+                                    </Button>
                                 </div>
                             </List>
                         </Panel>

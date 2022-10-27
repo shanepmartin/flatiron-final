@@ -30,13 +30,6 @@ const NewAchievement = () => {
 
     const formRef = useRef()
 
-    const model = SchemaModel({
-        name: StringType().isRequired("please enter a name"),
-        date: StringType().isRequired("please enter today's date"),
-        category: StringType().isRequired("please enter an category"),
-        description: StringType().isRequired("please enter a description")
-    })
-
     const styles = {
         display: 'inline-table'
     }
@@ -49,39 +42,48 @@ const NewAchievement = () => {
                     <Form 
                         className="form-new"
                         ref={formRef}
-                        model={model}
                         onSubmit={handleAchievementSubmit}
                         fluid
                     >
                         <Form.Group controlId='name' >
                             <Form.ControlLabel><h2>name</h2></Form.ControlLabel>
-                            <Form.Control name='name' />
-                            <Form.HelpText tooltip>please enter the name of your achievement</Form.HelpText>
+                            <Form.Control 
+                                name='name' 
+                                placeholder="please enter the name of your achievement..."
+                            />
                         </Form.Group>
                         <Form.Group controlId='date'>
                             <Form.ControlLabel><h2>date</h2></Form.ControlLabel>
-                            <Form.Control name='date' />
-                            <Form.HelpText tooltip>please enter the date you made your achievement</Form.HelpText>
+                            <Form.Control 
+                                name='date' 
+                                placeholder="please enter the date you made your achievement..."
+                            />
                         </Form.Group>
                         <Form.Group controlId='category'>
                             <Form.ControlLabel><h2>category</h2></Form.ControlLabel>
-                            <Form.Control name='category' />
-                            <Form.HelpText tooltip>please enter the category of your achievement</Form.HelpText>
+                            <Form.Control 
+                                name='category' 
+                                placeholder="please enter the category of your achievement..."
+                            />
                         </Form.Group>
                         <Form.Group controlId='description'>
                             <Form.ControlLabel><h2>description</h2></Form.ControlLabel>
-                            <Form.Control rows={13} name='entry' accepter={Textarea} />
-                            <Form.HelpText tooltip>please enter a description of your achievement</Form.HelpText>
+                            <Form.Control 
+                                rows={13} 
+                                name='entry' 
+                                accepter={Textarea} 
+                                placeholder="please enter a description of your achievement..."
+                            />
                         </Form.Group>
                         <ButtonToolbar>
                             <Whisper
                                 placement='right'
                                 trigger='active'
-                                speaker={<Popover arrow={false}>Submitted!</Popover>}>
+                                speaker={<Popover arrow={false}>achievement submitted!</Popover>}>
                                 <Button 
                                     appearance='subtle' 
                                     type='submit'>
-                                    <h2>Submit</h2>
+                                    <h3>submit</h3>
                                 </Button>
                             </Whisper>
                         </ButtonToolbar>

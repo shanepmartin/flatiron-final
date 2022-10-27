@@ -40,7 +40,7 @@ const NewSchool = () => {
     return (
         <>
             <div className="form-heading-div" style={styles}>
-                <h1 className="form-new-heading">New School</h1>
+                <h1 className="form-new-heading">New Studies</h1>
                 <Form 
                     className="form-new"
                     ref={formRef}
@@ -49,17 +49,17 @@ const NewSchool = () => {
                     fluid
                 >
                     <Form.Group controlId='name'>
-                        <Form.ControlLabel>school</Form.ControlLabel>
+                        <Form.ControlLabel><h2>school name</h2></Form.ControlLabel>
                         <Form.Control name='name' />
                         <Form.HelpText tooltip>please enter then name of the school you attended</Form.HelpText>
                     </Form.Group>
                     <Form.Group controlId='location'>
-                        <Form.ControlLabel>location</Form.ControlLabel>
+                        <Form.ControlLabel><h2>location</h2></Form.ControlLabel>
                         <Form.Control name='location' />
                         <Form.HelpText tooltip>please enter the location of the school you attended</Form.HelpText>
                     </Form.Group>
                     <Form.Group controlId='date'>
-                        <Form.ControlLabel>date</Form.ControlLabel>
+                        <Form.ControlLabel><h2>date</h2></Form.ControlLabel>
                         <Form.Control name='date' />
                         <Form.HelpText tooltip>please enter the date range you attended the school</Form.HelpText>
                     </Form.Group>
@@ -68,8 +68,8 @@ const NewSchool = () => {
                             placement='right'
                             trigger='active'
                             speaker={<Popover arrow={false}>Submitted!</Popover>}>
-                            <Button appearance='default' type='submit'>
-                                Submit
+                            <Button appearance='subtle' type='submit'>
+                                <h2>submit</h2>
                             </Button>
                         </Whisper>
                     </ButtonToolbar>

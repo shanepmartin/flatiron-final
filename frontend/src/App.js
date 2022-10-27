@@ -35,7 +35,6 @@ import TripsLog from "./lists/TripsLog";
 import { setUser, logout } from "./auth/UserState"
 
 import { useSelector, useDispatch } from "react-redux"
-import DashBoardSideBar from "./dashboard/DashboardSideBar";
 
 
 const App = () => {

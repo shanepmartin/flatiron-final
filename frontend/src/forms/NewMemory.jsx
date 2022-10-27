@@ -60,10 +60,28 @@ const NewMemory = () => {
         display: 'inline-table'
     }
 
+    const [activeKey, setActiveKey] = useState('1');
+    const [openKeys, setOpenKeys] = useState(['3', '4']);
+    const [expanded, setExpand] = useState(true);
+
     return (
         <>
-            <DashboardHeader />
-            <DashBoardSideBar />
+            <DashboardHeader
+                appearance="subtle"
+                activeKey={activeKey}
+                onSelect={setActiveKey}
+            />
+            <br>
+            </br>
+            <DashBoardSideBar
+                activeKey={activeKey}
+                openKeys={openKeys}
+                onOpenChange={setOpenKeys}
+                onSelect={setActiveKey}
+                expanded={expanded}
+                onExpand={setExpand}
+                appearance="subtle"
+            />
             <div className="form-heading-div" style={styles}>
                 <h1 className="form-new-heading">New Memory</h1>
                 <Form 

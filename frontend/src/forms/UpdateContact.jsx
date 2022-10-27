@@ -37,7 +37,7 @@ const UpdateContact = () => {
 
     useEffect(() => {
         fetchContacts();
-    
+        console.log(contact)
     }, []);
 
 
@@ -86,10 +86,6 @@ const UpdateContact = () => {
         updateAddress()
     }
 
-    // const backToContacts = () => {
-    //     navigate(`/contacts`)
-    // }
-
     const formRef = useRef()
 
     const model = SchemaModel({
@@ -102,10 +98,28 @@ const UpdateContact = () => {
         display: 'inline-table'
     }
 
+    const [activeKey, setActiveKey] = useState('1');
+    const [openKeys, setOpenKeys] = useState(['3', '4']);
+    const [expanded, setExpand] = useState(true);
+
     return (
         <>
-            <DashboardHeader />
-            <DashBoardSideBar />
+            <DashboardHeader
+                appearance="subtle"
+                activeKey={activeKey}
+                onSelect={setActiveKey}
+            />
+            <br>
+            </br>
+            <DashBoardSideBar
+                activeKey={activeKey}
+                openKeys={openKeys}
+                onOpenChange={setOpenKeys}
+                onSelect={setActiveKey}
+                expanded={expanded}
+                onExpand={setExpand}
+                appearance="subtle"
+            />
             <div className="update-form-div" style={styles}>
                 <h1 className="form-update-heading">Update Contact</h1>
                 <Form
@@ -116,7 +130,7 @@ const UpdateContact = () => {
                     fluid
                 >
                     <Form.Group controlId='update-form'>
-                        <Form.ControlLabel>Update Name</Form.ControlLabel>
+                        <Form.ControlLabel><h2>update name</h2></Form.ControlLabel>
                         <Form.Control name='update-phone' />
                         <Form.HelpText tooltip>"update contact's name"</Form.HelpText>
                     </Form.Group>
@@ -124,9 +138,9 @@ const UpdateContact = () => {
                         <Whisper
                             placement='right'
                             trigger='active'
-                            speaker={<Popover arrow={false}>Submitted!</Popover>}>
-                            <Button appearance='default' type='submit'>
-                                Submit
+                            speaker={<Popover arrow={false}>name updated!</Popover>}>
+                            <Button appearance='subtle' type='submit'>
+                                <h3>submit</h3>
                             </Button>
                         </Whisper>
                     </ButtonToolbar>
@@ -139,7 +153,7 @@ const UpdateContact = () => {
                     fluid
                 >
                     <Form.Group controlId='update-form'>
-                        <Form.ControlLabel>Update Phone Number</Form.ControlLabel>
+                        <Form.ControlLabel><h2>update phone number</h2></Form.ControlLabel>
                         <Form.Control name='update-phone' onSubmit={updatePhone}/>
                         <Form.HelpText tooltip>"update contact's phone number"</Form.HelpText>
                     </Form.Group>
@@ -147,9 +161,9 @@ const UpdateContact = () => {
                         <Whisper
                             placement='right'
                             trigger='active'
-                            speaker={<Popover arrow={false}>Submitted!</Popover>}>
-                            <Button appearance='default' type='submit'>
-                                Submit
+                            speaker={<Popover arrow={false}>phone number updated!</Popover>}>
+                            <Button appearance='subtle' type='submit'>
+                                <h3>submit</h3>
                             </Button>
                         </Whisper>
                     </ButtonToolbar>
@@ -162,7 +176,7 @@ const UpdateContact = () => {
                     fluid
                 >
                     <Form.Group controlId='update-form'>
-                        <Form.ControlLabel>Update Address</Form.ControlLabel>
+                        <Form.ControlLabel><h2>update address</h2></Form.ControlLabel>
                         <Form.Control name='update-address' onSubmit={updateAddress}/>
                         <Form.HelpText tooltip>"update contact's address"</Form.HelpText>
                     </Form.Group>
@@ -170,9 +184,9 @@ const UpdateContact = () => {
                         <Whisper
                             placement='right'
                             trigger='active'
-                            speaker={<Popover arrow={false}>Submitted!</Popover>}>
-                            <Button appearance='default' type='submit'>
-                                Submit
+                            speaker={<Popover arrow={false}>address updated!</Popover>}>
+                            <Button appearance='subtle' type='submit'>
+                                <h3>submit</h3>
                             </Button>
                         </Whisper>
                     </ButtonToolbar>

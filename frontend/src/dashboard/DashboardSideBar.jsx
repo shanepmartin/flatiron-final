@@ -1,12 +1,23 @@
 import { useNavigate } from "react-router-dom"
 import { useState } from "react"
 import { Sidenav, Nav } from 'rsuite';
-// import "../style.css"
 
+// sidebar icons...
+import { Icon } from '@rsuite/icons';
+import DashboardIcon from '@rsuite/icons/Dashboard';
+import GrowthIcon from '@rsuite/icons/Growth';
+import CheckOutlineIcon from '@rsuite/icons/CheckOutline';
+import ExploreIcon from '@rsuite/icons/Explore';
+import CreativeIcon from '@rsuite/icons/Creative';
+import PeoplesIcon from '@rsuite/icons/Peoples';
+import EditIcon from '@rsuite/icons/Edit';
+import ImportIcon from '@rsuite/icons/Import';
+import DocPassIcon from '@rsuite/icons/DocPass';
+
+// rsuite sidebar styling...
 const styles = {
-    width: 340,
+    width: 360,
     display: 'inline-table',
-    marginRight: 10
 };
 
 const DashBoardSideBar = ({appearance}) => {
@@ -19,7 +30,7 @@ const DashBoardSideBar = ({appearance}) => {
         <>
             <div className="dashboard-side-bar" style={styles}> 
                 <Sidenav 
-                    // className="side-nav" 
+                    className="side-nav" 
                     expanded={expanded}
                     appearance="subtle"
                 >
@@ -29,14 +40,19 @@ const DashBoardSideBar = ({appearance}) => {
                             activeKey={activeKey} 
                             onSelect={setActiveKey}
                         >
-                            <Nav.Item className="nav-item" eventKey="1" >
-                                <h2>Dashboard</h2>
+                            <Nav.Item 
+                                className="nav-item" 
+                                eventKey="1" 
+                            >
+                            <h2>
+                                <Icon as={DashboardIcon} size="10em" /> Dashboard
+                            </h2>
                             </Nav.Item>
                             <Nav.Menu
                                 className="nav-menu"
                                 placement="rightStart"
                                 eventKey="2"
-                                title= {<h3>Goals</h3>}
+                                title={<h3><Icon as={GrowthIcon} size="10em" /> Goals</h3>}
                             >
                                 <Nav.Item 
                                     className="nav-item" 
@@ -55,7 +71,7 @@ const DashBoardSideBar = ({appearance}) => {
                                 className="nav-menu"
                                 placement="rightStart"
                                 eventKey="3"
-                                title={<h3>Achievements</h3>}
+                                title={<h3><Icon as={CheckOutlineIcon} size="10em" /> Achievements</h3>}
                             >
                                 <Nav.Item 
                                     className="nav-item" 
@@ -74,7 +90,7 @@ const DashBoardSideBar = ({appearance}) => {
                                 className="nav-menu"
                                 placement="rightStart"
                                 eventKey="4"
-                                title={<h3>Trips</h3>}
+                                title={<h3><Icon as={ExploreIcon} size="10em" /> Trips</h3>}
                             >
                                 <Nav.Item 
                                     className="nav-item" 
@@ -91,7 +107,7 @@ const DashBoardSideBar = ({appearance}) => {
                                 <Nav.Menu 
                                     className="nav-menu" 
                                     eventKey="4-5" 
-                                    title={<h3>Memories</h3>}
+                                    title={<h3><Icon as={ImportIcon} size="10em" /> Memories</h3>}
                                 >
                                     <Nav.Item 
                                         className="nav-item" 
@@ -105,7 +121,7 @@ const DashBoardSideBar = ({appearance}) => {
                                 className="nav-menu"
                                 placement="rightStart"
                                 eventKey="5"
-                                title={<h3>Studies</h3>}
+                                title={<h3><Icon as={CreativeIcon} size="10em" /> Studies</h3>}
                             >
                                 <Nav.Item 
                                     className="nav-item" 
@@ -122,7 +138,7 @@ const DashBoardSideBar = ({appearance}) => {
                                 <Nav.Menu 
                                     className="nav-menu" 
                                     eventKey="5-5" 
-                                    title={<h3>Degrees</h3>}
+                                    title={<h3><Icon as={DocPassIcon} size="10em" /> Degrees</h3>}
                                 >
                                     <Nav.Item 
                                         className="nav-item" 
@@ -136,7 +152,7 @@ const DashBoardSideBar = ({appearance}) => {
                                 className="nav-menu"
                                 placement="rightStart"
                                 eventKey="6"
-                                title={<h3>Contacts</h3>}
+                                title={<h3><Icon as={PeoplesIcon} size="10em" /> Contacts</h3>}
                             >
                                 <Nav.Item 
                                     className="nav-item" 
@@ -155,7 +171,7 @@ const DashBoardSideBar = ({appearance}) => {
                                 className="nav-menu"
                                 placement="rightStart"
                                 eventKey="7"
-                                title={<h3>Feels</h3>}
+                                title={<h3><Icon as={EditIcon} size="10em" /> Feels</h3>}
                             >
                                 <Nav.Item 
                                     className="nav-item" 

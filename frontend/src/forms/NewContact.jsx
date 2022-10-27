@@ -68,7 +68,7 @@ const NewContact = () => {
                             trigger='active'
                             speaker={<Popover arrow={false}>Submitted!</Popover>}>
                             <Button appearance='subtle' type='submit'>
-                                <h2>Submit</h2>
+                                <h2>submit</h2>
                             </Button>
                         </Whisper>
                     </ButtonToolbar>

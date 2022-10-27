@@ -7,6 +7,18 @@ import { setUser } from "../auth/UserState"
 import DashboardHeader from "./DashboardHeader"
 import DashBoardSideBar from "./DashboardSideBar"
 
+// import icons...
+import { Icon } from '@rsuite/icons';
+import UserInfoIcon from '@rsuite/icons/UserInfo';
+import GrowthIcon from '@rsuite/icons/Growth';
+import CheckOutlineIcon from '@rsuite/icons/CheckOutline';
+import ExploreIcon from '@rsuite/icons/Explore';
+import CreativeIcon from '@rsuite/icons/Creative';
+import PeoplesIcon from '@rsuite/icons/Peoples';
+import EditIcon from '@rsuite/icons/Edit';
+import ImportIcon from '@rsuite/icons/Import';
+import DocPassIcon from '@rsuite/icons/DocPass';
+
 const Profile = () => {
 
     const user = useSelector((state) => state.user)
@@ -27,11 +39,6 @@ const Profile = () => {
     const [tripCount, setTripCount] = useState();
 
     // state for list methods...
-
-    // const [goalArray, setGoalList] = useState([]);
-    // const [achievementArray, setAchievementList] = useState([]);
-    // const [feelArray, setFeelList] = useState([]);
-    // const [contactArray, setContactList] = useState([]);
 
     const getUsername = () => {
         let token = localStorage.getItem("token");
@@ -195,35 +202,84 @@ const Profile = () => {
         display: 'inline-table'
     }
 
+    const [activeKey, setActiveKey] = useState('1');
+    const [openKeys, setOpenKeys] = useState(['3', '4']);
+    const [expanded, setExpand] = useState(true);
+
 
     return (
         <>
-            <DashboardHeader />
-            <DashBoardSideBar />
+            <DashboardHeader
+                appearance="subtle"
+                activeKey={activeKey}
+                onSelect={setActiveKey}
+            />
+            <br>
+            </br>
+            <DashBoardSideBar
+                activeKey={activeKey}
+                openKeys={openKeys}
+                onOpenChange={setOpenKeys}
+                onSelect={setActiveKey}
+                expanded={expanded}
+                onExpand={setExpand}
+                appearance="subtle"
+            />
             <div className="profile-div" style={styles}>
-                {/* <h1 className="profile-heading">{username}</h1> */}
                 <div className="user-details">
                     <PanelGroup accordion bordered>
-                        <Panel className="panel" header="User Details" defaultExpanded>
-                            <h3>Welcome back {username} !</h3>
-                            <h4>Take a look at your stats below...</h4>
+                        <Panel 
+                            className="panel" 
+                            header={<h1><Icon as={UserInfoIcon} size="10em" /> {username}'s profile</h1>} 
+                            defaultExpanded
+                        >
                         </Panel>
-                        <Panel className="panel" header="Goals">
+                        <Panel 
+                            className="panel" 
+                            header={<h3><Icon as={GrowthIcon} size="10em" /> Goals</h3>}
+                            >
                             <h4>Total Goals: {goalCount}</h4>
                         </Panel>
-                        <Panel className="panel" header="Achievements">
+                        <Panel 
+                            className="panel" 
+                            header={<h3><Icon as={CheckOutlineIcon} size="10em" /> Achievements</h3>}
+                            >
                             <h4>Total Achievements: {achievementCount}</h4>
                         </Panel>
-                        <Panel className="panel" header="Trips">
+                        <Panel 
+                            className="panel" 
+                            header={<h3><Icon as={ExploreIcon} size="10em" /> Trips</h3>}
+                            >
                             <h4>Total Trips: {tripCount}</h4>
                         </Panel>
-                        <Panel className="panel" header="Studies">
+                        <Panel 
+                            className="panel" 
+                            header={<h3><Icon as={ImportIcon} size="10em" /> Memories</h3>}
+                            >
+                            <h4>Total Memories: {memoryCount}</h4>
+                        </Panel>
+                        <Panel 
+                            className="panel" 
+                            header={<h3><Icon as={CreativeIcon} size="10em" /> Schools</h3>}
+                            >
                             <h4>Schools Attended: {schoolCount}</h4>
                         </Panel>
-                        <Panel className="panel" header="Contacts">
+                        <Panel 
+                            className="panel" 
+                            header={<h3><Icon as={DocPassIcon} size="10em" /> Degrees</h3>}
+                            >
+                            <h4>Total Degrees: {degreeCount}</h4>
+                        </Panel>
+                        <Panel 
+                            className="panel" 
+                            header={<h3><Icon as={PeoplesIcon} size="10em" /> Contacts</h3>}
+                            >
                             <h4>Total Contacts: {contactCount}</h4>
                         </Panel>
-                        <Panel className="panel" header="Feels">
+                        <Panel 
+                            className="panel" 
+                            header={<h3><Icon as={EditIcon} size="10em" /> Feels</h3>}
+                            >
                             <h4>Total Feels: {feelCount}</h4>
                         </Panel>
                     </PanelGroup>

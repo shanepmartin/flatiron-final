@@ -48,17 +48,17 @@ const NewTrip = () => {
                     fluid
                 >
                     <Form.Group controlId='country'>
-                        <Form.ControlLabel>country</Form.ControlLabel>
+                        <Form.ControlLabel><h2>country</h2></Form.ControlLabel>
                         <Form.Control country='country' />
                         <Form.HelpText tooltip>what country did you go to ?</Form.HelpText>
                     </Form.Group>
                     <Form.Group controlId='city'>
-                        <Form.ControlLabel>city</Form.ControlLabel>
+                        <Form.ControlLabel><h2>city</h2></Form.ControlLabel>
                         <Form.Control country='city' />
                         <Form.HelpText tooltip>what city did you go to ?</Form.HelpText>
                     </Form.Group>
                     <Form.Group controlId='date'>
-                        <Form.ControlLabel>date</Form.ControlLabel>
+                        <Form.ControlLabel><h2>date</h2></Form.ControlLabel>
                         <Form.Control country='date' />
                         <Form.HelpText tooltip>when did you go ?</Form.HelpText>
                     </Form.Group>
@@ -67,8 +67,8 @@ const NewTrip = () => {
                             placement='right'
                             trigger='active'
                             speaker={<Popover arrow={false}>Clicked</Popover>}>
-                            <Button appearance='default' type='submit'>
-                                Submit
+                            <Button appearance='subtle' type='submit'>
+                                <h2>submit</h2>
                             </Button>
                         </Whisper>
                     </ButtonToolbar>

@@ -112,7 +112,7 @@ class UsersController < ApplicationController
         user_id = decode_token(token)
         user = User.find(user_id)
         if user
-            memeories = user.memories.length
+            memories = user.memories.length
             render json: memories
         else
             render json: { errors: memeories.errors.full_messages }
